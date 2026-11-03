@@ -1,0 +1,450 @@
+[
+  {
+    "slug": "visible",
+    "title": "Visible",
+    "cat": "Projects",
+    "org": "Senior design",
+    "when": "Fall 2026",
+    "lede": "A personal wellness demo that turns everyday check-ins into a visual picture of your health.",
+    "tags": [
+      "Health UX",
+      "Generative AI",
+      "Interactive visualization"
+    ],
+    "sections": [
+      {
+        "h": "The idea",
+        "paras": [
+          "Help Gen Z connect daily habits with personal wellness through an interactive body view, journal, and next-step prompts."
+        ],
+        "rows": []
+      },
+      {
+        "h": "The experience",
+        "paras": [
+          "The demo starts with measurements and appearance, then asks about sleep, energy, mood, and stress. Users explore a wellness score, body views, and a doctor or appointment tab."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Current stage",
+        "paras": [
+          "A senior design prototype with illustrative wellness scores and simulated health data. It is not a diagnostic or medical decision tool."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "Prototype"
+  },
+  {
+    "slug": "terrasite",
+    "title": "TerraSite",
+    "cat": "Projects",
+    "org": "Founder & builder",
+    "when": "Spring 2026–present",
+    "lede": "Environmental intelligence, explored one place at a time.",
+    "tags": [
+      "Three.js",
+      "Claude API",
+      "Data integration"
+    ],
+    "sections": [
+      {
+        "h": "The platform",
+        "paras": [
+          "An interactive 3D globe that scores global locations across six environmental categories using public data and analytical modeling."
+        ],
+        "rows": []
+      },
+      {
+        "h": "My contribution",
+        "paras": [
+          "Built the platform and integrated multiple sources for location scoring and visualization. Designed a two-sided marketplace connecting environmental teams with impact investors, alongside an enterprise API licensing concept."
+        ],
+        "rows": []
+      },
+      {
+        "h": "The evolution",
+        "paras": [
+          "The work grew from WaterSight’s focus on water scarcity into a broader environmental intelligence platform."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "In development"
+  },
+  {
+    "slug": "jarvis",
+    "title": "Evaluating AI at Disney",
+    "cat": "Experience",
+    "org": "Walt Disney Imagineering",
+    "when": "Summer 2026",
+    "lede": "Making model behavior measurable before it reaches users.",
+    "tags": [
+      "Python",
+      "Model evaluations",
+      "Benchmarks",
+      "Braintrust"
+    ],
+    "sections": [
+      {
+        "h": "My role",
+        "paras": [
+          "As a software development intern, I developed and maintained evaluation systems to measure machine learning model quality, accuracy, and performance."
+        ],
+        "rows": []
+      },
+      {
+        "h": "What I built",
+        "paras": [
+          "Automated evaluation pipelines and benchmarks to detect regressions and validate model behavior before deployment."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Working with the team",
+        "paras": [
+          "Analyzed evaluation results to inform model iteration and collaborated with engineers and data scientists to define evaluation criteria and expand coverage."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "Internship"
+  },
+  {
+    "slug": "quant",
+    "title": "Quantitative research & execution",
+    "cat": "Experience",
+    "org": "SC Capital",
+    "when": "Fall 2026–Spring 2027",
+    "lede": "Research tools and careful systems design for market analysis.",
+    "tags": [
+      "Python",
+      "Statistical modeling",
+      "Market data"
+    ],
+    "sections": [
+      {
+        "h": "Current work",
+        "paras": [
+          "Building research databases and Python tools for market-data processing, strategy evaluation, and visualization."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Research focus",
+        "paras": [
+          "Studying macroeconomic indicators and intermarket relationships to support hypothesis testing and portfolio research questions."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Engineering focus",
+        "paras": [
+          "Exploring order-validation and reconciliation architecture, with attention to duplicate requests, partial fills, and reliable state tracking. This work is in progress."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "Ongoing"
+  },
+  {
+    "slug": "pruning",
+    "title": "Smaller networks. Faster inference.",
+    "cat": "Research",
+    "org": "LSAMP · Prairie View A&M",
+    "when": "Fall 2024–Spring 2025",
+    "lede": "Exploring how pruning and hardware choices improve neural-network efficiency.",
+    "tags": [
+      "PyTorch",
+      "Structured pruning",
+      "GPU benchmarking"
+    ],
+    "sections": [
+      {
+        "h": "The research",
+        "paras": [
+          "Analyzed hardware limitations and pruning techniques to improve neural-network performance using PyTorch."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Results",
+        "paras": [
+          "Structured pruning reduced inference time by up to 45% without significant accuracy loss in the studied setup. GPU versus CPU benchmarking showed a 6× training speedup."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Scope",
+        "paras": [
+          "These are results from the research experiments described in my résumé; speedups depend on the model, hardware, and workload."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "Research"
+  },
+  {
+    "slug": "onrecord",
+    "cat": "Projects",
+    "org": "Design and engineering · demo day",
+    "when": "August 2026",
+    "title": "On Record",
+    "blurb": "A civic transparency app showing where local officials stand on data center development, who funds them, and when you can speak.",
+    "tags": [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind",
+      "Leaflet",
+      "Postgres"
+    ],
+    "lede": "Local officials decide where data centers get built, those votes are close, and almost nobody watching knows how their representative voted or who paid for their campaign. On Record puts money, votes, and stated position on one screen, each linked to the public database it came from.",
+    "stats": [
+      {
+        "n": "4–3",
+        "label": "the Prince William vote that approved the largest data center project in the world"
+      },
+      {
+        "n": "1 week",
+        "label": "from problem to working prototype"
+      },
+      {
+        "n": "7",
+        "label": "slide deck that runs inside the app itself"
+      }
+    ],
+    "sections": [
+      {
+        "h": "The problem",
+        "paras": [
+          "In December 2023 Prince William County, Virginia approved what was then the largest data center project in the world. The vote was four to three. Most residents found out afterward. That is how these decisions get made — not in Congress, but by a county board on a Tuesday night in a room with forty people in it, on margins that are coin flips: Virginia Senate 21 to 17, Virginia House 63 to 34.",
+          "In July 2026 the same Prince William board denied a 2,000 acre proposal eight to nothing, after a five hour hearing, because the room was full and the analysis was done. The information changed the vote. That gap, between a decision being public and a decision being known, is the entire product."
+        ],
+        "rows": []
+      },
+      {
+        "h": "What it does",
+        "paras": [],
+        "rows": [
+          {
+            "k": "Type your city",
+            "v": "No account, no address, no signup wall"
+          },
+          {
+            "k": "See who represents you",
+            "v": "Sorted by where they stand on data center development"
+          },
+          {
+            "k": "Open one official",
+            "v": "Who funds them, how they voted, and what they said — three things that normally live in three separate government systems, each linked to its source database"
+          },
+          {
+            "k": "Know when to show up",
+            "v": "The date of the next meeting where public comment is on the agenda"
+          },
+          {
+            "k": "Between meetings",
+            "v": "A community feed of votes, filings, and news; an events page with agenda and RSVP; a facilities map plotting proposed and operating data centers with capacity and daily water draw"
+          }
+        ]
+      },
+      {
+        "h": "Design decisions I would defend in a room",
+        "paras": [
+          "Non-partisan by construction, not by disclaimer. Every color that could imply a position is good or bad was removed — Supports, Mixed, and Opposes render in the same green, distinguished by shape: filled, half, and hollow circle. Votes and donors carry no valence color either. The side effect is that stance stays readable for colorblind users without a separate accessibility pass.",
+          "Funding sits next to position, with no causal claim. The product shows the share of an official's disclosed funding coming from data center, technology, and energy donors, directly beside their stance, and never says the money bought the vote. In the real Prince William case the supervisor who received the most industry money voted against the project. That is precisely why both numbers are on screen and the conclusion is left to the reader — the moment the product editorializes, it is just another advocacy site.",
+          "No accounts, on purpose. Guest mode is the default path. Data centers get sited near lower income neighborhoods, so a tool that only works for people with time, broadband, and a willingness to hand over an email address makes the problem it addresses worse. The sign-in animation deliberately shows no credential fields: it reads as connecting to public records, not as a gate.",
+          "Fictional names, real sources. Every official, stance, vote, and contribution in the app is illustrative sample data with a deliberately fictional name, while offices, districts, and source systems are real. Publishing invented voting records attached to real people would have destroyed the credibility the whole product rests on."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Engineering worth pointing at",
+        "paras": [],
+        "rows": [
+          {
+            "k": "A real data-access seam",
+            "v": "One file knows where data comes from and every component consumes its return types, so moving from seed data to Postgres means rewriting function bodies rather than touching components. The matching schema is already written, mirroring the TypeScript types field for field."
+          },
+          {
+            "k": "Demo-safe location matching",
+            "v": "A covered city resolves from almost any input — Houston, houston, Houston TX, htown, htx, 77002, Harris County, Katy, Cypress, or a partial like hous. Unrecognized input shows one-tap chips for every covered area, never an error. No input leaves a user stuck and none can break a live demo."
+          },
+          {
+            "k": "Timezone-correct events",
+            "v": "A Houston town hall is at 6:30 PM in Houston regardless of where the laptop is. Every event carries an IANA zone passed explicitly to Intl — without it the runtime silently shifts the time to the viewer's zone, which for a civic calendar sends people to a meeting at the wrong hour."
+          },
+          {
+            "k": "Charts from the same seed",
+            "v": "Every presentation figure is computed from the app's own data, so the deck can never drift from the live product. External statistics live in a separate file and cannot be added without a citation."
+          },
+          {
+            "k": "The deck is part of the app",
+            "v": "A seven-slide presentation runs at /presentation with keyboard and clicker nav, URL-persisted position so a refresh keeps your place, clickable progress dots for Q&A, and a handoff button that opens the product."
+          }
+        ]
+      },
+      {
+        "h": "Sourcing",
+        "paras": [
+          "Every claim links to the database that holds that kind of record: Texas Ethics Commission for contributions, Houston City Secretary for ordinances, Texas Legislature Online for bills, Harris County Commissioners Court for orders, ERCOT for grid filings. Because the prototype's individual records are illustrative, links resolve to each system's search page rather than a fabricated deep link that would 404. In production the search URL is swapped for a specific filing ID and the display layer does not change."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Scope, honestly",
+        "paras": [
+          "This is a prototype. It runs entirely on local seed data with no database and no API keys, which is what made it demoable anywhere with no network dependency except the map tiles. Genuinely built: the full navigation flow, the data seam, the schema, the sourcing layer, the accessibility model, and the deck. Not built: ingestion, accounts, and an editorial backend.",
+          "Next: community groups with discussion threads, template letters pre-filled with the user's district, an admin backend for editing stances with attached evidence, automated ingestion from TEC, FEC, and legislative record systems, and real accounts with a saved location."
+        ],
+        "rows": [
+          {
+            "k": "250,000",
+            "v": "residents who find out while there is still time to act"
+          },
+          {
+            "k": "60",
+            "v": "neighborhoods that reach a hearing organized and briefed"
+          },
+          {
+            "k": "12",
+            "v": "proposals amended, withdrawn, or approved with binding water or grid conditions"
+          }
+        ]
+      },
+      {
+        "h": "Why it generalizes",
+        "paras": [
+          "Data centers are the fastest growing land use fight in the country and the one decided at a level almost nobody watches. The structure is not specific to them — warehouses, pipelines, landfills, transmission lines: same decision-making body, same information gap, same fix."
+        ],
+        "rows": []
+      }
+    ],
+    "status": "Project"
+  },
+  {
+    "slug": "vista",
+    "cat": "Projects",
+    "org": "Vista Agentic AI Hackathon",
+    "when": "July 2025 · Washington, DC",
+    "title": "Multi-agent orchestration, as a finalist",
+    "blurb": "Building autonomous systems alongside professional engineers: agents that interpret images, extract data, and coordinate actions across modules.",
+    "tags": [
+      "Multi-agent",
+      "OpenAI",
+      "Claude",
+      "Cursor"
+    ],
+    "lede": "Finalist in a national, team-based innovation challenge. I worked with professional engineers to design autonomous systems — multi-agent solutions for automated content generation, and systems that interpret images, extract data, and coordinate actions across modules.",
+    "stats": [
+      {
+        "n": "Finalist",
+        "label": "national team-based challenge"
+      },
+      {
+        "n": "July 2025",
+        "label": "Washington, DC"
+      }
+    ],
+    "sections": [
+      {
+        "h": "Why it matters to me",
+        "paras": [
+          "The future isn't single models. It's orchestration — agents that reason, delegate, and execute. This is where that thread starts, and it leads directly to the tool-calling evaluation work at Disney: both are about how a model decides when and what to delegate. It also shaped the systems thinking behind Terrasite and WaterSight, which are both attempts to build things that do meaningful work without constant human intervention."
+        ],
+        "rows": []
+      }
+    ],
+    "status": "Project"
+  },
+  {
+    "slug": "finsight",
+    "cat": "Projects",
+    "org": "Personal project",
+    "when": "2025",
+    "title": "FinSight",
+    "blurb": "Making cents of college. An AI budgeting app that categorizes student spending automatically and shows students that financial literacy is really data literacy.",
+    "tags": [
+      "Flask",
+      "Python",
+      "GPT",
+      "Plotly",
+      "Matplotlib"
+    ],
+    "lede": "An AI-powered budgeting application for students that categorizes and visualizes expenses and suggests where to save. The premise: financial literacy is data literacy, so show people their own data clearly and the lesson takes care of itself.",
+    "stats": [
+      {
+        "n": "Flask",
+        "label": "backend with session-based auth"
+      },
+      {
+        "n": "GPT",
+        "label": "automatic expense categorization"
+      },
+      {
+        "n": "Plotly",
+        "label": "spending pattern visualization"
+      }
+    ],
+    "sections": [
+      {
+        "h": "How it is built",
+        "paras": [
+          "A Flask backend with session-based authentication keeps each student's tracking personal and secure. GPT handles expense categorization so nobody has to tag transactions by hand, and Plotly and Matplotlib turn the categorized history into spending pattern charts with savings suggestions attached."
+        ],
+        "rows": []
+      }
+    ],
+    "status": "Project"
+  },
+  {
+    "slug": "tacc",
+    "cat": "Research",
+    "card": "Advanced Computing Student Collaborative",
+    "org": "TACC · NSF Leadership-Class Computing Facility",
+    "when": "November 2025",
+    "title": "Advanced Computing Student Collaborative",
+    "blurb": "A selected cohort program at the Texas Advanced Computing Center, themed on AI for societal advancement and co-located with SC25.",
+    "tags": [
+      "HPC",
+      "AI",
+      "Data visualization"
+    ],
+    "lede": "A paid cohort program run by the Texas Advanced Computing Center for the NSF Leadership-Class Computing Facility, themed Artificial Intelligence for Societal Advancement and co-located with SC25 in St. Louis.",
+    "stats": [
+      {
+        "n": "225",
+        "label": "participants across 11 cohorts since 2016"
+      },
+      {
+        "n": "SC25",
+        "label": "St. Louis, November 15–21, 2025"
+      }
+    ],
+    "sections": [
+      {
+        "h": "The program",
+        "paras": [
+          "Students from any major are assigned to mixed teams and work through applications of artificial intelligence, data science, and high performance computing, including the current tools for exploring data through visualization. The emphasis is as much on team problem-solving and communicating ideas to a general audience as on the computing itself, and the week runs inside a professional conference so the cohort sees the field it is training for.",
+          "Selection ran August to October 2025, with virtual onboarding and training from October through early November before the in-person week."
+        ],
+        "rows": []
+      },
+      {
+        "h": "My part",
+        "paras": [
+          "Write-up to come — team, project, and results."
+        ],
+        "rows": []
+      }
+    ],
+    "status": "Project"
+  }
+]
