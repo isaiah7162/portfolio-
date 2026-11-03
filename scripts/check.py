@@ -1,28 +1,25 @@
-import json
+import json,re,subprocess,tempfile
 from pathlib import Path
 from html.parser import HTMLParser
-from urllib.parse import urlparse, parse_qs
-root = Path(__file__).resolve().parents[1]
-projects = json.loads((root/'content.json').read_text())
-slugs = [p['slug'] for p in projects]
-assert len(slugs) == len(set(slugs)), 'Duplicate project slugs'
-class Links(HTMLParser):
-    def __init__(self): super().__init__(); self.refs=[]; self.ids=set()
-    def handle_starttag(self, tag, attrs):
-        attrs=dict(attrs)
-        if 'id' in attrs: self.ids.add(attrs['id'])
-        for key in ('href','src'):
-            if key in attrs: self.refs.append(attrs[key])
-page=Links();page.feed((root/'index.html').read_text())
-cards=[]
-for ref in page.refs:
-    url=urlparse(ref)
-    if url.scheme or url.netloc: continue
-    if url.path and url.path != './': assert (root/url.path).exists(), f'Missing file: {ref}'
-    if url.fragment: assert url.fragment in page.ids, f'Missing anchor: {ref}'
-    if 'project' in parse_qs(url.query): cards.append(parse_qs(url.query)['project'][0])
-assert sorted(cards)==sorted(slugs), 'Cards and projects differ'
-for p in projects:
-    assert all(p.get(k) for k in ('slug','title','lede','sections','tags'))
+from urllib.parse import urlparse
+root=Path(__file__).resolve().parents[1]
+page=(root/'index.html').read_text()
+projects=json.loads((root/'content.json').read_text())
+assert len({p['slug'] for p in projects})==len(projects)
+assert 'cdn.simpleicons.org' not in page and 'it.hasIcon' not in page
+assert 'const TABS = ["Internships", "Research", "Projects", "Academics", "Skills", "Leadership"]' in page
+class Assets(HTMLParser):
+ def handle_starttag(self, tag, attrs):
+  a=dict(attrs)
+  for key in ('src','href'):
+   ref=a.get(key,'');u=urlparse(ref)
+   if ref and not u.scheme and not u.netloc and u.path:assert (root/u.path).is_file(),ref
+Assets().feed(page)
+script=re.search(r'<script type="text/x-dc"[^>]*>(.*?)</script>',page,re.S)[1]
+with tempfile.NamedTemporaryFile(suffix='.js',mode='w') as f:
+ f.write(script);f.flush();subprocess.run(['node','--check',f.name],check=True)
+# Exercise the recovered renderer's real tab selection and card data.
+harness='const React={createRef:()=>({current:null})}; class DCLogic {}\n'+script+'''\nconst c=new Component(); c.props={}; for(const tab of TABS){c.state.tab=tab;const v=c.renderVals();if(v.showCards && !v.projects.length)throw Error("Empty tab "+tab);if(v.projects.some(p=>!p.title))throw Error("Missing title");console.log(tab+": "+v.tabCount);}'''
+subprocess.run(['node','-e',harness],check=True)
 assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF')
-print(f'PASS: {len(projects)} projects, all local links and anchors, and résumé PDF.')
+print('PASS: assets, icon removal, JavaScript syntax, original tabs and current résumé.')

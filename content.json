@@ -1,5 +1,84 @@
 [
   {
+    "slug": "jarvis",
+    "title": "Evaluating AI at Disney",
+    "cat": "Internships",
+    "org": "Walt Disney Imagineering",
+    "when": "Summer 2026",
+    "lede": "Making model behavior measurable before it reaches users.",
+    "tags": [
+      "Python",
+      "Model evaluations",
+      "Benchmarks",
+      "Braintrust"
+    ],
+    "sections": [
+      {
+        "h": "My role",
+        "paras": [
+          "As a software development intern, I developed and maintained evaluation systems to measure machine learning model quality, accuracy, and performance."
+        ],
+        "rows": []
+      },
+      {
+        "h": "What I built",
+        "paras": [
+          "Automated evaluation pipelines and benchmarks to detect regressions and validate model behavior before deployment."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Working with the team",
+        "paras": [
+          "Analyzed evaluation results to inform model iteration and collaborated with engineers and data scientists to define evaluation criteria and expand coverage."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "Internship",
+    "card": "Software Developer"
+  },
+  {
+    "slug": "quant",
+    "title": "Quantitative research & execution",
+    "cat": "Research",
+    "org": "SC Capital",
+    "when": "Fall 2026–Spring 2027",
+    "lede": "Research tools and careful systems design for market analysis.",
+    "tags": [
+      "Python",
+      "Statistical modeling",
+      "Market data"
+    ],
+    "sections": [
+      {
+        "h": "Current work",
+        "paras": [
+          "Building research databases and Python tools for market-data processing, strategy evaluation, and visualization."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Research focus",
+        "paras": [
+          "Studying macroeconomic indicators and intermarket relationships to support hypothesis testing and portfolio research questions."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Engineering focus",
+        "paras": [
+          "Exploring order-validation and reconciliation architecture, with attention to duplicate requests, partial fills, and reliable state tracking. This work is in progress."
+        ],
+        "rows": []
+      }
+    ],
+    "stats": [],
+    "status": "Ongoing",
+    "card": "Quantitative Researcher"
+  },
+  {
     "slug": "visible",
     "title": "Visible",
     "cat": "Projects",
@@ -73,84 +152,161 @@
       }
     ],
     "stats": [],
-    "status": "In development"
+    "status": "In development",
+    "card": "TerraSite"
   },
   {
-    "slug": "jarvis",
-    "title": "Evaluating AI at Disney",
-    "cat": "Experience",
-    "org": "Walt Disney Imagineering",
-    "when": "Summer 2026",
-    "lede": "Making model behavior measurable before it reaches users.",
+    "slug": "watersight",
+    "cat": "Projects",
+    "org": "PVAMU AI Innovation Challenge",
+    "when": "2026",
+    "title": "WaterSight",
+    "blurb": "AI water intelligence for Texas, meant to reach communities before they hit crisis rather than after. It started with one storm and two very different neighborhoods.",
     "tags": [
-      "Python",
-      "Model evaluations",
-      "Benchmarks",
-      "Braintrust"
+      "Claude API",
+      "HTML/CSS",
+      "Climate data",
+      "Pitch"
+    ],
+    "lede": "AI-powered water intelligence that bridges the gap before communities reach crisis. A single-file app running the Claude API over county-level Texas map data, combining climate modeling with AI reasoning into plain guidance for planners, farmers, and policymakers.",
+    "stats": [
+      {
+        "n": "2.2B",
+        "label": "people facing a water crisis daily, worldwide"
+      },
+      {
+        "n": "6,000+",
+        "label": "US water systems already failing"
+      },
+      {
+        "n": "$1T",
+        "label": "needed by 2040 for US water infrastructure"
+      }
     ],
     "sections": [
       {
-        "h": "My role",
+        "h": "Where it came from",
         "paras": [
-          "As a software development intern, I developed and maintained evaluation systems to measure machine learning model quality, accuracy, and performance."
+          "I saw the problem driving Uber in downtown Houston. Heavy rain, water rising, sewers struggling. Ten minutes later, in a different neighborhood: waist-deep flooding, families walking through it, lost pets, infrastructure that clearly was not built for this. Same storm, same city, completely different outcome depending on the neighborhood. That gap is the whole reason WaterSight exists."
         ],
         "rows": []
       },
       {
-        "h": "What I built",
+        "h": "The gap",
         "paras": [
-          "Automated evaluation pipelines and benchmarks to detect regressions and validate model behavior before deployment."
+          "Money is already pointed at this problem — $55B from the federal Infrastructure Law, $35T in ESG and impact funds, $30B+ from the World Bank across 100+ countries since 2010, $10B+ from corporates like Coca-Cola, Nestlé, and Microsoft. The problem isn't money. It's connectivity. That single line is the core of the pitch, and it is the same thesis behind Terrasite."
+        ],
+        "rows": [
+          {
+            "k": "Jackson, MS (2022)",
+            "v": "150,000 people without safe water for weeks"
+          },
+          {
+            "k": "Flint, MI",
+            "v": "100,000 people drank poisoned water for years"
+          },
+          {
+            "k": "Arizona",
+            "v": "80,000 homes built with no guaranteed water"
+          },
+          {
+            "k": "California",
+            "v": "21 million people depend on aquifers that are running dry"
+          }
+        ]
+      },
+      {
+        "h": "Model and ethics",
+        "paras": [
+          "Investors pay $25,000 a year for company water profiles, ESG scores, and investment signals. Companies pay from $10,000 a project for a featured, verified profile. Residents get water quality alerts, conservation tips, and infrastructure updates free, forever — that is the point, not a growth tactic. Equity means a free tier for underserved communities, privacy means encryption and no personal information collected, bias means auditing for geographic skew, and transparency means publishing the methodology and the inputs."
         ],
         "rows": []
       },
       {
-        "h": "Working with the team",
+        "h": "The pitch",
         "paras": [
-          "Analyzed evaluation results to inform model iteration and collaborated with engineers and data scientists to define evaluation criteria and expand coverage."
+          "Fifteen slides at the PVAMU AI Innovation Challenge 2026, structured wide to narrow and back out: global scale, one personal story, the national crisis, the money already in play, the gap, the product, the business. The emotional anchor is Mrs. Smith in Jackson, Mississippi, turning on a faucet for her grandchildren and getting nothing, then boiling river water for weeks. The closing slide returns to her. Design was deliberately cinematic and minimal — clarity over complexity.",
+          "Growth path from there: $1–3M in year one on a Texas pilot plus other states, $5–15M by year three on municipal and API expansion, $15–20M by year five at national scale."
         ],
-        "rows": []
+        "rows": [
+          {
+            "k": "Demo",
+            "v": "youtube.com/watch?v=0uGwtixcti0"
+          }
+        ]
       }
-    ],
-    "stats": [],
-    "status": "Internship"
+    ]
   },
   {
-    "slug": "quant",
-    "title": "Quantitative research & execution",
-    "cat": "Experience",
-    "org": "SC Capital",
-    "when": "Fall 2026–Spring 2027",
-    "lede": "Research tools and careful systems design for market analysis.",
+    "slug": "vital",
+    "cat": "Projects",
+    "org": "Panther Rangers · co-founder",
+    "when": "2026",
+    "title": "Vital Handoff",
+    "blurb": "Turning the Apple Watch into a witness during an emergency: detect the crisis on-device, capture the last 30 minutes of vitals, hand it to a responder as a QR code on the lock screen.",
     "tags": [
-      "Python",
-      "Statistical modeling",
-      "Market data"
+      "Apple Watch",
+      "HealthKit",
+      "On-device AI",
+      "Secure Enclave"
+    ],
+    "lede": "No one should be invisible in an emergency. In the Golden Hour, the first sixty minutes, medical professionals make life-or-death decisions in an information vacuum. Vital Handoff closes that gap with hardware people already own.",
+    "stats": [
+      {
+        "n": "12.5M",
+        "label": "misdiagnosed ER patients (AHRQ, 2022–2024)"
+      },
+      {
+        "n": "30 min",
+        "label": "of continuous vitals captured before handoff"
+      },
+      {
+        "n": "$400",
+        "label": "a watch, against $40,000 for an ICU stay"
+      }
     ],
     "sections": [
       {
-        "h": "Current work",
+        "h": "The origin",
         "paras": [
-          "Building research databases and Python tools for market-data processing, strategy evaluation, and visualization."
+          "My teammate Kamron broke his arm in three places catching a football at twelve years old. The ER nurse called it a bruise — no inspection, no data, no time. A specialist found the three fractures later by MRI. Four hours where the system failed him, and he still has the metal implants."
         ],
         "rows": []
       },
       {
-        "h": "Research focus",
+        "h": "How it works",
+        "paras": [],
+        "rows": [
+          {
+            "k": "1 — Detect",
+            "v": "The watch monitors vitals through HealthKit; on-device AI recognizes a crisis in real time"
+          },
+          {
+            "k": "2 — Compile",
+            "v": "The last 30 minutes of biometrics become a structured medical summary, then a single secure QR code"
+          },
+          {
+            "k": "3 — Handoff",
+            "v": "The code appears on the lock screen; one scan opens the full Golden Hour dashboard and emergency contacts are notified automatically"
+          }
+        ]
+      },
+      {
+        "h": "Architecture",
         "paras": [
-          "Studying macroeconomic indicators and intermarket relationships to support hypothesis testing and portfolio research questions."
+          "Apple Watch Series 9 plus iPhone, so there is zero hardware cost for anyone already inside the ecosystem. Crisis detection is on-device via Apple Intelligence. Data stays in the Secure Enclave, encrypted, under the user's control until the moment it is needed, and only then transmits to EMS. The responder view puts ECG, heart rate, blood pressure, SpO2, and temperature on the left with status flags, and demographics, allergies, medications, past surgeries, and conditions on the right — complex health data turned into a clear, actionable story."
         ],
         "rows": []
       },
       {
-        "h": "Engineering focus",
+        "h": "Why it can scale",
         "paras": [
-          "Exploring order-validation and reconciliation architecture, with attention to duplicate requests, partial fills, and reliable state tracking. This work is in progress."
+          "The business case aligns everyone in the room. Hospitals turn an expense into revenue by billing insurance for remote patient monitoring. Insurers compare $400 for a watch against $40,000 for an ICU stay. Once integrated, the handoff becomes the standard entry point for ER data. Launch is through localized clinical pilots with regional EMS teams and hospital networks, aimed first at people with severe allergies, chronic illness, and elderly patients prone to emergencies.",
+          "The five-year version predicts cardiac events before the patient loses consciousness and routes them to the nearest EMS automatically — the right care to the right person at the right time."
         ],
         "rows": []
       }
-    ],
-    "stats": [],
-    "status": "Ongoing"
+    ]
   },
   {
     "slug": "pruning",
@@ -188,7 +344,229 @@
       }
     ],
     "stats": [],
-    "status": "Research"
+    "status": "Research",
+    "card": "Smaller networks. Faster inference."
+  },
+  {
+    "slug": "finsight",
+    "cat": "Projects",
+    "org": "Personal project",
+    "when": "2025",
+    "title": "FinSight",
+    "blurb": "Making cents of college. An AI budgeting app that categorizes student spending automatically and shows students that financial literacy is really data literacy.",
+    "tags": [
+      "Flask",
+      "Python",
+      "GPT",
+      "Plotly",
+      "Matplotlib"
+    ],
+    "lede": "An AI-powered budgeting application for students that categorizes and visualizes expenses and suggests where to save. The premise: financial literacy is data literacy, so show people their own data clearly and the lesson takes care of itself.",
+    "stats": [
+      {
+        "n": "Flask",
+        "label": "backend with session-based auth"
+      },
+      {
+        "n": "GPT",
+        "label": "automatic expense categorization"
+      },
+      {
+        "n": "Plotly",
+        "label": "spending pattern visualization"
+      }
+    ],
+    "sections": [
+      {
+        "h": "How it is built",
+        "paras": [
+          "A Flask backend with session-based authentication keeps each student's tracking personal and secure. GPT handles expense categorization so nobody has to tag transactions by hand, and Plotly and Matplotlib turn the categorized history into spending pattern charts with savings suggestions attached."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "vista",
+    "cat": "Projects",
+    "org": "Vista Agentic AI Hackathon",
+    "when": "July 2025 · Washington, DC",
+    "title": "Multi-agent orchestration, as a finalist",
+    "blurb": "Building autonomous systems alongside professional engineers: agents that interpret images, extract data, and coordinate actions across modules.",
+    "tags": [
+      "Multi-agent",
+      "OpenAI",
+      "Claude",
+      "Cursor"
+    ],
+    "lede": "Finalist in a national, team-based innovation challenge. I worked with professional engineers to design autonomous systems — multi-agent solutions for automated content generation, and systems that interpret images, extract data, and coordinate actions across modules.",
+    "stats": [
+      {
+        "n": "Finalist",
+        "label": "national team-based challenge"
+      },
+      {
+        "n": "July 2025",
+        "label": "Washington, DC"
+      }
+    ],
+    "sections": [
+      {
+        "h": "Why it matters to me",
+        "paras": [
+          "The future isn't single models. It's orchestration — agents that reason, delegate, and execute. This is where that thread starts, and it leads directly to the tool-calling evaluation work at Disney: both are about how a model decides when and what to delegate. It also shaped the systems thinking behind Terrasite and WaterSight, which are both attempts to build things that do meaningful work without constant human intervention."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "hackathons",
+    "cat": "Archive",
+    "org": "Competition record",
+    "when": "2025 — present",
+    "title": "Placing in rooms full of applicants",
+    "blurb": "Hackathon prototypes built and presented under tight deadlines.",
+    "tags": [
+      "LLM orchestration",
+      "Agent pipelines",
+      "Prototyping",
+      "Pitching"
+    ],
+    "lede": "Since 2025 I have been building and presenting functional prototypes on tight deadlines, mostly around AI and agent-based system design. The competitions are where I learned to scope something to what can actually ship in a weekend.",
+    "stats": [
+      {
+        "n": "1st",
+        "label": "Sandia Labs × PVAMU Hackathon"
+      },
+      {
+        "n": "Finalist",
+        "label": "Vista Agentic AI Hackathon"
+      },
+      {
+        "n": "3rd",
+        "label": "Apple Propel Hackathon"
+      },
+      {
+        "n": "4th",
+        "label": "InternXL Hackathon"
+      }
+    ],
+    "sections": [
+      {
+        "h": "The record",
+        "paras": [],
+        "rows": [
+          {
+            "k": "Sandia Labs × PVAMU",
+            "v": "1st place"
+          },
+          {
+            "k": "Vista Agentic AI",
+            "v": "Finalist — national team-based innovation challenge, Washington DC, July 2025"
+          },
+          {
+            "k": "Apple Propel",
+            "v": "3rd overall — April 2026"
+          },
+          {
+            "k": "InternXL",
+            "v": "4th overall"
+          },
+          {
+            "k": "PVAMU AI Innovation Challenge",
+            "v": "WaterSight, 2026"
+          },
+          {
+            "k": "Vital Handoff pitch",
+            "v": "Co-founded with Joel Daniels and Kamron Wright, 2026"
+          }
+        ]
+      },
+      {
+        "h": "What it built",
+        "paras": [
+          "Hands-on work with LLM orchestration, agent pipelines, and cross-platform agent collaboration, plus the habit of designing, building, and presenting something functional in a fast-moving team. I also attended AfroTech in 2025 and will be back in Houston in November 2026."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "summerhouse",
+    "cat": "Internships",
+    "card": "Computer Science Instructor",
+    "org": "Summer House Institute",
+    "when": "2024",
+    "title": "Teaching kids to program",
+    "blurb": "A summer teaching programming to K-12 students, building interactive projects for 28+ kids at wildly different skill levels.",
+    "tags": [
+      "Teaching",
+      "K-12",
+      "Curriculum"
+    ],
+    "lede": "Programming Instructor, K-12. I built interactive projects for more than 28 students across a range of ages and skill levels, which mostly meant finding a way to make an abstract idea concrete for whoever was in front of me.",
+    "stats": [
+      {
+        "n": "28+",
+        "label": "students taught"
+      },
+      {
+        "n": "K-12",
+        "label": "age range in the same room"
+      }
+    ],
+    "sections": [
+      {
+        "h": "What it taught me",
+        "paras": [
+          "Explaining a system to a ten-year-old and explaining it to a senior engineer are the same problem with different vocabulary: find the shape of the thing, then say it plainly. That habit is why my Disney handoff is a set of documents rather than a set of scripts — the goal there was that everything runs without me, so I wrote the guide for running the suites, the local setup guide, three versions of the final talk for three audiences, a recipe for extending the work, and notes on which credentials the next owner needs re-issued."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "tacc",
+    "cat": "Research",
+    "card": "Advanced Computing Student Collaborative",
+    "org": "TACC · NSF Leadership-Class Computing Facility",
+    "when": "November 2025",
+    "title": "Advanced Computing Student Collaborative",
+    "blurb": "A selected cohort program at the Texas Advanced Computing Center, themed on AI for societal advancement and co-located with SC25.",
+    "tags": [
+      "HPC",
+      "AI",
+      "Data visualization"
+    ],
+    "lede": "A paid cohort program run by the Texas Advanced Computing Center for the NSF Leadership-Class Computing Facility, themed Artificial Intelligence for Societal Advancement and co-located with SC25 in St. Louis.",
+    "stats": [
+      {
+        "n": "225",
+        "label": "participants across 11 cohorts since 2016"
+      },
+      {
+        "n": "SC25",
+        "label": "St. Louis, November 15–21, 2025"
+      }
+    ],
+    "sections": [
+      {
+        "h": "The program",
+        "paras": [
+          "Students from any major are assigned to mixed teams and work through applications of artificial intelligence, data science, and high performance computing, including the current tools for exploring data through visualization. The emphasis is as much on team problem-solving and communicating ideas to a general audience as on the computing itself, and the week runs inside a professional conference so the cohort sees the field it is training for.",
+          "Selection ran August to October 2025, with virtual onboarding and training from October through early November before the in-person week."
+        ],
+        "rows": []
+      },
+      {
+        "h": "My part",
+        "paras": [
+          "Write-up to come — team, project, and results."
+        ],
+        "rows": []
+      }
+    ]
   },
   {
     "slug": "onrecord",
@@ -326,125 +704,251 @@
         ],
         "rows": []
       }
-    ],
-    "status": "Project"
+    ]
   },
   {
-    "slug": "vista",
-    "cat": "Projects",
-    "org": "Vista Agentic AI Hackathon",
-    "when": "July 2025 · Washington, DC",
-    "title": "Multi-agent orchestration, as a finalist",
-    "blurb": "Building autonomous systems alongside professional engineers: agents that interpret images, extract data, and coordinate actions across modules.",
-    "tags": [
-      "Multi-agent",
-      "OpenAI",
-      "Claude",
-      "Cursor"
-    ],
-    "lede": "Finalist in a national, team-based innovation challenge. I worked with professional engineers to design autonomous systems — multi-agent solutions for automated content generation, and systems that interpret images, extract data, and coordinate actions across modules.",
-    "stats": [
-      {
-        "n": "Finalist",
-        "label": "national team-based challenge"
-      },
-      {
-        "n": "July 2025",
-        "label": "Washington, DC"
-      }
-    ],
-    "sections": [
-      {
-        "h": "Why it matters to me",
-        "paras": [
-          "The future isn't single models. It's orchestration — agents that reason, delegate, and execute. This is where that thread starts, and it leads directly to the tool-calling evaluation work at Disney: both are about how a model decides when and what to delegate. It also shaped the systems thinking behind Terrasite and WaterSight, which are both attempts to build things that do meaningful work without constant human intervention."
-        ],
-        "rows": []
-      }
-    ],
-    "status": "Project"
-  },
-  {
-    "slug": "finsight",
-    "cat": "Projects",
-    "org": "Personal project",
-    "when": "2025",
-    "title": "FinSight",
-    "blurb": "Making cents of college. An AI budgeting app that categorizes student spending automatically and shows students that financial literacy is really data literacy.",
-    "tags": [
-      "Flask",
-      "Python",
-      "GPT",
-      "Plotly",
-      "Matplotlib"
-    ],
-    "lede": "An AI-powered budgeting application for students that categorizes and visualizes expenses and suggests where to save. The premise: financial literacy is data literacy, so show people their own data clearly and the lesson takes care of itself.",
-    "stats": [
-      {
-        "n": "Flask",
-        "label": "backend with session-based auth"
-      },
-      {
-        "n": "GPT",
-        "label": "automatic expense categorization"
-      },
-      {
-        "n": "Plotly",
-        "label": "spending pattern visualization"
-      }
-    ],
-    "sections": [
-      {
-        "h": "How it is built",
-        "paras": [
-          "A Flask backend with session-based authentication keeps each student's tracking personal and secure. GPT handles expense categorization so nobody has to tag transactions by hand, and Plotly and Matplotlib turn the categorized history into spending pattern charts with savings suggestions attached."
-        ],
-        "rows": []
-      }
-    ],
-    "status": "Project"
-  },
-  {
-    "slug": "tacc",
+    "slug": "onrecord-research",
     "cat": "Research",
-    "card": "Advanced Computing Student Collaborative",
-    "org": "TACC · NSF Leadership-Class Computing Facility",
-    "when": "November 2025",
-    "title": "Advanced Computing Student Collaborative",
-    "blurb": "A selected cohort program at the Texas Advanced Computing Center, themed on AI for societal advancement and co-located with SC25.",
+    "card": "On Record: the evidence base",
+    "org": "Independent research",
+    "when": "August 2026",
+    "title": "On Record: Research",
+    "blurb": "The evidence base behind On Record — every figure a published number with a citation that resolves.",
     "tags": [
-      "HPC",
-      "AI",
-      "Data visualization"
+      "Policy research",
+      "Source auditing",
+      "Citations"
     ],
-    "lede": "A paid cohort program run by the Texas Advanced Computing Center for the NSF Leadership-Class Computing Facility, themed Artificial Intelligence for Societal Advancement and co-located with SC25 in St. Louis.",
+    "lede": "Data center siting is decided by county boards, city councils, and state legislatures. Is that a real information gap, and is the gap consequential — do the decisions turn on margins small enough that an informed public could change them? Both answers are yes, and the second one is what justified building anything.",
     "stats": [
       {
-        "n": "225",
-        "label": "participants across 11 cohorts since 2016"
+        "n": "4.4%",
+        "label": "of all US electricity consumed by data centers in 2023"
       },
       {
-        "n": "SC25",
-        "label": "St. Louis, November 15–21, 2025"
+        "n": "176 TWh",
+        "label": "in 2023, up from 58 TWh in 2014"
+      },
+      {
+        "n": "61",
+        "label": "data center bills filed in Virginia's 2026 session"
       }
     ],
     "sections": [
       {
-        "h": "The program",
+        "h": "The scale is national and accelerating",
         "paras": [
-          "Students from any major are assigned to mixed teams and work through applications of artificial intelligence, data science, and high performance computing, including the current tools for exploring data through visualization. The emphasis is as much on team problem-solving and communicating ideas to a general audience as on the computing itself, and the week runs inside a professional conference so the cohort sees the field it is training for.",
-          "Selection ran August to October 2025, with virtual onboarding and training from October through early November before the in-person week."
+          "Load roughly tripled in a decade and is on track to triple again in five years. The power and the water come from somewhere, and the somewhere is decided locally."
+        ],
+        "rows": [
+          {
+            "k": "4.4% of US electricity",
+            "v": "Consumed by data centers in 2023, projected to reach 6.7–12% by 2028 — Lawrence Berkeley National Laboratory / US DOE"
+          },
+          {
+            "k": "176 TWh in 2023",
+            "v": "Up from 58 TWh in 2014, on track for up to 580 TWh by 2028 — LBNL / DOE"
+          },
+          {
+            "k": "30% rise in Virginia bills",
+            "v": "Increase since 2021, the pressure that drove the 2026 reform session — National Caucus of Environmental Legislators"
+          },
+          {
+            "k": "61 bills in one session",
+            "v": "Filed in Virginia's 2026 General Assembly; 15 passed, 46 carried to 2027 — MultiState"
+          }
+        ]
+      },
+      {
+        "h": "The decisive votes are close, and local",
+        "paras": [
+          "This is the finding that produced the product. These are not landslides. The PW Digital Gateway rezoning passed four to three after a marathon hearing, and the project later collapsed when developers dropped their appeal in April 2026. The large-user cost allocation measure — which would let the State Corporation Commission assign costs driven by large users to those users rather than to households — passed 21 to 17 in the Senate and 63 to 34 in the House.",
+          "The contrast is the argument. The same board that approved a project four to three in 2023 denied a larger one eight to nothing in 2026, after a five hour hearing with a full room and completed analysis. Information moved a unanimous vote."
+        ],
+        "rows": [
+          {
+            "k": "Prince William County Board",
+            "v": "PW Digital Gateway rezoning, Dec 2023 — 4 to 3 (Data Center Dynamics)"
+          },
+          {
+            "k": "Virginia Senate",
+            "v": "Large-user electricity cost allocation — 21 to 17 (NCEL)"
+          },
+          {
+            "k": "Virginia House",
+            "v": "House companion to the ratepayer measure — 63 to 34"
+          },
+          {
+            "k": "Prince William County Board",
+            "v": "Dulles Cloud South, ~2,000 acres and 43M sq ft, denied 8 to 0 on 7 Jul 2026 after a five hour hearing (Potomac Local News)"
+          }
+        ]
+      },
+      {
+        "h": "States are already writing the rules",
+        "paras": [
+          "The regulatory vocabulary already exists. What residents lack is not policy language, it is knowing which meeting to attend and what their official has already done."
+        ],
+        "rows": [
+          {
+            "k": "Texas SB 6",
+            "v": "Signed 21 Jun 2025 — facilities over 75 MW face mandatory curtailment during grid emergencies and must support remote disconnection (Baker Botts)"
+          },
+          {
+            "k": "Virginia HB 1393",
+            "v": "Directs the utility to seek rates making large users of 25 MW and above pay for the generating capacity they require"
+          },
+          {
+            "k": "Virginia HB 153",
+            "v": "Permit process for facilities over 100 MW, including sound assessments where homes or schools sit within 500 feet"
+          },
+          {
+            "k": "Virginia HB 496 / SB 553",
+            "v": "Water utilities must report monthly volumes supplied to data centers; applicants must file annual water consumption estimates before rezoning"
+          }
+        ]
+      },
+      {
+        "h": "The counter-evidence, kept in view",
+        "paras": [
+          "Research that only confirmed the hypothesis would have produced a worse product. Money does not predict the vote: in the Prince William case the supervisor who received the most data center industry money voted against the project. That single fact set the product's central editorial constraint — show funding and position side by side, make no causal claim, let the reader draw the conclusion. A tool that implied donation therefore vote would have been falsified by its own founding case study.",
+          "Not every facility is equivalent either. A well-sited facility with closed-loop cooling uses a fraction of the water of a conventional build, and residents can only reward that difference if someone puts the numbers side by side. The product is built to let a good facility win on the record, not to oppose data centers."
         ],
         "rows": []
       },
       {
-        "h": "My part",
+        "h": "The source system audit",
         "paras": [
-          "Write-up to come — team, project, and results."
+          "Beyond the statistics, the research catalogued which public database actually holds each kind of record, since the product's promise is that every claim is checkable. Every URL was verified to resolve; three return 403 to automated checks but load normally in a browser.",
+          "What the audit revealed: the records are public and already published on a schedule, but scattered across separate systems with separate search interfaces. One gives you money, another gives you votes, a county agenda system gives you the meeting. No single system puts money, votes, and stated position on one screen for one local official on one specific issue, and none organizes any of it around when a resident can next speak. It is an aggregation and timing problem, not a disclosure problem."
+        ],
+        "rows": [
+          {
+            "k": "Campaign finance",
+            "v": "Texas Ethics Commission, FEC, OpenSecrets, FollowTheMoney, Virginia Department of Elections, Arizona See The Money, Ohio Secretary of State"
+          },
+          {
+            "k": "Legislation and votes",
+            "v": "Texas Legislature Online, Houston City Secretary, Harris County Commissioners Court, Virginia LIS, Loudoun County, Maricopa County, Ohio Legislature"
+          },
+          {
+            "k": "Energy, water, environment",
+            "v": "ERCOT, US Energy Information Administration, EPA Envirofacts, Texas Water Development Board, Lawrence Berkeley National Laboratory"
+          }
+        ]
+      },
+      {
+        "h": "Equity, as a build-time requirement",
+        "paras": [
+          "Data center siting concentrates near lower income neighborhoods. That is what made access constraints a design requirement rather than a nice-to-have: a tool that only works for people with time, broadband, and an email address to spend would widen the very gap it exists to close. Adopted at build time rather than as later cleanup: no account required ever, runs on an older phone, free, position shown as a shape and a word rather than color alone, and English first followed by the top two other languages spoken in each launch city."
+        ],
+        "rows": []
+      },
+      {
+        "h": "How the research is held in the code",
+        "paras": [
+          "The verified findings live in their own file, isolated from the illustrative demo data by an explicit rule written into the file header: nothing enters the research file without a citation a reader can open and check. Source systems live in a second file, and presentation figures derived from demo data in a third, computed from the seed itself so the pitch and the product cannot disagree. Keeping that boundary bright in the file structure, rather than in a convention, is what let the deck cite real numbers and the app show sample officials without either one contaminating the other."
         ],
         "rows": []
       }
+    ]
+  },
+  {
+    "slug": "slingo",
+    "cat": "Projects",
+    "org": "Prairie View A&M University",
+    "when": "Nov 2023 — present",
+    "title": "Slingo, a translator app",
+    "blurb": "A C++ translator app built with fellow computer science students.",
+    "tags": [
+      "C++",
+      "GitHub",
+      "Collaboration"
     ],
-    "status": "Project"
+    "lede": "A translator app built in C++ with fellow computer science students at Prairie View A&M, developed on GitHub.",
+    "stats": [],
+    "sections": [
+      {
+        "h": "What I did",
+        "paras": [
+          "Used C++ for front-end development to build the translator app, working on GitHub alongside other computer science students to hit the project's objectives."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "cookbook",
+    "cat": "Projects",
+    "org": "Prairie View A&M University",
+    "when": "Feb 2024",
+    "title": "Cookbook blog platform",
+    "blurb": "A virtual cookbook site with interactive blogging and multimedia.",
+    "tags": [
+      "HTML",
+      "CSS",
+      "Web"
+    ],
+    "lede": "A virtual cookbook platform with interactive blogging features and multimedia elements, built as a dynamic website.",
+    "stats": [],
+    "sections": [
+      {
+        "h": "What I did",
+        "paras": [
+          "Designed and implemented the platform, working on the backend for dynamic pages and adding interactive blogging features with multimedia elements."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "americanpool",
+    "cat": "Work",
+    "card": "Lifeguard",
+    "org": "American Pool",
+    "when": "Seasonal",
+    "title": "Lifeguard, American Pool",
+    "blurb": "Certified lifeguard and swim instructor with supervisory responsibility.",
+    "tags": [
+      "Lifeguarding",
+      "CPR",
+      "First Aid",
+      "Swim instruction"
+    ],
+    "lede": "Certified lifeguard at American Pool, with swim instruction and supervisory responsibility alongside the guarding itself.",
+    "stats": [],
+    "sections": [
+      {
+        "h": "The role",
+        "paras": [
+          "Adult CPR, first aid, and lifeguarding certifications, plus swim instruction. The job also carried supervisory work and time-and-attendance duties — the kind of responsibility where the standard is that nothing goes wrong on your watch."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
+    "slug": "bahamabucks",
+    "cat": "Work",
+    "card": "Front End Associate",
+    "org": "Bahama Buck's Franchise Corporation",
+    "when": "—",
+    "title": "Front End Associate, Bahama Buck's",
+    "blurb": "Customer-facing service and cash handling.",
+    "tags": [
+      "Customer service",
+      "Cash handling"
+    ],
+    "lede": "Front-of-house work at Bahama Buck's: serving customers directly and handling cash.",
+    "stats": [],
+    "sections": [
+      {
+        "h": "The role",
+        "paras": [
+          "Customer-facing service with cash handling responsibility, at the pace a franchise front counter runs."
+        ],
+        "rows": []
+      }
+    ]
   }
 ]

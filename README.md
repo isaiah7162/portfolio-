@@ -1,6 +1,6 @@
 # Isaiah Hawkins · iisaiah.com
 
-A dependency-free static portfolio, rebuilt from the existing site and updated using the November 2, 2026 résumé and current project context. The original waterfront canvas illustration is retained as standalone JavaScript.
+The original tabbed portfolio and waterfront scene, recovered from the live site, with icons removed and updated experience from the November 2, 2026 résumé and current project context. React and the original rendering runtime are bundled locally. The broader redesign is deferred.
 
 ## Preview
 
@@ -8,11 +8,11 @@ Run `python3 -m http.server 8000` from this directory, then open http://localhos
 
 ## Update
 
-- `content.json`: project details and case studies.
-- `index.html`: home-page cards, biography, skills, and recognition. When updating a project's title or summary, also update its home-page card.
-- `style.css`: layout and visual style.
-- `scene.js`: recovered waterfront illustration and animation control.
-- `assets/Isaiah-Hawkins-Resume.pdf`: replace this file to update the résumé.
+- `index.html`: original template, inline project data, tab logic, skills, and waterfront scene.
+- `content.json`: matching project data snapshot. Keep this and the inline PROJECTS array synchronized when editing entries.
+- `assets/`: recovered fonts, React, original runtime, and latest résumé PDF.
+- Original tabs: Internships, Research, Projects, Academics, Skills, Leadership.
+- Updated entries: Disney, SC Capital, TerraSite, Visible, LSAMP, and hackathon record.
 
 ## GitHub and Vercel
 
@@ -32,12 +32,10 @@ Use a branch and pull request for updates. Vercel can create preview deployments
 ## Verification
 
 ```sh
-node --check app.js
-node --check scene.js
 python3 scripts/check.py
 ```
 
-The Python check verifies local page links, asset existence, unique project slugs, and a one-to-one mapping between home-page cards and case-study data. It does not replace visual or browser interaction testing.
+The Python check verifies local assets, unique project slugs, icon removal, JavaScript syntax, and tab data. It does not replace visual or browser interaction testing.
 
 ## Content notes
 
