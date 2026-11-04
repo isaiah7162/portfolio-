@@ -14,7 +14,7 @@ Run `python3 -m http.server 8000` from this directory, then open http://localhos
 - `content.json`: matching project data snapshot. Keep this and the inline PROJECTS array synchronized when editing entries.
 - `assets/`: recovered fonts, React, original runtime, and latest résumé PDF.
 - Tabs: Current, Internships, Research, Projects, Academics, Skills, Leadership. Current is the default tab and uses the explicit `current: true` flag on project records.
-- Updated entries: Disney, SC Capital (Quant Analyst under Internships and Research), TerraSite, Visible, the protein function predictor (Research and Projects), LSAMP, and the hackathon record.
+- Updated entries: Disney, SC Capital (Quantitative Analyst Intern under Internships and Research), TerraSite, Visible, the protein function predictor (Research and Projects), LSAMP, and the hackathon record.
 
 ## GitHub and Vercel
 

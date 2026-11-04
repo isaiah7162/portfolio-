@@ -25,6 +25,6 @@ assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF'
 inline=json.loads(re.search(r'const PROJECTS = (.*?);\nclass Component',page,re.S)[1])
 assert inline==projects, 'Inline data and content.json disagree'
 quant=next(x for x in projects if x['slug']=='quant')
-assert quant['title']==quant['card']=='Quant Analyst' and quant['cat']=='Internships'
+assert quant['title']==quant['card']=='Quantitative Analyst Intern' and quant['cat']=='Internships'
 assert {x['slug'] for x in projects if x.get('current')}=={'quant','visible','protein-function-predictor'}
-print('PASS: assets, icon removal, syntax, tabs, Quant Analyst, Current membership, and synced project data.')
+print('PASS: assets, icon removal, syntax, tabs, Quantitative Analyst Intern, Current membership, and synced project data.')
