@@ -26,5 +26,5 @@ inline=json.loads(re.search(r'const PROJECTS = (.*?);\nconst SKIES',page,re.S)[1
 assert inline==projects, 'Inline data and content.json disagree'
 quant=next(x for x in projects if x['slug']=='quant')
 assert quant['title']==quant['card']=='Quant Analyst' and quant['cat']=='Internships'
-assert {x['slug'] for x in projects if x.get('current')}=={'quant','visible','terrasite','protein-function-predictor'}
+assert {x['slug'] for x in projects if x.get('current')}=={'quant','visible','protein-function-predictor'}
 print('PASS: assets, icon removal, syntax, tabs, Quant Analyst, Current membership, and synced project data.')

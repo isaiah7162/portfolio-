@@ -143,9 +143,9 @@
     "slug": "visible",
     "title": "Visible",
     "cat": "Projects",
-    "org": "Senior design",
+    "org": "Founder · Builder",
     "when": "Fall 2026",
-    "lede": "A personal wellness demo that turns everyday check-ins into a visual picture of your health.",
+    "lede": "An independent hackathon project that turns everyday wellness check-ins into a visual picture of your health.",
     "tags": [
       "Health UX",
       "Generative AI",
@@ -169,7 +169,7 @@
       {
         "h": "Current stage",
         "paras": [
-          "A senior design prototype with illustrative wellness scores and simulated health data. It is not a diagnostic or medical decision tool."
+          "An independent hackathon prototype with illustrative wellness scores and simulated health data. It is not a diagnostic or medical decision tool."
         ],
         "rows": []
       }
@@ -216,7 +216,7 @@
     "stats": [],
     "status": "In development",
     "card": "TerraSite",
-    "current": true
+    "current": false
   },
   {
     "slug": "watersight",
