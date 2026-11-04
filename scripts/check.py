@@ -22,7 +22,7 @@ with tempfile.NamedTemporaryFile(suffix='.js',mode='w') as f:
 harness='const React={createRef:()=>({current:null})}; class DCLogic {}\n'+script+'''\nconst c=new Component(); c.props={}; for(const tab of TABS){c.state.tab=tab;const v=c.renderVals();if(v.showCards && !v.projects.length)throw Error("Empty tab "+tab);if(v.projects.some(p=>!p.title))throw Error("Missing title");console.log(tab+": "+v.tabCount);}'''
 subprocess.run(['node','-e',harness],check=True)
 assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF')
-inline=json.loads(re.search(r'const PROJECTS = (.*?);\nconst SKIES',page,re.S)[1])
+inline=json.loads(re.search(r'const PROJECTS = (.*?);\nclass Component',page,re.S)[1])
 assert inline==projects, 'Inline data and content.json disagree'
 quant=next(x for x in projects if x['slug']=='quant')
 assert quant['title']==quant['card']=='Quant Analyst' and quant['cat']=='Internships'

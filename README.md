@@ -1,6 +1,6 @@
 # Isaiah Hawkins · iisaiah.com
 
-The original tabbed portfolio and waterfront scene, recovered from the live site, with icons removed and updated experience from the November 2, 2026 résumé and current project context. React and the original rendering runtime are bundled locally. The broader redesign is deferred.
+The original tabbed portfolio, now with a calm morning-lake scene, with icons removed and updated experience from the November 2, 2026 résumé and current project context. React and the original rendering runtime are bundled locally. The broader redesign is deferred.
 
 ## Preview
 
@@ -8,7 +8,9 @@ Run `python3 -m http.server 8000` from this directory, then open http://localhos
 
 ## Update
 
-- `index.html`: original template, inline project data, tab logic, skills, and waterfront scene.
+- `index.html`: original template, inline project data, tab logic, skills, and morning-lake animation.
+- `assets/morning-lake.webp`: generated landscape artwork, optimized for the hero.
+- Water movement pauses offscreen, when the tab is hidden, and for reduced-motion preferences. A visible pause control is available.
 - `content.json`: matching project data snapshot. Keep this and the inline PROJECTS array synchronized when editing entries.
 - `assets/`: recovered fonts, React, original runtime, and latest résumé PDF.
 - Tabs: Current, Internships, Research, Projects, Academics, Skills, Leadership. Current is the default tab and uses the explicit `current: true` flag on project records.
