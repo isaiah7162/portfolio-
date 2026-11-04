@@ -1,18 +1,20 @@
 # Isaiah Hawkins — Portfolio
 
-A spacious, typography-led portfolio with a serene morning lake, a typed name introduction, open project rows, full case studies, and a visitor chatbot that answers from the published portfolio.
+An interactive space portfolio: Hello dissolves into particles, Isaiah’s name types in, featured projects shine as bright stars, and Current work appears as planets. An open list view, full case studies, and a browser-local portfolio guide remain available.
 
 ## Files
 
 - `index.html`: page structure, introduction, about, contact, and accessible dialogs.
-- `style.css`: responsive ivory/sage design, typography, and reduced-motion behavior.
-- `intro.js`: multilingual hello screen, curved reveal, skip/Escape support, reduced-motion bypass, and a fail-safe. Name typing starts after the reveal.
+- `style.css`: base responsive layout and typography.
+- `space.css`: dark cosmic palette, accessible star/planet destinations, mobile constellation, and motion controls.
+- `intro.js`: multilingual Hello sampled into particles that disperse into the starfield; replay, skip/Escape, reduced-motion bypass, and a fail-safe. Name typing starts after the reveal.
 - `app.js`: typing, portfolio filters/search, case studies, and chat interface.
-- `lake.js`: animated water reflections; respects pause, visibility, and reduced motion.
+- `space.js`: procedural starfield and planet textures, constellation filters, keyboard-accessible destinations, and pause/reduced-motion/visibility handling.
+- `lake.js`: retained earlier water experiment; no longer loaded by the page.
 - `guide.js`: browser-local chatbot retrieval and conversation context. No AI provider, key, external chat request, analytics, or persistent chat history.
 - `content.json`: project and experience facts, shared by project views and the chatbot.
 - `profile.json`: skills, academic details, organizations, and recognition recovered from the prior site.
-- `assets/morning-lake.webp`: existing generated landscape artwork.
+- `assets/morning-lake.webp`: retained earlier artwork; not used in the current design.
 - `assets/Isaiah-Hawkins-Resume.pdf`: supplied résumé.
 
 ## Content and navigation
@@ -20,6 +22,8 @@ A spacious, typography-led portfolio with a serene morning lake, a typed name in
 The home page highlights Quantitative Analyst Intern at SC Capital, Visible (Founder · Builder; independent hackathon project), and Protein Function Predictor. TerraSite is in the work archive, not Current. WaterSight is its final “Preliminary idea” section, with no standalone project entry; old WaterSight deep links open TerraSite. The protein study is explicitly in development; hypotheses and planned evaluation are not presented as achieved results.
 
 The archive includes Selected, All, Current, Internships, Research, Projects, Academics, Skills, and Leadership. Search applies within the active category. Every project opens its full case study, and project deep links use `#project/<slug>`.
+
+Bright stars highlight Disney/JARVIS, TerraSite, and LSAMP research. Planets represent exactly the three Current projects. The legend filters the map; List view opens the complete searchable archive. Smaller screens retain the six main destinations and a few smaller stars; the archive contains every entry.
 
 ## Chatbot
 
@@ -33,7 +37,7 @@ Local browser QA covered desktop and a 390px phone layout, project details, cate
 
 ## Design references
 
-Reviewed the [Developer Portfolios directory](https://6e87v.hatchboxapp.com/) and [Emma Bostian's collection](https://github.com/emmabostian/developer-portfolios). Reference patterns: [Brittany Chiang](https://brittanychiang.com/) for readable experience, [Dennis Snellenberg](https://dennissnellenberg.com/) for typography and open work lists, [Bruno Simon](https://bruno-simon.com/) for a memorable personal environment, and [Josh W. Comeau](https://www.joshwcomeau.com/) for useful interaction. These are widely featured examples, not a verified ranking by visitor counts. The greeting sequence also references [Aadarsh Rai](https://aadarshrai.vercel.app/): a dark overlay, centered dot and multilingual greeting, followed by a curved upward reveal. The animation code is implemented locally. No source code or imagery was copied from those portfolios.
+Reviewed the [Developer Portfolios directory](https://6e87v.hatchboxapp.com/) and [Emma Bostian's collection](https://github.com/emmabostian/developer-portfolios). Reference patterns: [Brittany Chiang](https://brittanychiang.com/) for readable experience, [Dennis Snellenberg](https://dennissnellenberg.com/) for typography and open work lists, [Bruno Simon](https://bruno-simon.com/) for a memorable personal environment, and [Josh W. Comeau](https://www.joshwcomeau.com/) for useful interaction. These are widely featured examples, not a verified ranking by visitor counts. The greeting sequence also references [Aadarsh Rai](https://aadarshrai.vercel.app/): a dark overlay, centered dot and multilingual greeting, reinterpreted here as a particle-to-star transition. The animation code is implemented locally. No source code or imagery was copied from those portfolios.
 
 ## Deployment
 

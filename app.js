@@ -1,4 +1,4 @@
-import {startLake} from './lake.js';
+import {createUniverse} from './space.js';
 import {answerQuestion} from './guide.js';
 const $=s=>document.querySelector(s);
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -6,7 +6,8 @@ const motion=matchMedia('(prefers-reduced-motion: reduce)');
 let projects=[],profile={},activeFilter='Selected',chatContext={},lastFocus=null;
 const categories=['Selected','All','Current','Internships','Research','Projects','Academics','Skills','Leadership'];
 const featured=['jarvis','visible','protein-function-predictor','terrasite'];
-startLake($('#lake'),$('#pause-water'));
+const universe=createUniverse($('#universe'),$('#celestial-map'),$('#pause-space'));
+$('#replay-intro').addEventListener('click',()=>window.dispatchEvent(new Event('portfolio:replay-intro')));
 // Type once, reserving the complete two-line name to prevent layout movement.
 const full=['Isaiah','Hawkins'],names=[$('#first-name'),$('#last-name')];
 let typeTimer;
@@ -23,6 +24,7 @@ if(document.documentElement.classList.contains('intro-pending')){
  names.forEach(n=>n.textContent='');
  window.addEventListener('portfolio:intro-complete',startName,{once:true});
 }else startName();
+window.addEventListener('portfolio:intro-start',()=>{clearTimeout(typeTimer);nameStarted=false;document.body.classList.remove('typing-complete');names.forEach(n=>n.textContent='');window.addEventListener('portfolio:intro-complete',startName,{once:true});});
 motion.addEventListener('change',()=>{if(motion.matches)finishName();});
 if('IntersectionObserver' in window){document.documentElement.classList.add('js-reveal');const reveal=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('is-visible');reveal.unobserve(e.target);}},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));}
 const listMarkup=(rows)=>'<dl class="detail-list">'+rows.map(x=>`<div class="detail-line"><dt>${safe(x.k)}</dt><dd>${safe(x.v)}</dd></div>`).join('')+'</dl>';
@@ -79,6 +81,7 @@ try{
  const responses=await Promise.all([fetch('content.json'),fetch('profile.json')]);if(responses.some(r=>!r.ok))throw Error('Portfolio data unavailable');
  [projects,profile]=await Promise.all(responses.map(r=>r.json()));
  $('#current-list').innerHTML=['quant','visible','protein-function-predictor'].map((slug,i)=>{const p=projects.find(p=>p.slug===slug);return `<button class="current-row" data-project="${slug}"><span class="number">0${i+1}</span><div><h3>${safe(p.title)}</h3><small>${safe(p.org)} · ${safe(p.when)}</small></div><p>${safe(p.lede)}</p><span class="row-arrow" aria-hidden="true">↗</span></button>`;}).join('');
+ universe.setProjects(projects);
  renderWork();if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));
 }catch(err){$('#work-list').innerHTML='<p class="empty-state">The portfolio details could not be loaded. Please refresh the page or <a href="assets/Isaiah-Hawkins-Resume.pdf">read the résumé</a>.</p>';$('#current-list').innerHTML='<p class="empty-state">Project details are temporarily unavailable.</p>';}
 window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));});

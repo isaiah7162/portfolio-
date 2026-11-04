@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Isaiah Hawkins — A curious mind. Work in motion.</title>
+<title>Isaiah Hawkins — A universe of ideas.</title>
 <meta name="description" content="Isaiah Hawkins — computer science student, software developer, and researcher. Explore work in AI, quantitative analysis, and human-centered software.">
-<meta name="theme-color" content="#f3f2e9"><link rel="canonical" href="https://www.iisaiah.com/">
-<meta property="og:title" content="Isaiah Hawkins — Portfolio"><meta property="og:description" content="A curious mind. Work in motion. Software, AI, and research by Isaiah Hawkins."><meta property="og:type" content="website"><meta property="og:image" content="https://www.iisaiah.com/assets/morning-lake.webp">
+<meta name="theme-color" content="#070914"><link rel="canonical" href="https://www.iisaiah.com/">
+<meta property="og:title" content="Isaiah Hawkins — Portfolio"><meta property="og:description" content="A universe of ideas. Software, AI, and research by Isaiah Hawkins."><meta property="og:type" content="website">
 <script>
 // Show the introduction only when motion is welcome; never block a deep link.
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
@@ -14,15 +14,16 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
   document.documentElement.classList.remove('intro-pending');
   const shell = document.getElementById('site-shell'); if (shell) shell.inert = false;
   window.dispatchEvent(new Event('portfolio:intro-complete'));
- }, 6500);
+ }, 7500);
 }
 </script>
 <script src="intro.js" defer></script>
-<link rel="preload" as="image" href="assets/morning-lake.webp"><link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="space.css"><script type="module" src="app.js"></script>
 </head>
 <body>
 <div id="hello-intro" class="hello-intro" aria-label="Welcome">
  <p class="sr-only" role="status">Welcome. Opening Isaiah’s portfolio.</p>
+ <canvas id="intro-stars" aria-hidden="true"></canvas>
  <div class="hello-greeting" aria-hidden="true"><span class="hello-dot"></span><span id="hello-word" lang="en">Hello</span></div>
  <button id="skip-intro">Skip intro</button>
 </div>
@@ -30,15 +31,21 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><a class="wordmark" href="#home" aria-label="Isaiah Hawkins home">i.h.</a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><button data-chat-open>Ask about me</button><a class="resume-link" href="assets/Isaiah-Hawkins-Resume.pdf" target="_blank" rel="noopener">Résumé</a></nav></header>
 <main id="main">
-<section class="hero" id="home" aria-labelledby="name">
-<canvas id="lake" aria-hidden="true"></canvas><div class="hero-wash"></div>
-<div class="hero-intro"><p class="eyebrow">Software · AI · Research</p><h1 id="name" aria-label="Isaiah Hawkins"><span class="name-line" aria-hidden="true"><span id="first-name">Isaiah</span></span><span class="name-line second" aria-hidden="true"><span id="last-name">Hawkins</span><span class="cursor"></span></span></h1></div>
-<div class="hero-bottom"><p>A curious mind.<br><em>Work in motion.</em></p><p class="hero-bio">Turning questions into software.<br>Computer Science at Prairie View A&amp;M.<br>Graduating May 2027.</p><a class="text-link" href="#current">Explore what I’m building <span aria-hidden="true">↓</span></a></div>
-<button id="pause-water" class="water-toggle" aria-pressed="false">Pause water</button>
+<section class="hero space-hero" id="home" aria-labelledby="name">
+<canvas id="universe" aria-hidden="true"></canvas>
+<div class="hero-intro"><p class="eyebrow">Software · AI · Research</p><h1 id="name" aria-label="Isaiah Hawkins"><span class="name-line" aria-hidden="true"><span id="first-name">Isaiah</span></span><span class="name-line second" aria-hidden="true"><span id="last-name">Hawkins</span><span class="cursor"></span></span></h1><p class="space-intro-copy">A curious mind.<br>A universe of ideas.</p></div>
+<div class="map-heading"><span class="map-live-dot"></span> Explore my constellation <span class="map-year">/ 2026</span></div>
+<div id="celestial-map" class="celestial-map" role="group" aria-label="Interactive project constellation"></div>
+<div class="map-hint"><span class="eyebrow">A small guide to this universe</span><p>Choose a star or planet to explore the work.</p></div>
+<div class="space-controls">
+<div class="map-legend" role="group" aria-label="Filter constellation"><button data-map-filter="all" aria-pressed="true">All</button><button data-map-filter="featured" aria-pressed="false"><span class="legend-star" aria-hidden="true">✦</span> Featured</button><button data-map-filter="current" aria-pressed="false"><span class="legend-planet" aria-hidden="true"></span> Current</button><button data-map-filter="other" aria-pressed="false"><span class="legend-point" aria-hidden="true"></span> Other work</button></div>
+<div class="map-actions"><button id="pause-space" aria-pressed="false">Pause motion</button><button id="replay-intro">Replay hello</button><a href="#work">List view <span aria-hidden="true">↓</span></a></div>
+</div>
+<p id="map-status" class="sr-only" aria-live="polite"></p>
 </section>
 <section class="introduction wrap reveal"><p class="eyebrow">A little context</p><p class="intro-statement">I build at the intersection of<br class="desktop-break"> <em>curiosity</em> and <em>usefulness.</em></p><div class="intro-detail"><span class="section-index">01 / Perspective</span><p>From evaluating AI at Walt Disney Imagineering to exploring markets and protein function, I’m interested in what happens when a good question becomes something you can use.</p></div></section>
-<section id="current" class="current-section"><div class="wrap"><div class="section-heading reveal"><div><p class="eyebrow">02 / In progress</p><h2>On my mind.<br><em>On my desk.</em></h2></div><p>Three things I’m working on right now.<br>Still asking. Still building.</p></div><div id="current-list" class="current-list"></div></div></section>
-<section id="work" class="work-section wrap"><div class="section-heading reveal"><div><p class="eyebrow">03 / The work</p><h2>Ideas, made <em>tangible.</em></h2></div><p>Experience, experiments, and the thinking behind them.</p></div><div class="work-toolbar"><div id="filters" class="filters" role="group" aria-label="Filter portfolio"></div><label class="search-label"><span class="sr-only">Search portfolio</span><input id="work-search" type="search" placeholder="Find something…" autocomplete="off"></label></div><p id="result-count" class="eyebrow result-count" aria-live="polite"></p><div id="work-list"></div></section>
+<section id="current" class="current-section"><div class="wrap"><div class="section-heading reveal"><div><p class="eyebrow">02 / In orbit</p><h2>Currently <em>in orbit.</em></h2></div><p>Three ongoing projects.<br>New questions. New possibilities.</p></div><div id="current-list" class="current-list"></div></div></section>
+<section id="work" class="work-section wrap"><div class="section-heading reveal"><div><p class="eyebrow">03 / The index</p><h2>Explore the <em>work.</em></h2></div><p>Experience, experiments, and the thinking behind them.</p></div><div class="work-toolbar"><div id="filters" class="filters" role="group" aria-label="Filter portfolio"></div><label class="search-label"><span class="sr-only">Search portfolio</span><input id="work-search" type="search" placeholder="Find something…" autocomplete="off"></label></div><p id="result-count" class="eyebrow result-count" aria-live="polite"></p><div id="work-list"></div></section>
 <section id="about" class="about-section"><div class="wrap about-grid"><div class="about-title reveal"><p class="eyebrow">04 / Behind the work</p><h2>Always a<br><em>student.</em><br>Always a<br><em>builder.</em></h2><a class="text-link" href="assets/Isaiah-Hawkins-Resume.pdf" target="_blank" rel="noopener">Read my résumé <span aria-hidden="true">↗</span></a></div><div class="about-copy reveal"><p class="large-copy">I’m Isaiah, a Computer Science student at Prairie View A&amp;M University, graduating in May 2027.</p><p>My work spans software development, AI evaluation, and research. I’ve built evaluation pipelines at Walt Disney Imagineering, explored neural network efficiency with LSAMP, and turned hackathon ideas into working prototypes.</p><p>Right now, I’m a Quantitative Analyst Intern at SC Capital, the Founder · Builder of Visible, and part of a protein function prediction project.</p><div class="about-facts"><p><span>Education</span>Prairie View A&amp;M University<br>B.S. Computer Science · May 2027</p><p><span>Across my work</span>Software engineering<br>AI evaluation · Applied research</p></div><button class="text-link" data-chat-open>Have a question about my work? Ask here <span aria-hidden="true">↗</span></button></div></div></section>
 <section class="ask-section wrap reveal"><p class="eyebrow">05 / A different way to explore</p><h2>Skip the searching.<br><em>Start a conversation.</em></h2><div class="ask-bottom"><p>Ask my portfolio guide about my experience, current projects, or the tools I use. Every answer comes from the work shared here.</p><button class="round-button" data-chat-open>Ask about Isaiah <span aria-hidden="true">↗</span></button></div><div class="question-links"><button data-question="What did Isaiah build at Disney?">What did you build at Disney?</button><button data-question="What are you working on now?">What are you working on now?</button><button data-question="Tell me about Visible">What is Visible?</button></div></section>
 <footer id="contact"><div class="wrap"><p class="eyebrow">Have something in mind?</p><a class="contact-title" href="mailto:Ihawkins5@pvamu.edu">Let’s talk.<span aria-hidden="true">↗</span></a><div class="footer-bottom"><span>Isaiah Hawkins · 2026</span><div><a href="mailto:Ihawkins5@pvamu.edu">Email</a><a href="https://www.linkedin.com/in/isaiah-hawkins-414853249/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/isaiah7162" target="_blank" rel="noopener">GitHub</a><a href="#home">Back to top</a></div></div></div></footer>

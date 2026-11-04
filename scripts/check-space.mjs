@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {destinations} from '../space.js';
+const projects=JSON.parse(await readFile(new URL('../content.json',import.meta.url),'utf8'));
+assert.deepEqual(new Set(destinations.map(d=>d.slug)),new Set(projects.map(p=>p.slug)));
+assert.equal(new Set(destinations.map(d=>d.slug)).size,destinations.length);
+assert.deepEqual(new Set(destinations.filter(d=>d.kind==='current').map(d=>d.slug)),new Set(projects.filter(p=>p.current).map(p=>p.slug)));
+assert(destinations.filter(d=>d.kind==='current').every(d=>d.planet&&!d.desktop));
+assert.equal(destinations.filter(d=>d.primary).length,1);
+assert(destinations.every(d=>['x','y','mx','my'].every(k=>d[k]>0&&d[k]<100)));
+console.log('PASS: constellation destinations match published projects and Current membership.');
