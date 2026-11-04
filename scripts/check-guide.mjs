@@ -20,3 +20,8 @@ for(const q of ['Python','research','current work','education','leadership','hac
  const r=ask(q);assert.ok(r.text.length);for(const s of r.sources)if(s.slug)assert.ok(projects.some(p=>p.slug===s.slug));
 }
 console.log('PASS: chatbot facts, follow-ups, sources, comparisons, unknowns, and contact links.');
+
+assert.ok(!projects.some(p=>p.slug==='watersight'));
+assert.match(projects.find(p=>p.slug==='terrasite').sections.at(-1).h,/Preliminary idea.*WaterSight/);
+assert.match(ask('Tell me about WaterSight').text,/preliminary concept/);
+assert.equal(ask('Tell me about WaterSight').sources[0].slug,'terrasite');

@@ -6,9 +6,27 @@
 <meta name="description" content="Isaiah Hawkins — computer science student, software developer, and researcher. Explore work in AI, quantitative analysis, and human-centered software.">
 <meta name="theme-color" content="#f3f2e9"><link rel="canonical" href="https://www.iisaiah.com/">
 <meta property="og:title" content="Isaiah Hawkins — Portfolio"><meta property="og:description" content="A curious mind. Work in motion. Software, AI, and research by Isaiah Hawkins."><meta property="og:type" content="website"><meta property="og:image" content="https://www.iisaiah.com/assets/morning-lake.webp">
+<script>
+// Show the introduction only when motion is welcome; never block a deep link.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
+ document.documentElement.classList.add('intro-pending');
+ window.introFailsafe = setTimeout(() => {
+  document.documentElement.classList.remove('intro-pending');
+  const shell = document.getElementById('site-shell'); if (shell) shell.inert = false;
+  window.dispatchEvent(new Event('portfolio:intro-complete'));
+ }, 6500);
+}
+</script>
+<script src="intro.js" defer></script>
 <link rel="preload" as="image" href="assets/morning-lake.webp"><link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
 </head>
 <body>
+<div id="hello-intro" class="hello-intro" aria-label="Welcome">
+ <p class="sr-only" role="status">Welcome. Opening Isaiah’s portfolio.</p>
+ <div class="hello-greeting" aria-hidden="true"><span class="hello-dot"></span><span id="hello-word" lang="en">Hello</span></div>
+ <button id="skip-intro">Skip intro</button>
+</div>
+<div id="site-shell">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><a class="wordmark" href="#home" aria-label="Isaiah Hawkins home">i.h.</a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><button data-chat-open>Ask about me</button><a class="resume-link" href="assets/Isaiah-Hawkins-Resume.pdf" target="_blank" rel="noopener">Résumé</a></nav></header>
 <main id="main">
@@ -29,4 +47,5 @@
 <dialog id="case-dialog" aria-labelledby="case-title"><div class="case-top"><span class="eyebrow">Inside the work</span><button id="close-case" class="text-link">Close <span aria-hidden="true">×</span></button></div><article id="case-content"></article></dialog>
 <dialog id="chat-dialog" aria-labelledby="chat-title"><div class="chat-header"><div><p class="eyebrow">Your portfolio guide</p><h2 id="chat-title">Ask about Isaiah.</h2></div><button id="close-chat" aria-label="Close chat">×</button></div><p class="chat-note">Answers from this portfolio. Not a live conversation with Isaiah.</p><div id="chat-log" role="log" aria-live="polite" aria-relevant="additions"><div class="message assistant"><p>Hi! I can help you explore Isaiah’s projects, experience, and skills. What would you like to know?</p></div></div><div class="chat-suggestions"><button data-question="What are you working on now?">Current work</button><button data-question="What did Isaiah build at Disney?">Disney experience</button><button data-question="What skills does Isaiah have?">Skills</button></div><form id="chat-form"><label class="sr-only" for="chat-input">Ask about Isaiah</label><input id="chat-input" placeholder="Ask about a project or experience…" maxlength="500" required autocomplete="off"><button type="submit">Send</button></form><div class="chat-footer"><span>Based on published portfolio details.</span><button id="clear-chat">Clear chat</button></div></dialog>
 <noscript><p class="wrap">Enable JavaScript to explore the interactive portfolio and chat. You can still <a href="assets/Isaiah-Hawkins-Resume.pdf">read Isaiah’s résumé</a> or <a href="mailto:Ihawkins5@pvamu.edu">get in touch</a>.</p></noscript>
+</div>
 </body></html>

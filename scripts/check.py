@@ -15,7 +15,7 @@ class Assets(HTMLParser):
    if ref and not u.scheme and not u.netloc and u.path:assert (root/u.path).is_file(),ref
 Assets().feed(page)
 for ref in re.findall(r'url\([\'\"]?([^\'\")]+)',(root/'style.css').read_text()):assert (root/ref).is_file(),ref
-for name in ['app.js','guide.js','lake.js']:subprocess.run(['node','--check',str(root/name)],check=True)
+for name in ['app.js','guide.js','lake.js','intro.js']:subprocess.run(['node','--check',str(root/name)],check=True)
 assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF')
 quant=next(x for x in projects if x['slug']=='quant')
 assert quant['title']==quant['card']=='Quantitative Analyst Intern' and quant['cat']=='Internships'

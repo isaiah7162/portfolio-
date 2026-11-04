@@ -11,7 +11,18 @@ startLake($('#lake'),$('#pause-water'));
 const full=['Isaiah','Hawkins'],names=[$('#first-name'),$('#last-name')];
 let typeTimer;
 function finishName(){clearTimeout(typeTimer);names.forEach((n,i)=>n.textContent=full[i]);document.body.classList.add('typing-complete');}
-if(!motion.matches){names.forEach(n=>n.textContent='');let n=0;const type=()=>{n++;names[0].textContent=full[0].slice(0,n);names[1].textContent=full[1].slice(0,Math.max(0,n-full[0].length));if(n<full.join('').length)typeTimer=setTimeout(type,n===full[0].length?240:100);else finishName();};typeTimer=setTimeout(type,250);}else finishName();
+let nameStarted=false;
+function startName(){
+ if(nameStarted)return;nameStarted=true;
+ if(motion.matches){finishName();return;}
+ names.forEach(n=>n.textContent='');let n=0;
+ const type=()=>{n++;names[0].textContent=full[0].slice(0,n);names[1].textContent=full[1].slice(0,Math.max(0,n-full[0].length));if(n<full.join('').length)typeTimer=setTimeout(type,n===full[0].length?240:100);else finishName();};
+ typeTimer=setTimeout(type,150);
+}
+if(document.documentElement.classList.contains('intro-pending')){
+ names.forEach(n=>n.textContent='');
+ window.addEventListener('portfolio:intro-complete',startName,{once:true});
+}else startName();
 motion.addEventListener('change',()=>{if(motion.matches)finishName();});
 if('IntersectionObserver' in window){document.documentElement.classList.add('js-reveal');const reveal=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('is-visible');reveal.unobserve(e.target);}},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));}
 const listMarkup=(rows)=>'<dl class="detail-list">'+rows.map(x=>`<div class="detail-line"><dt>${safe(x.k)}</dt><dd>${safe(x.v)}</dd></div>`).join('')+'</dl>';
@@ -34,6 +45,7 @@ function renderWork(){
  $('#work-list').innerHTML=count?html:'<p class="empty-state">No matches. Try another term or choose a different category.</p>';
 }
 function openCase(slug){
+ if(slug==='watersight')slug='terrasite';
  const p=projects.find(x=>x.slug===slug);if(!p)return;
  if($('#chat-dialog').open)$('#chat-dialog').close();
  lastFocus=document.activeElement;

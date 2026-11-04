@@ -6,6 +6,7 @@ A spacious, typography-led portfolio with a serene morning lake, a typed name in
 
 - `index.html`: page structure, introduction, about, contact, and accessible dialogs.
 - `style.css`: responsive ivory/sage design, typography, and reduced-motion behavior.
+- `intro.js`: multilingual hello screen, curved reveal, skip/Escape support, reduced-motion bypass, and a fail-safe. Name typing starts after the reveal.
 - `app.js`: typing, portfolio filters/search, case studies, and chat interface.
 - `lake.js`: animated water reflections; respects pause, visibility, and reduced motion.
 - `guide.js`: browser-local chatbot retrieval and conversation context. No AI provider, key, external chat request, analytics, or persistent chat history.
@@ -16,7 +17,7 @@ A spacious, typography-led portfolio with a serene morning lake, a typed name in
 
 ## Content and navigation
 
-The home page highlights Quantitative Analyst Intern at SC Capital, Visible (Founder · Builder; independent hackathon project), and Protein Function Predictor. TerraSite is in the work archive, not Current. The protein study is explicitly in development; hypotheses and planned evaluation are not presented as achieved results.
+The home page highlights Quantitative Analyst Intern at SC Capital, Visible (Founder · Builder; independent hackathon project), and Protein Function Predictor. TerraSite is in the work archive, not Current. WaterSight is its final “Preliminary idea” section, with no standalone project entry; old WaterSight deep links open TerraSite. The protein study is explicitly in development; hypotheses and planned evaluation are not presented as achieved results.
 
 The archive includes Selected, All, Current, Internships, Research, Projects, Academics, Skills, and Leadership. Search applies within the active category. Every project opens its full case study, and project deep links use `#project/<slug>`.
 
@@ -32,7 +33,7 @@ Local browser QA covered desktop and a 390px phone layout, project details, cate
 
 ## Design references
 
-Reviewed the [Developer Portfolios directory](https://6e87v.hatchboxapp.com/) and [Emma Bostian's collection](https://github.com/emmabostian/developer-portfolios). Reference patterns: [Brittany Chiang](https://brittanychiang.com/) for readable experience, [Dennis Snellenberg](https://dennissnellenberg.com/) for typography and open work lists, [Bruno Simon](https://bruno-simon.com/) for a memorable personal environment, and [Josh W. Comeau](https://www.joshwcomeau.com/) for useful interaction. These are widely featured examples, not a verified ranking by visitor counts. No source code or imagery was copied from those portfolios.
+Reviewed the [Developer Portfolios directory](https://6e87v.hatchboxapp.com/) and [Emma Bostian's collection](https://github.com/emmabostian/developer-portfolios). Reference patterns: [Brittany Chiang](https://brittanychiang.com/) for readable experience, [Dennis Snellenberg](https://dennissnellenberg.com/) for typography and open work lists, [Bruno Simon](https://bruno-simon.com/) for a memorable personal environment, and [Josh W. Comeau](https://www.joshwcomeau.com/) for useful interaction. These are widely featured examples, not a verified ranking by visitor counts. The greeting sequence also references [Aadarsh Rai](https://aadarshrai.vercel.app/): a dark overlay, centered dot and multilingual greeting, followed by a curved upward reveal. The animation code is implemented locally. No source code or imagery was copied from those portfolios.
 
 ## Deployment
 

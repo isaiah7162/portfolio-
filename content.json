@@ -206,9 +206,10 @@
         "rows": []
       },
       {
-        "h": "The evolution",
+        "h": "Preliminary idea — WaterSight",
         "paras": [
-          "The work grew from WaterSight’s focus on water scarcity into a broader environmental intelligence platform."
+          "TerraSite began as WaterSight, a preliminary concept focused on water scarcity and water intelligence. The early prototype combined county-level Texas map data, climate information, and AI reasoning to help planners, farmers, and policymakers understand local water risks.",
+          "Presented as a 15-slide pitch at the 2026 PVAMU AI Innovation Challenge, the idea later expanded beyond water into TerraSite’s broader environmental intelligence platform. WaterSight is part of TerraSite’s development history, rather than a separate current project."
         ],
         "rows": []
       }
@@ -216,89 +217,6 @@
     "stats": [],
     "status": "In development",
     "card": "TerraSite",
-    "current": false
-  },
-  {
-    "slug": "watersight",
-    "cat": "Projects",
-    "org": "PVAMU AI Innovation Challenge",
-    "when": "2026",
-    "title": "WaterSight",
-    "blurb": "AI water intelligence for Texas, meant to reach communities before they hit crisis rather than after. It started with one storm and two very different neighborhoods.",
-    "tags": [
-      "Claude API",
-      "HTML/CSS",
-      "Climate data",
-      "Pitch"
-    ],
-    "lede": "AI-powered water intelligence that bridges the gap before communities reach crisis. A single-file app running the Claude API over county-level Texas map data, combining climate modeling with AI reasoning into plain guidance for planners, farmers, and policymakers.",
-    "stats": [
-      {
-        "n": "2.2B",
-        "label": "people facing a water crisis daily, worldwide"
-      },
-      {
-        "n": "6,000+",
-        "label": "US water systems already failing"
-      },
-      {
-        "n": "$1T",
-        "label": "needed by 2040 for US water infrastructure"
-      }
-    ],
-    "sections": [
-      {
-        "h": "Where it came from",
-        "paras": [
-          "I saw the problem driving Uber in downtown Houston. Heavy rain, water rising, sewers struggling. Ten minutes later, in a different neighborhood: waist-deep flooding, families walking through it, lost pets, infrastructure that clearly was not built for this. Same storm, same city, completely different outcome depending on the neighborhood. That gap is the whole reason WaterSight exists."
-        ],
-        "rows": []
-      },
-      {
-        "h": "The gap",
-        "paras": [
-          "Money is already pointed at this problem — $55B from the federal Infrastructure Law, $35T in ESG and impact funds, $30B+ from the World Bank across 100+ countries since 2010, $10B+ from corporates like Coca-Cola, Nestlé, and Microsoft. The problem isn't money. It's connectivity. That single line is the core of the pitch, and it is the same thesis behind Terrasite."
-        ],
-        "rows": [
-          {
-            "k": "Jackson, MS (2022)",
-            "v": "150,000 people without safe water for weeks"
-          },
-          {
-            "k": "Flint, MI",
-            "v": "100,000 people drank poisoned water for years"
-          },
-          {
-            "k": "Arizona",
-            "v": "80,000 homes built with no guaranteed water"
-          },
-          {
-            "k": "California",
-            "v": "21 million people depend on aquifers that are running dry"
-          }
-        ]
-      },
-      {
-        "h": "Model and ethics",
-        "paras": [
-          "Investors pay $25,000 a year for company water profiles, ESG scores, and investment signals. Companies pay from $10,000 a project for a featured, verified profile. Residents get water quality alerts, conservation tips, and infrastructure updates free, forever — that is the point, not a growth tactic. Equity means a free tier for underserved communities, privacy means encryption and no personal information collected, bias means auditing for geographic skew, and transparency means publishing the methodology and the inputs."
-        ],
-        "rows": []
-      },
-      {
-        "h": "The pitch",
-        "paras": [
-          "Fifteen slides at the PVAMU AI Innovation Challenge 2026, structured wide to narrow and back out: global scale, one personal story, the national crisis, the money already in play, the gap, the product, the business. The emotional anchor is Mrs. Smith in Jackson, Mississippi, turning on a faucet for her grandchildren and getting nothing, then boiling river water for weeks. The closing slide returns to her. Design was deliberately cinematic and minimal — clarity over complexity.",
-          "Growth path from there: $1–3M in year one on a Texas pilot plus other states, $5–15M by year three on municipal and API expansion, $15–20M by year five at national scale."
-        ],
-        "rows": [
-          {
-            "k": "Demo",
-            "v": "youtube.com/watch?v=0uGwtixcti0"
-          }
-        ]
-      }
-    ],
     "current": false
   },
   {

@@ -2,7 +2,7 @@
 const stop = new Set('a an the is are was were be been being i me my you your yours he him his she they them their it its this that these those what which who how why when where can could would should do does did have has had about tell more please want know give show explain with and or of for at in on to from as by work project projects experience isaiah hawkins'.split(' '));
 export const words = text => (String(text).toLowerCase().match(/[a-z0-9+#]+/g)||[]).filter(x=>!stop.has(x));
 const normalize = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-const aliases = {jarvis:['disney','jarvis','imagineering'],quant:['quant','quantitative','sc capital','trading','market'],visible:['visible','health app','wellness'], 'protein-function-predictor':['protein','proteam','esm','deepgoplus','cafa'],terrasite:['terrasite','watersight','environment']};
+const aliases = {jarvis:['disney','jarvis','imagineering'],quant:['quant','quantitative','sc capital','trading','market'],visible:['visible','health app','wellness'], 'protein-function-predictor':['protein','proteam','esm','deepgoplus','cafa'],terrasite:['terrasite','watersight','water sight','environment']};
 const link = p => ({label:p.title,slug:p.slug});
 const summary = p => `${p.title} — ${p.org} (${p.when}).\n${p.lede || p.blurb}`;
 const details = p => p.sections.flatMap(s=>s.paras||[]);
@@ -28,6 +28,10 @@ export function answerQuestion(question, projects, profile, context={}) {
  if(candidates.length){
    if(candidates.length>1)return answer(candidates.slice(0,3).map(summary).join('\n\n'),candidates.slice(0,3).map(link),candidates.slice(0,3).map(p=>p.slug));
    const p=candidates[0];
+   if(/\b(watersight|water sight|preliminary|original idea)\b/.test(q) && p.slug==='terrasite'){
+    const origin=p.sections.find(s=>s.h.includes('WaterSight'));
+    return answer(origin.h+'\n\n'+origin.paras.join('\n\n'),[link(p)],[p.slug]);
+   }
    if(/\b(stack|tools|technologies|languages|skills)\b/.test(q))return answer(`${p.title}\n\nListed technologies and focus areas: ${p.tags.join(', ')}.\n\n${p.lede}`, [link(p)],[p.slug]);
    const sections=p.sections.map(s=>({s,score:words(s.h+' '+(s.paras||[]).join(' ')).filter(w=>tokens.includes(w)).length})).sort((a,b)=>b.score-a.score);
    const focus=/\b(result|results|accuracy|evaluation|evaluate|performance|status|stage|planned)\b/.test(q)?p.sections.filter(s=>/evaluation|stage|planned|result/i.test(s.h)):[];
