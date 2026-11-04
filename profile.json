@@ -1,0 +1,491 @@
+{
+  "skills": [
+    {
+      "k": "Languages",
+      "items": [
+        {
+          "n": "Python",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "TypeScript",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "JavaScript",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "C++",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Java",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "SQL",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "HTML",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "AI / ML",
+      "items": [
+        {
+          "n": "PyTorch",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Claude API",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "OpenAI",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "MCP",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Agentic workflows",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "RAG",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Deep learning",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Neural networks",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "LiteLLM",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Prompt engineering",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Hugging Face",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Frameworks",
+      "items": [
+        {
+          "n": "React",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Next.js",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Node.js",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Flask",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "FastAPI",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Three.js",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Temporal",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Data",
+      "items": [
+        {
+          "n": "Pandas",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "NumPy",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "scikit-learn",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Plotly",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Datadog",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Airtable",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Text analytics",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Log analysis",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Infrastructure",
+      "items": [
+        {
+          "n": "Docker",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Linux",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Git",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "GitHub",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "GitLab",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "PostgreSQL",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Redis",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Supabase",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Qdrant",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "OpenSearch",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Playwright",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Evaluation",
+      "items": [
+        {
+          "n": "BFCL / Gorilla",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Deterministic scoring",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Median-of-N runs",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "SME test suites",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Braintrust",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Foundations",
+      "items": [
+        {
+          "n": "Data structures",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Algorithms",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Operating systems",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Computer organization",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Parallel computing",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Hardware analysis",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Optimization techniques",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Working with people",
+      "items": [
+        {
+          "n": "Delegation",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Engineering leadership",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Cross-org collaboration",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Small group facilitation",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "CS education",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Professional communication",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    },
+    {
+      "k": "Tools",
+      "items": [
+        {
+          "n": "Cursor",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Obsidian",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Excel",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "QuickBooks",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Photoshop",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Figma",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
+    }
+  ],
+  "orgs": [
+    {
+      "k": "Saving The Power Foundation",
+      "v": "Ambassador"
+    },
+    {
+      "k": "SummerHouse",
+      "v": "Fellow, E-Board"
+    },
+    {
+      "k": "YES \u2014 Black Student Excellence",
+      "v": "Board Member"
+    },
+    {
+      "k": "Mission Hope Outreach",
+      "v": "E-Board Member"
+    },
+    {
+      "k": "NSBE",
+      "v": "Member, National Society of Black Engineers"
+    },
+    {
+      "k": "ACM",
+      "v": "Member, Association for Computing Machinery"
+    },
+    {
+      "k": "Chevron Leadership Academy",
+      "v": "Participant"
+    },
+    {
+      "k": "Team Panther Rangers",
+      "v": "Co-founder \u2014 Vital Handoff"
+    }
+  ],
+  "degree": [
+    {
+      "k": "Degree",
+      "v": "Computer Science"
+    },
+    {
+      "k": "Expected",
+      "v": "May 2027 \u2014 senior year as of Fall 2026"
+    },
+    {
+      "k": "Standing",
+      "v": "Dean's List 2023\u20132025"
+    }
+  ],
+  "coursework": [
+    "Data Structures",
+    "Algorithms",
+    "Operating Systems",
+    "Computer Organization",
+    "Software Engineering",
+    "Artificial Intelligence",
+    "Information Retrieval",
+    "Database Management",
+    "Data Analysis",
+    "Discrete Structures",
+    "Web Design",
+    "Ethics in Computing"
+  ],
+  "certs": [
+    "Microsoft Excel",
+    "QuickBooks",
+    "GRC Professional \u2014 Governance, Risk, and Compliance",
+    "Financial modeling",
+    "Business Etiquette: Phone, Email, and Text \u2014 LinkedIn, Feb 2025",
+    "Lifeguarding, Adult CPR and First Aid \u2014 American Pool"
+  ],
+  "awards": [
+    {
+      "k": "Vista Agentic AI Hackathon",
+      "v": "Finalist \u2014 national team-based innovation challenge",
+      "m": "Jul 2025 \u00b7 Washington, DC"
+    },
+    {
+      "k": "Apple Propel Hackathon",
+      "v": "3rd overall",
+      "m": "April 2026"
+    },
+    {
+      "k": "InternXL Hackathon",
+      "v": "4th overall, among thousands of applicants",
+      "m": "2025"
+    },
+    {
+      "k": "PVAMU AI Innovation Challenge",
+      "v": "WaterSight \u2014 15-slide pitch",
+      "m": "2026 \u00b7 Prairie View A&M"
+    },
+    {
+      "k": "Vital Handoff pitch",
+      "v": "Co-founded with Joel Daniels and Kamron Wright",
+      "m": "2026 \u00b7 Prairie View A&M"
+    },
+    {
+      "k": "Dean's List",
+      "v": "2023 \u2013 2025",
+      "m": "Prairie View A&M"
+    }
+  ]
+}

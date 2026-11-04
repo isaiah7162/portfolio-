@@ -1,44 +1,39 @@
-# Isaiah Hawkins · iisaiah.com
+# Isaiah Hawkins — Portfolio
 
-The original tabbed portfolio, now with a calm morning-lake scene, with icons removed and updated experience from the November 2, 2026 résumé and current project context. React and the original rendering runtime are bundled locally. The broader redesign is deferred.
+A spacious, typography-led portfolio with a serene morning lake, a typed name introduction, open project rows, full case studies, and a visitor chatbot that answers from the published portfolio.
 
-## Preview
+## Files
 
-Run `python3 -m http.server 8000` from this directory, then open http://localhost:8000.
+- `index.html`: page structure, introduction, about, contact, and accessible dialogs.
+- `style.css`: responsive ivory/sage design, typography, and reduced-motion behavior.
+- `app.js`: typing, portfolio filters/search, case studies, and chat interface.
+- `lake.js`: animated water reflections; respects pause, visibility, and reduced motion.
+- `guide.js`: browser-local chatbot retrieval and conversation context. No AI provider, key, external chat request, analytics, or persistent chat history.
+- `content.json`: project and experience facts, shared by project views and the chatbot.
+- `profile.json`: skills, academic details, organizations, and recognition recovered from the prior site.
+- `assets/morning-lake.webp`: existing generated landscape artwork.
+- `assets/Isaiah-Hawkins-Resume.pdf`: supplied résumé.
 
-## Update
+## Content and navigation
 
-- `index.html`: original template, inline project data, tab logic, skills, and morning-lake animation.
-- `assets/morning-lake.webp`: generated landscape artwork, optimized for the hero.
-- Water movement pauses offscreen, when the tab is hidden, and for reduced-motion preferences. A visible pause control is available.
-- `content.json`: matching project data snapshot. Keep this and the inline PROJECTS array synchronized when editing entries.
-- `assets/`: recovered fonts, React, original runtime, and latest résumé PDF.
-- Tabs: Current, Internships, Research, Projects, Academics, Skills, Leadership. Current is the default tab and uses the explicit `current: true` flag on project records.
-- Updated entries: Disney, SC Capital (Quantitative Analyst Intern under Internships and Research), TerraSite, Visible, the protein function predictor (Research and Projects), LSAMP, and the hackathon record.
+The home page highlights Quantitative Analyst Intern at SC Capital, Visible (Founder · Builder; independent hackathon project), and Protein Function Predictor. TerraSite is in the work archive, not Current. The protein study is explicitly in development; hypotheses and planned evaluation are not presented as achieved results.
 
-## GitHub and Vercel
+The archive includes Selected, All, Current, Internships, Research, Projects, Academics, Skills, and Leadership. Search applies within the active category. Every project opens its full case study, and project deep links use `#project/<slug>`.
 
-Repository: https://github.com/isaiah7162/portfolio-
+## Chatbot
 
-To connect a local checkout:
+Visitors can ask about current work, projects, experience, skills, education, recognition, and contact details. Answers are assembled from the same portfolio facts and include links to supporting entries. Project context is retained for follow-ups. Unsupported questions return a clear limitation and a contact link. This is a local retrieval chatbot, not a generative language model or a live conversation with Isaiah. Chat is kept in memory only and can be cleared.
 
-```sh
-git remote add origin https://github.com/isaiah7162/portfolio-.git
-git push -u origin main
-```
+## Run and verify
 
-In the existing Vercel project for iisaiah.com, connect this repository under Settings → Git. Select framework preset Other, use the repository root, leave the build command empty, and use `.` as the output directory. Keep the existing custom domain assigned to that project. If existing framework overrides are present, clear them to match this static configuration.
+Serve the repository with any static web server. No install or build step is needed. Run `python3 scripts/check.py` to validate local assets, JavaScript syntax, data constraints, and chatbot behavior. The guide checks also cover contextual follow-ups, comparisons, unsupported facts, current-project membership, and references.
 
-Use a branch and pull request for updates. Vercel can create preview deployments for pull requests and deploy the production branch after merge. The source is maintained on GitHub. Connecting the existing Vercel project is still required.
+Local browser QA covered desktop and a 390px phone layout, project details, category filtering, search, typed-name completion, chatbot answers and links. Motion has a pause control and reduced-motion handling.
 
-## Verification
+## Design references
 
-```sh
-python3 scripts/check.py
-```
+Reviewed the [Developer Portfolios directory](https://6e87v.hatchboxapp.com/) and [Emma Bostian's collection](https://github.com/emmabostian/developer-portfolios). Reference patterns: [Brittany Chiang](https://brittanychiang.com/) for readable experience, [Dennis Snellenberg](https://dennissnellenberg.com/) for typography and open work lists, [Bruno Simon](https://bruno-simon.com/) for a memorable personal environment, and [Josh W. Comeau](https://www.joshwcomeau.com/) for useful interaction. These are widely featured examples, not a verified ranking by visitor counts. No source code or imagery was copied from those portfolios.
 
-The Python check verifies local assets, unique project slugs, icon removal, JavaScript syntax, and tab data. It does not replace visual or browser interaction testing.
+## Deployment
 
-## Content notes
-
-Updated November 4, 2026. The latest résumé is the authority for employment, research results, technical skills, TerraSite, and hackathon placements. Visible is an independent hackathon project with the role Founder · Builder, presented as a prototype using illustrative data. Current includes SC Capital, Visible, and the protein function predictor; TerraSite remains under Projects. On Record, Vista, FinSight, and TACC descriptions are recovered from the public website. The Disney summary uses the résumé's high-level description. No performance claims have been invented. The résumé's degree wording differs from the former site, so the portfolio uses “computer science” without expanding a degree abbreviation.
+Existing Vercel project: `bundled-page`, team `zay22`. GitHub: `isaiah7162/portfolio-`. Changes are saved to GitHub and deployed as Vercel previews. Production promotion and automatic Git deployment connection have not been configured by this update. The existing production domain remains unchanged.
