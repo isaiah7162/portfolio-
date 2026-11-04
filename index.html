@@ -541,11 +541,19 @@ class Component extends DCLogic {
       ctx.beginPath();
       ctx.moveTo(w * .10, top); ctx.lineTo(w * .73, top);
       ctx.lineTo(w * .86, bottom); ctx.lineTo(w * .14, bottom); ctx.closePath(); ctx.clip();
-      for (let y = top; y < bottom; y += 3) {
+      for (let y = top; y < bottom; y += 2) {
         const depth = (y - top) / Math.max(1, bottom - top);
         const envelope = Math.sin(depth * Math.PI);
-        const shift = Math.sin(y * .045 + clock * .00035) * envelope * .9;
-        ctx.drawImage(base, 0, y * dpr, base.width, 3 * dpr, shift, y, w, 3);
+        // Layer slow swells and smaller ripples so reflections visibly drift.
+        const swell = y * .045 + clock * .00065;
+        const ripple = y * .105 - clock * .0009;
+        const strength = envelope * (.65 + depth * .65);
+        const shift = (Math.sin(swell) * 4.8 + Math.sin(ripple) * 1.8) * strength;
+        const lift = Math.cos(swell * .85) * 1.3 * strength;
+        ctx.drawImage(base, 0, (y + lift) * dpr, base.width, 2 * dpr, shift, y, w, 2);
+        // Soft moving light catches the wave crests without sparkling or flashing.
+        ctx.fillStyle = "rgba(235,248,241," + ((Math.sin(ripple) + 1) * .018 * envelope) + ")";
+        ctx.fillRect(0, y, w, 2);
       }
       ctx.restore();
     };
