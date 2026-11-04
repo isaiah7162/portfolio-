@@ -11,8 +11,8 @@ Run `python3 -m http.server 8000` from this directory, then open http://localhos
 - `index.html`: original template, inline project data, tab logic, skills, and waterfront scene.
 - `content.json`: matching project data snapshot. Keep this and the inline PROJECTS array synchronized when editing entries.
 - `assets/`: recovered fonts, React, original runtime, and latest résumé PDF.
-- Original tabs: Internships, Research, Projects, Academics, Skills, Leadership.
-- Updated entries: Disney, SC Capital, TerraSite, Visible, LSAMP, and hackathon record.
+- Tabs: Current, Internships, Research, Projects, Academics, Skills, Leadership. Current is the default tab and uses the explicit `current: true` flag on project records.
+- Updated entries: Disney, SC Capital (Quant Analyst under Internships and Research), TerraSite, Visible, the protein function predictor (Research and Projects), LSAMP, and the hackathon record.
 
 ## GitHub and Vercel
 
@@ -39,4 +39,4 @@ The Python check verifies local assets, unique project slugs, icon removal, Java
 
 ## Content notes
 
-Updated November 3, 2026. The latest résumé is the authority for employment, research results, technical skills, TerraSite, and hackathon placements. Visible is explicitly presented as a prototype using illustrative data. On Record, Vista, FinSight, and TACC descriptions are recovered from the public website. The Disney summary uses the résumé's high-level description. No performance claims have been invented. The résumé's degree wording differs from the former site, so the portfolio uses “computer science” without expanding a degree abbreviation.
+Updated November 4, 2026. The latest résumé is the authority for employment, research results, technical skills, TerraSite, and hackathon placements. Visible is explicitly presented as a prototype using illustrative data. On Record, Vista, FinSight, and TACC descriptions are recovered from the public website. The Disney summary uses the résumé's high-level description. No performance claims have been invented. The résumé's degree wording differs from the former site, so the portfolio uses “computer science” without expanding a degree abbreviation.

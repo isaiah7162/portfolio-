@@ -7,7 +7,7 @@ page=(root/'index.html').read_text()
 projects=json.loads((root/'content.json').read_text())
 assert len({p['slug'] for p in projects})==len(projects)
 assert 'cdn.simpleicons.org' not in page and 'it.hasIcon' not in page
-assert 'const TABS = ["Internships", "Research", "Projects", "Academics", "Skills", "Leadership"]' in page
+assert 'const TABS = ["Current", "Internships", "Research", "Projects", "Academics", "Skills", "Leadership"]' in page
 class Assets(HTMLParser):
  def handle_starttag(self, tag, attrs):
   a=dict(attrs)
@@ -22,4 +22,9 @@ with tempfile.NamedTemporaryFile(suffix='.js',mode='w') as f:
 harness='const React={createRef:()=>({current:null})}; class DCLogic {}\n'+script+'''\nconst c=new Component(); c.props={}; for(const tab of TABS){c.state.tab=tab;const v=c.renderVals();if(v.showCards && !v.projects.length)throw Error("Empty tab "+tab);if(v.projects.some(p=>!p.title))throw Error("Missing title");console.log(tab+": "+v.tabCount);}'''
 subprocess.run(['node','-e',harness],check=True)
 assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF')
-print('PASS: assets, icon removal, JavaScript syntax, original tabs and current résumé.')
+inline=json.loads(re.search(r'const PROJECTS = (.*?);\nconst SKIES',page,re.S)[1])
+assert inline==projects, 'Inline data and content.json disagree'
+quant=next(x for x in projects if x['slug']=='quant')
+assert quant['title']==quant['card']=='Quant Analyst' and quant['cat']=='Internships'
+assert {x['slug'] for x in projects if x.get('current')}=={'quant','visible','terrasite','protein-function-predictor'}
+print('PASS: assets, icon removal, syntax, tabs, Quant Analyst, Current membership, and synced project data.')

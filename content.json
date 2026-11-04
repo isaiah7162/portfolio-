@@ -37,12 +37,13 @@
     ],
     "stats": [],
     "status": "Internship",
-    "card": "Software Developer"
+    "card": "Software Developer",
+    "current": false
   },
   {
     "slug": "quant",
-    "title": "Quantitative research & execution",
-    "cat": "Research",
+    "title": "Quant Analyst",
+    "cat": "Internships",
     "org": "SC Capital",
     "when": "Fall 2026–Spring 2027",
     "lede": "Research tools and careful systems design for market analysis.",
@@ -76,7 +77,67 @@
     ],
     "stats": [],
     "status": "Ongoing",
-    "card": "Quantitative Researcher"
+    "card": "Quant Analyst",
+    "current": true,
+    "also": "Research"
+  },
+  {
+    "slug": "protein-function-predictor",
+    "cat": "Research",
+    "also": "Projects",
+    "current": true,
+    "org": "ProTeam · Prairie View A&M University",
+    "when": "Fall 2026–present",
+    "title": "Protein Function Predictor",
+    "card": "Protein Function Predictor",
+    "status": "In development",
+    "blurb": "Exploring AI-based protein function prediction from amino-acid sequences.",
+    "lede": "Developing a protein function prediction project and a focused research study on how protein language-model representations generalize to less familiar sequences.",
+    "tags": [
+      "Protein function prediction",
+      "ESM-2",
+      "Gene Ontology",
+      "CAFA3",
+      "UniProt"
+    ],
+    "stats": [],
+    "sections": [
+      {
+        "h": "What I am building",
+        "paras": [
+          "A protein function prediction system that takes amino-acid sequences as input and predicts Gene Ontology labels describing protein activity, biological roles, and cellular location. The project is in development."
+        ],
+        "rows": []
+      },
+      {
+        "h": "My contribution",
+        "paras": [
+          "My work with ProTeam includes the project overview, system architecture, presentations, and dashboard planning."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Research question",
+        "paras": [
+          "Can a model using ESM-2 protein sequence embeddings improve function prediction compared with a DeepGOPlus-style baseline, especially for proteins with low similarity to the training data?"
+        ],
+        "rows": []
+      },
+      {
+        "h": "Planned approach",
+        "paras": [
+          "Compare a lightweight multi-label classifier on frozen ESM-2 embeddings with a DeepGOPlus-style baseline using consistent labels, data partitions, and evaluation rules. Start with molecular function and use CAFA3 alongside a fixed UniProtKB/Swiss-Prot release."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Evaluation and current stage",
+        "paras": [
+          "The planned evaluation reports Fmax and area under the precision-recall curve, both overall and for a predefined low-similarity subset. The expected output is a reproducible comparison, performance charts, and an analysis of model limitations. Improvements remain hypotheses to test; experimental results are not yet claimed."
+        ],
+        "rows": []
+      }
+    ]
   },
   {
     "slug": "visible",
@@ -114,7 +175,8 @@
       }
     ],
     "stats": [],
-    "status": "Prototype"
+    "status": "Prototype",
+    "current": true
   },
   {
     "slug": "terrasite",
@@ -153,7 +215,8 @@
     ],
     "stats": [],
     "status": "In development",
-    "card": "TerraSite"
+    "card": "TerraSite",
+    "current": true
   },
   {
     "slug": "watersight",
@@ -235,7 +298,8 @@
           }
         ]
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "vital",
@@ -306,7 +370,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "pruning",
@@ -345,7 +410,8 @@
     ],
     "stats": [],
     "status": "Research",
-    "card": "Smaller networks. Faster inference."
+    "card": "Smaller networks. Faster inference.",
+    "current": false
   },
   {
     "slug": "finsight",
@@ -384,7 +450,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "vista",
@@ -418,7 +485,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "hackathons",
@@ -490,7 +558,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "summerhouse",
@@ -524,7 +593,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "tacc",
@@ -566,7 +636,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "onrecord",
@@ -704,7 +775,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "onrecord-research",
@@ -851,7 +923,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "slingo",
@@ -875,7 +948,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "cookbook",
@@ -899,7 +973,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "americanpool",
@@ -925,7 +1000,8 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   },
   {
     "slug": "bahamabucks",
@@ -949,6 +1025,7 @@
         ],
         "rows": []
       }
-    ]
+    ],
+    "current": false
   }
 ]
