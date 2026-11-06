@@ -1,4 +1,5 @@
 import {createUniverse} from './space.js';
+import {createProjectView} from './project-view.js';
 import {answerQuestion} from './guide.js';
 const $=s=>document.querySelector(s);
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -7,6 +8,7 @@ let projects=[],profile={},activeFilter='Selected',chatContext={},lastFocus=null
 const categories=['Selected','All','Current','Internships','Research','Projects','Academics','Skills','Leadership'];
 const featured=['jarvis','visible','protein-function-predictor','terrasite'];
 const universe=createUniverse($('#universe'),$('#celestial-map'),$('#pause-space'));
+const projectView=createProjectView($('#case-dialog'));
 $('#replay-intro').addEventListener('click',()=>window.dispatchEvent(new Event('portfolio:replay-intro')));
 // Type once, reserving the complete two-line name to prevent layout movement.
 const full=['Isaiah','Hawkins'],names=[$('#first-name'),$('#last-name')];
@@ -46,15 +48,14 @@ function renderWork(){
  $('#result-count').textContent=`${activeFilter} / ${count} ${count===1?'entry':'entries'}`;
  $('#work-list').innerHTML=count?html:'<p class="empty-state">No matches. Try another term or choose a different category.</p>';
 }
-function openCase(slug){
+function openCase(slug,origin=document.activeElement){
  if(slug==='watersight')slug='terrasite';
  const p=projects.find(x=>x.slug===slug);if(!p)return;
- if($('#chat-dialog').open)$('#chat-dialog').close();
- lastFocus=document.activeElement;
+ if($('#chat-dialog').open){$('#chat-dialog').close();origin=lastFocus||$('#home');}
  $('#case-content').innerHTML=`<p class="eyebrow">${safe(p.cat)} · ${safe(p.org)} · ${safe(p.when)}</p><h2 id="case-title">${safe(p.title)}</h2><p class="case-lede">${safe(p.lede||p.blurb)}</p><p class="case-tags">${p.tags.map(safe).join(' / ')}</p>${p.stats?.length?'<dl class="case-stats">'+p.stats.map(s=>`<div><dt>${safe(s.n)}</dt><dd>${safe(s.label)}</dd></div>`).join('')+'</dl>':''}${p.sections.map(s=>`<section class="case-section"><h3>${safe(s.h)}</h3><div>${(s.paras||[]).map(p=>`<p>${safe(p)}</p>`).join('')}${s.rows?.length?'<dl>'+s.rows.map(r=>`<dt>${safe(r.k)}</dt><dd>${safe(r.v)}</dd>`).join('')+'</dl>':''}</div></section>`).join('')}<button class="text-link case-ask" data-question="Tell me more about ${safe(p.title)}">Ask about this work <span aria-hidden="true">↗</span></button>`;
- $('#case-dialog').showModal();$('#case-dialog').scrollTop=0;history.replaceState(null,'','#project/'+p.slug);
+ $('#case-title').tabIndex=-1;projectView.open(p.slug,origin);
 }
-function openChat(){if($('#case-dialog').open)$('#case-dialog').close();if(!$('#chat-dialog').open){lastFocus=document.activeElement;$('#chat-dialog').showModal();}$('#chat-input').focus();}
+function openChat(){if($('#case-dialog').open)projectView.close({immediate:true});if(!$('#chat-dialog').open){lastFocus=document.activeElement;$('#chat-dialog').showModal();}$('#chat-input').focus();}
 function addMessage(text,role,sources=[]){const el=document.createElement('div');el.className='message '+role;const p=document.createElement('p');p.textContent=text;el.append(p);
  if(sources.length){const refs=document.createElement('div');refs.className='sources';for(const s of sources){let a;if(s.slug||s.filter){a=document.createElement('button');if(s.slug)a.dataset.project=s.slug;else a.dataset.chatFilter=s.filter;}else{a=document.createElement('a');a.href=s.href;if(s.href.startsWith('http')||s.href.endsWith('.pdf')){a.target='_blank';a.rel='noopener';}}a.textContent=s.label;refs.append(a);}el.append(refs);}
  $('#chat-log').append(el);$('#chat-log').scrollTop=$('#chat-log').scrollHeight;
@@ -64,16 +65,16 @@ document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;
  if(b.hasAttribute('data-chat-open'))openChat();
  else if(b.dataset.question)ask(b.dataset.question);
- else if(b.dataset.project)openCase(b.dataset.project);
+ else if(b.dataset.project)openCase(b.dataset.project,b);
  else if(b.dataset.filter)setFilter(b.dataset.filter);
  else if(b.dataset.chatFilter){$('#chat-dialog').close();setFilter(b.dataset.chatFilter);$('#work').scrollIntoView({behavior:motion.matches?'instant':'smooth'});}
 });
 $('#work-search').addEventListener('input',renderWork);
 $('#chat-form').addEventListener('submit',e=>{e.preventDefault();ask($('#chat-input').value);});
-$('#close-case').addEventListener('click',()=>$('#case-dialog').close());$('#close-chat').addEventListener('click',()=>$('#chat-dialog').close());
-for(const dialog of [$('#case-dialog'),$('#chat-dialog')]){
+$('#close-chat').addEventListener('click',()=>$('#chat-dialog').close());
+for(const dialog of [$('#chat-dialog')]){
  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
- dialog.addEventListener('close',()=>{if(dialog.id==='case-dialog'&&location.hash.startsWith('#project/'))history.replaceState(null,'','#work');if(lastFocus?.isConnected)lastFocus.focus();});
+ dialog.addEventListener('close',()=>{if(lastFocus?.isConnected)lastFocus.focus({preventScroll:true});});
 }
 $('#clear-chat').addEventListener('click',()=>{chatContext={};$('#chat-log').replaceChildren();addMessage('A fresh start. Ask me about Isaiah’s projects, experience, or skills.','assistant');$('#chat-input').focus();});
 $('#chat-log').addEventListener('click',e=>{const a=e.target.closest('a');if(a?.getAttribute('href').startsWith('#'))$('#chat-dialog').close();});
@@ -84,4 +85,4 @@ try{
  universe.setProjects(projects);
  renderWork();if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));
 }catch(err){$('#work-list').innerHTML='<p class="empty-state">The portfolio details could not be loaded. Please refresh the page or <a href="assets/Isaiah-Hawkins-Resume.pdf">read the résumé</a>.</p>';$('#current-list').innerHTML='<p class="empty-state">Project details are temporarily unavailable.</p>';}
-window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));});
+window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));else projectView.close({immediate:true,focus:false,history:false});});

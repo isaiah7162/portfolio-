@@ -20,8 +20,8 @@ export const destinations = [
  {slug:'bahamabucks',kind:'other',label:'Bahama Buck’s',x:72,y:82,mx:10,my:85,desktop:true}
 ];
 const rand = seed => () => {seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};
-function planet(canvas,kind){
- const size=180;canvas.width=canvas.height=size;const ctx=canvas.getContext('2d'),im=ctx.createImageData(size,size);
+export function paintPlanet(canvas,kind,size=180){
+ canvas.width=canvas.height=size;const ctx=canvas.getContext('2d'),im=ctx.createImageData(size,size);
  for(let y=0;y<size;y++)for(let x=0;x<size;x++){
   const nx=(x-size/2)/(size/2-3),ny=(y-size/2)/(size/2-3),r2=nx*nx+ny*ny;if(r2>1)continue;
   const z=Math.sqrt(1-r2),lon=Math.atan2(nx,z),lat=Math.asin(ny);
@@ -37,14 +37,18 @@ function planet(canvas,kind){
 }
 export function createUniverse(canvas,map,pause){
  const ctx=canvas.getContext('2d'),motion=matchMedia('(prefers-reduced-motion: reduce)');
- let w=0,h=0,dpr=1,raf=0,last=0,time=0,paused=false,visible=true,filter='all',active='',nodes=[];
+ let w=0,h=0,dpr=1,raf=0,last=0,time=0,paused=false,visible=true,projectOpen=false,filter='all',active='',nodes=[];
+ let pointer={x:0,y:0},depth={x:0,y:0};
  const random=rand(7162),stars=Array.from({length:750},()=>({x:random(),y:random(),r:.25+random()**4*1.65,a:.18+random()*.6,phase:random()*6.28,speed:.00015+random()*.00035}));
  const dust=Array.from({length:650},()=>{const p=random(),spread=(random()+random()+random()-1.5)*.17;return {x:.08+p*.9,y:.89-p*.65+spread,r:random()*1.1,a:random()*.16};});
  const background=document.createElement('canvas'),bg=background.getContext('2d');
  const at=n=>({x:(w<=600?n.mx:n.x)*w/100,y:(w<=600?n.my:n.y)*h/100});
  function paint(){
   if(!ctx||!w||!h)return;ctx.clearRect(0,0,w,h);ctx.drawImage(background,0,0,w,h);
-  for(const s of stars){const a=s.a*(.74+.26*Math.sin(time*s.speed+s.phase));ctx.fillStyle=`rgba(196,212,255,${a})`;ctx.beginPath();ctx.arc(s.x*w,s.y*h,s.r,0,Math.PI*2);ctx.fill();}
+  const still=paused||motion.matches;
+  for(const s of stars){const a=s.a*(.65+.35*Math.sin(time*s.speed*2+s.phase));const drift=still?0:Math.sin(time*.00006+s.phase)*4;ctx.fillStyle=`rgba(196,212,255,${a})`;ctx.beginPath();ctx.arc(s.x*w+depth.x*s.r*7+drift,s.y*h+depth.y*s.r*5,s.r,0,Math.PI*2);ctx.fill();}
+  // Infrequent, short meteor trails. The shared clock stops with the pause control.
+  if(!still){const cycle=Math.floor(time/11000),p=(time%11000-4300)/1300;if(p>0&&p<1){const sx=w*(.28+(cycle%3)*.21),sy=h*(.12+(cycle%2)*.12),x=sx+p*210,y=sy+p*105,alpha=Math.sin(p*Math.PI)*.7;const trail=ctx.createLinearGradient(x-100,y-50,x,y);trail.addColorStop(0,'rgba(176,199,255,0)');trail.addColorStop(1,`rgba(215,230,255,${alpha})`);ctx.strokeStyle=trail;ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(x-100,y-50);ctx.lineTo(x,y);ctx.stroke();ctx.fillStyle=`rgba(244,248,255,${alpha})`;ctx.beginPath();ctx.arc(x,y,1.7,0,Math.PI*2);ctx.fill();}}
   const connections=[['jarvis','slingo'],['slingo','pruning'],['jarvis','vital'],['jarvis','terrasite'],['terrasite','vista'],['terrasite','onrecord'],['visible','finsight'],['visible','protein-function-predictor'],['quant','tacc']];
   for(const [a,b] of connections){const na=nodes.find(n=>n.slug===a),nb=nodes.find(n=>n.slug===b);if(!na||!nb||(w<=600&&(na.desktop||nb.desktop)))continue;if(filter!=='all'&&(na.kind!==filter||nb.kind!==filter))continue;const p=at(na),q=at(nb);const highlight=active===a||active===b;ctx.strokeStyle=highlight?'rgba(154,183,246,.37)':'rgba(141,166,219,.09)';ctx.lineWidth=highlight?1:.65;ctx.setLineDash(highlight?[]:[2,7]);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}
   ctx.setLineDash([]);
@@ -56,9 +60,13 @@ export function createUniverse(canvas,map,pause){
  }
  function resize(){const r=canvas.getBoundingClientRect();w=Math.round(r.width);h=Math.round(r.height);dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx?.setTransform(dpr,0,0,dpr,0,0);makeBackground();paint();updateStatus();}
  function updateStatus(){const visibleNodes=nodes.filter(n=>(filter==='all'||n.kind===filter)&&!(w<=600&&n.desktop));document.querySelector('#map-status').textContent=`${visibleNodes.length} destinations shown. ${w<=600?'All projects are available in list view.':''}`;}
- function frame(now){raf=0;if(paused||motion.matches||document.hidden||!visible)return;if(!last||now-last>=32){time+=last?Math.min(now-last,80):0;last=now;paint();}raf=requestAnimationFrame(frame);}
- function resume(){cancelAnimationFrame(raf);last=0;document.body.classList.toggle('space-motion-paused',paused||motion.matches||document.hidden||!visible);paint();if(!paused&&!motion.matches&&!document.hidden&&visible)raf=requestAnimationFrame(frame);}
- pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?'Resume motion':'Pause motion';pause.setAttribute('aria-pressed',String(paused));resume();});
+ function frame(now){raf=0;if(paused||motion.matches||document.hidden||!visible||projectOpen)return;if(!last||now-last>=32){time+=last?Math.min(now-last,80):0;last=now;depth.x+=(pointer.x-depth.x)*.07;depth.y+=(pointer.y-depth.y)*.07;paint();}raf=requestAnimationFrame(frame);}
+ function resume(){cancelAnimationFrame(raf);last=0;document.body.classList.toggle('space-motion-paused',paused||motion.matches||document.hidden||!visible||projectOpen);document.body.classList.toggle('space-user-paused',paused||motion.matches);motionControls.forEach(control=>{control.disabled=motion.matches;control.textContent=motion.matches?'Motion reduced':paused?'Resume motion':'Pause motion';control.setAttribute('aria-pressed',String(paused||motion.matches));});paint();if(!paused&&!motion.matches&&!document.hidden&&visible&&!projectOpen)raf=requestAnimationFrame(frame);}
+ canvas.parentElement.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||paused||motion.matches)return;const r=canvas.getBoundingClientRect();pointer={x:(e.clientX-r.left)/w-.5,y:(e.clientY-r.top)/h-.5};});
+ canvas.parentElement.addEventListener('pointerleave',()=>{pointer={x:0,y:0};});
+ window.addEventListener('portfolio:project-state',e=>{projectOpen=e.detail.open;resume();});
+ const motionControls=[pause,...document.querySelectorAll('[data-space-motion]')];
+ motionControls.forEach(button=>button.addEventListener('click',()=>{paused=!paused;motionControls.forEach(control=>{control.textContent=paused?'Resume motion':'Pause motion';control.setAttribute('aria-pressed',String(paused));});resume();}));
  document.querySelectorAll('[data-map-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.mapFilter;document.querySelectorAll('[data-map-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));map.querySelectorAll('.celestial-node').forEach(x=>x.hidden=filter!=='all'&&x.dataset.kind!==filter);updateStatus();paint();}));
  map.addEventListener('pointerover',e=>{active=e.target.closest('[data-project]')?.dataset.project||'';paint();});map.addEventListener('pointerleave',()=>{active='';paint();});map.addEventListener('focusin',e=>{active=e.target.closest('[data-project]')?.dataset.project||'';paint();});map.addEventListener('focusout',()=>{active='';paint();});
  new ResizeObserver(resize).observe(canvas);new IntersectionObserver(es=>{visible=es[0].isIntersecting;document.body.classList.toggle('space-in-view',visible);resume();}).observe(canvas);document.addEventListener('visibilitychange',resume);motion.addEventListener('change',resume);resize();resume();
@@ -67,7 +75,7 @@ export function createUniverse(canvas,map,pause){
   for(const n of nodes){const p=projects.find(p=>p.slug===n.slug);const button=document.createElement('button');button.className=`celestial-node ${n.kind}${n.primary?' primary':''}${n.desktop?' map-desktop-only':''}`;button.dataset.project=n.slug;button.dataset.kind=n.kind;button.setAttribute('aria-label',`${p.title} — ${n.kind==='current'?'current project, planet':n.kind==='featured'?'featured work, bright star':'other work, star'}`);
    for(const [k,v]of Object.entries({x:n.x+'%',y:n.y+'%',mx:n.mx+'%',my:n.my+'%',glow:n.slug==='terrasite'?'#9ac7ff99':'#b5a4ff99',halo:n.planet==='ocean'?'#4da9af44':n.planet==='amber'?'#d8af7344':'#8782cf44',accent:n.planet==='ocean'?'#82c6be':n.planet==='amber'?'#d0b58a':'#b1a4de'}))button.style.setProperty('--'+k,v);
    const core=document.createElement('span');core.className='celestial-core';core.setAttribute('aria-hidden','true');
-   if(n.kind==='current'){const cv=document.createElement('canvas');planet(cv,n.planet);core.append(cv);if(n.planet==='violet'){const ring=document.createElement('span');ring.className='planet-ring';core.append(ring);}const orbit=document.createElement('span');orbit.className='node-orbit';const satellite=document.createElement('span');satellite.className='planet-satellite';orbit.append(satellite);button.append(orbit);}
+   if(n.kind==='current'){const cv=document.createElement('canvas');paintPlanet(cv,n.planet);core.append(cv);if(n.planet==='violet'){const ring=document.createElement('span');ring.className='planet-ring';core.append(ring);}const orbit=document.createElement('span');orbit.className='node-orbit';const satellite=document.createElement('span');satellite.className='planet-satellite';orbit.append(satellite);button.append(orbit);}
    button.append(core);const label=document.createElement('span');label.className='node-label';label.setAttribute('aria-hidden','true');const title=document.createElement('span');title.className='node-title';title.textContent=n.label;const note=document.createElement('span');note.className='node-kind';note.textContent=n.note||p.cat;label.append(title,note);button.append(label);map.append(button);
   }
   updateStatus();paint();

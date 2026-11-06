@@ -9,7 +9,8 @@ An interactive space portfolio: Hello dissolves into particles, Isaiah’s name 
 - `space.css`: dark cosmic palette, accessible star/planet destinations, mobile constellation, and motion controls.
 - `intro.js`: multilingual Hello sampled into particles that disperse into the starfield; replay, skip/Escape, reduced-motion bypass, and a fail-safe. Name typing starts after the reveal.
 - `app.js`: typing, portfolio filters/search, case studies, and chat interface.
-- `space.js`: procedural starfield and planet textures, constellation filters, keyboard-accessible destinations, and pause/reduced-motion/visibility handling.
+- `space.js`: procedural starfield and planet textures, slow stellar drift, pointer depth, occasional shooting stars, constellation filters, keyboard-accessible destinations, and pause/reduced-motion/visibility handling.
+- `project-view.js`: full-screen cosmic project destinations, circular entry transitions from the selected object, previous/next navigation, Escape, source focus and scroll preservation, and deep-link handling.
 - `lake.js`: retained earlier water experiment; no longer loaded by the page.
 - `guide.js`: browser-local chatbot retrieval and conversation context. No AI provider, key, external chat request, analytics, or persistent chat history.
 - `content.json`: project and experience facts, shared by project views and the chatbot.
@@ -33,7 +34,9 @@ Visitors can ask about current work, projects, experience, skills, education, re
 
 Serve the repository with any static web server. No install or build step is needed. Run `python3 scripts/check.py` to validate local assets, JavaScript syntax, data constraints, and chatbot behavior. The guide checks also cover contextual follow-ups, comparisons, unsupported facts, current-project membership, and references.
 
-Local browser QA covered desktop and a 390px phone layout, project details, category filtering, search, typed-name completion, chatbot answers and links. Motion has a pause control and reduced-motion handling.
+The initial constellation received desktop and 390px phone browser QA. The subsequent animated destination update passed JavaScript syntax, content/constellation, chatbot, and project navigation contract checks (`node scripts/check-project-view.mjs`); browser visual QA was unavailable in that editing environment. Both the constellation and full-screen project destinations expose a synchronized pause control and honor reduced motion.
+
+Project details now open as a borderless full-screen space scene with a large version of the selected star or planet and an open reading column. On phones, the celestial object appears above the story. Closing returns focus to the original destination without scrolling to the archive. Previous/next controls keep the original return point. Slow star breathing, planet floating, satellites, cursor depth, and occasional meteor trails add motion without moving clickable targets.
 
 ## Design references
 

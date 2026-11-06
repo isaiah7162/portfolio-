@@ -15,7 +15,7 @@ class Assets(HTMLParser):
    if ref and not u.scheme and not u.netloc and u.path:assert (root/u.path).is_file(),ref
 Assets().feed(page)
 for ref in re.findall(r'url\([\'\"]?([^\'\")]+)',(root/'style.css').read_text()):assert (root/ref).is_file(),ref
-for name in ['app.js','guide.js','space.js','intro.js']:subprocess.run(['node','--check',str(root/name)],check=True)
+for name in ['app.js','guide.js','space.js','intro.js','project-view.js']:subprocess.run(['node','--check',str(root/name)],check=True)
 assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF')
 quant=next(x for x in projects if x['slug']=='quant')
 assert quant['title']==quant['card']=='Quantitative Analyst Intern' and quant['cat']=='Internships'
@@ -24,4 +24,5 @@ assert 'independent hackathon' in next(p for p in projects if p['slug']=='visibl
 assert 'x-dc' not in page and 'rotateY' not in page
 subprocess.run(['node',str(root/'scripts/check-guide.mjs')],check=True,cwd=root)
 subprocess.run(['node',str(root/'scripts/check-space.mjs')],check=True,cwd=root)
+subprocess.run(['node',str(root/'scripts/check-project-view.mjs')],check=True,cwd=root)
 print('PASS: local assets, module syntax, project facts, current membership, and chatbot behavior.')
