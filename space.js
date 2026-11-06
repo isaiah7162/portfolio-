@@ -37,21 +37,17 @@ export function paintPlanet(canvas,kind,size=180){
 }
 export function createUniverse(canvas,map,pause){
  const ctx=canvas.getContext('2d'),motion=matchMedia('(prefers-reduced-motion: reduce)');
- let w=0,h=0,dpr=1,raf=0,last=0,time=0,paused=false,visible=true,projectOpen=false,filter='all',active='',nodes=[];
+ let w=0,h=0,dpr=1,raf=0,last=0,time=0,paused=false,visible=true,projectOpen=false,filter='all',nodes=[];
  let pointer={x:0,y:0},depth={x:0,y:0};
  const random=rand(7162),stars=Array.from({length:750},()=>({x:random(),y:random(),r:.25+random()**4*1.65,a:.18+random()*.6,phase:random()*6.28,speed:.00015+random()*.00035}));
  const dust=Array.from({length:650},()=>{const p=random(),spread=(random()+random()+random()-1.5)*.17;return {x:.08+p*.9,y:.89-p*.65+spread,r:random()*1.1,a:random()*.16};});
  const background=document.createElement('canvas'),bg=background.getContext('2d');
- const at=n=>({x:(w<=600?n.mx:n.x)*w/100,y:(w<=600?n.my:n.y)*h/100});
  function paint(){
   if(!ctx||!w||!h)return;ctx.clearRect(0,0,w,h);ctx.drawImage(background,0,0,w,h);
   const still=paused||motion.matches;
   for(const s of stars){const a=s.a*(.65+.35*Math.sin(time*s.speed*2+s.phase));const drift=still?0:Math.sin(time*.00006+s.phase)*4;ctx.fillStyle=`rgba(196,212,255,${a})`;ctx.beginPath();ctx.arc(s.x*w+depth.x*s.r*7+drift,s.y*h+depth.y*s.r*5,s.r,0,Math.PI*2);ctx.fill();}
   // Infrequent, short meteor trails. The shared clock stops with the pause control.
   if(!still){const cycle=Math.floor(time/11000),p=(time%11000-4300)/1300;if(p>0&&p<1){const sx=w*(.28+(cycle%3)*.21),sy=h*(.12+(cycle%2)*.12),x=sx+p*210,y=sy+p*105,alpha=Math.sin(p*Math.PI)*.7;const trail=ctx.createLinearGradient(x-100,y-50,x,y);trail.addColorStop(0,'rgba(176,199,255,0)');trail.addColorStop(1,`rgba(215,230,255,${alpha})`);ctx.strokeStyle=trail;ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(x-100,y-50);ctx.lineTo(x,y);ctx.stroke();ctx.fillStyle=`rgba(244,248,255,${alpha})`;ctx.beginPath();ctx.arc(x,y,1.7,0,Math.PI*2);ctx.fill();}}
-  const connections=[['jarvis','slingo'],['slingo','pruning'],['jarvis','vital'],['jarvis','terrasite'],['terrasite','vista'],['terrasite','onrecord'],['visible','finsight'],['visible','protein-function-predictor'],['quant','tacc']];
-  for(const [a,b] of connections){const na=nodes.find(n=>n.slug===a),nb=nodes.find(n=>n.slug===b);if(!na||!nb||(w<=600&&(na.desktop||nb.desktop)))continue;if(filter!=='all'&&(na.kind!==filter||nb.kind!==filter))continue;const p=at(na),q=at(nb);const highlight=active===a||active===b;ctx.strokeStyle=highlight?'rgba(154,183,246,.37)':'rgba(141,166,219,.09)';ctx.lineWidth=highlight?1:.65;ctx.setLineDash(highlight?[]:[2,7]);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}
-  ctx.setLineDash([]);
  }
  function makeBackground(){
   background.width=Math.round(w*dpr);background.height=Math.round(h*dpr);bg.setTransform(dpr,0,0,dpr,0,0);bg.fillStyle='#070914';bg.fillRect(0,0,w,h);
@@ -68,7 +64,6 @@ export function createUniverse(canvas,map,pause){
  const motionControls=[pause,...document.querySelectorAll('[data-space-motion]')];
  motionControls.forEach(button=>button.addEventListener('click',()=>{paused=!paused;motionControls.forEach(control=>{control.textContent=paused?'Resume motion':'Pause motion';control.setAttribute('aria-pressed',String(paused));});resume();}));
  document.querySelectorAll('[data-map-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.mapFilter;document.querySelectorAll('[data-map-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));map.querySelectorAll('.celestial-node').forEach(x=>x.hidden=filter!=='all'&&x.dataset.kind!==filter);updateStatus();paint();}));
- map.addEventListener('pointerover',e=>{active=e.target.closest('[data-project]')?.dataset.project||'';paint();});map.addEventListener('pointerleave',()=>{active='';paint();});map.addEventListener('focusin',e=>{active=e.target.closest('[data-project]')?.dataset.project||'';paint();});map.addEventListener('focusout',()=>{active='';paint();});
  new ResizeObserver(resize).observe(canvas);new IntersectionObserver(es=>{visible=es[0].isIntersecting;document.body.classList.toggle('space-in-view',visible);resume();}).observe(canvas);document.addEventListener('visibilitychange',resume);motion.addEventListener('change',resume);resize();resume();
  return {setProjects(projects){
   nodes=destinations.filter(n=>projects.some(p=>p.slug===n.slug));map.replaceChildren();
