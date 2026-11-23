@@ -5,8 +5,9 @@ const $=s=>document.querySelector(s);
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const motion=matchMedia('(prefers-reduced-motion: reduce)');
 let projects=[],profile={},activeFilter='Selected',chatContext={},lastFocus=null;
-const categories=['Selected','All','Current','Internships','Research','Projects','Academics','Skills','Leadership'];
-const featured=['jarvis','visible','protein-function-predictor','terrasite'];
+const categories=['Selected','All','Current','Internships','Research','Projects','Work','Archive','Academics','Skills','Leadership'];
+const featured=['jarvis','visible','protein-function-predictor','terrasite','game-design'];
+const currentOrder=['quant','protein-function-predictor','terrasite','visible','game-design'];
 const universe=createUniverse($('#universe'),$('#celestial-map'),$('#pause-space'));
 const projectView=createProjectView($('#case-dialog'));
 $('#replay-intro').addEventListener('click',()=>window.dispatchEvent(new Event('portfolio:replay-intro')));
@@ -48,12 +49,29 @@ function renderWork(){
  $('#result-count').textContent=`${activeFilter} / ${count} ${count===1?'entry':'entries'}`;
  $('#work-list').innerHTML=count?html:'<p class="empty-state">No matches. Try another term or choose a different category.</p>';
 }
+// Previous/next follow the list a project was opened from; the constellation keeps its own order.
+function browseOrder(origin){
+ if(origin?.closest?.('#case-dialog'))return undefined;
+ const list=origin?.closest?.('#work-list,#current-list');
+ return list?[...list.querySelectorAll('[data-project]')].map(b=>b.dataset.project):null;
+}
+function showMissingProject(){
+ if($('#case-dialog').open)projectView.close({immediate:true,focus:false,history:false});
+ if($('#chat-dialog').open)$('#chat-dialog').close();
+ history.replaceState(null,'','#work');
+ activeFilter='All';$('#work-search').value='';renderWork();
+ const note=document.createElement('p');note.className='empty-state work-notice';note.setAttribute('role','status');
+ note.textContent='That project link doesn’t match an entry here, so here’s the full list of work instead.';
+ $('#work-list').prepend(note);
+ $('#work').scrollIntoView({behavior:'instant'});
+}
 function openCase(slug,origin=document.activeElement){
  if(slug==='watersight')slug='terrasite';
- const p=projects.find(x=>x.slug===slug);if(!p)return;
+ const p=projects.find(x=>x.slug===slug);if(!p){showMissingProject();return;}
+ const order=browseOrder(origin);
  if($('#chat-dialog').open){$('#chat-dialog').close();origin=lastFocus||$('#home');}
  $('#case-content').innerHTML=`<p class="eyebrow">${safe(p.cat)} · ${safe(p.org)} · ${safe(p.when)}</p><h2 id="case-title">${safe(p.title)}</h2><p class="case-lede">${safe(p.lede||p.blurb)}</p><p class="case-tags">${p.tags.map(safe).join(' / ')}</p>${p.stats?.length?'<dl class="case-stats">'+p.stats.map(s=>`<div><dt>${safe(s.n)}</dt><dd>${safe(s.label)}</dd></div>`).join('')+'</dl>':''}${p.sections.map(s=>`<section class="case-section"><h3>${safe(s.h)}</h3><div>${(s.paras||[]).map(p=>`<p>${safe(p)}</p>`).join('')}${s.rows?.length?'<dl>'+s.rows.map(r=>`<dt>${safe(r.k)}</dt><dd>${safe(r.v)}</dd>`).join('')+'</dl>':''}</div></section>`).join('')}<button class="text-link case-ask" data-question="Tell me more about ${safe(p.title)}">Ask about this work <span aria-hidden="true">↗</span></button>`;
- $('#case-title').tabIndex=-1;projectView.open(p.slug,origin);
+ $('#case-title').tabIndex=-1;projectView.open(p.slug,origin,order);
 }
 function openChat(){if($('#case-dialog').open)projectView.close({immediate:true});if(!$('#chat-dialog').open){lastFocus=document.activeElement;$('#chat-dialog').showModal();}$('#chat-input').focus();}
 function addMessage(text,role,sources=[]){const el=document.createElement('div');el.className='message '+role;const p=document.createElement('p');p.textContent=text;el.append(p);
@@ -77,11 +95,11 @@ for(const dialog of [$('#chat-dialog')]){
  dialog.addEventListener('close',()=>{if(lastFocus?.isConnected)lastFocus.focus({preventScroll:true});});
 }
 $('#clear-chat').addEventListener('click',()=>{chatContext={};$('#chat-log').replaceChildren();addMessage('A fresh start. Ask me about Isaiah’s projects, experience, or skills.','assistant');$('#chat-input').focus();});
-$('#chat-log').addEventListener('click',e=>{const a=e.target.closest('a');if(a?.getAttribute('href').startsWith('#'))$('#chat-dialog').close();});
+$('#chat-log').addEventListener('click',e=>{const a=e.target.closest('a');if(a?.getAttribute('href')?.startsWith('#'))$('#chat-dialog').close();});
 try{
  const responses=await Promise.all([fetch('content.json'),fetch('profile.json')]);if(responses.some(r=>!r.ok))throw Error('Portfolio data unavailable');
  [projects,profile]=await Promise.all(responses.map(r=>r.json()));
- $('#current-list').innerHTML=['quant','visible','protein-function-predictor'].map((slug,i)=>{const p=projects.find(p=>p.slug===slug);return `<button class="current-row" data-project="${slug}"><span class="number">0${i+1}</span><div><h3>${safe(p.title)}</h3><small>${safe(p.org)} · ${safe(p.when)}</small></div><p>${safe(p.lede)}</p><span class="row-arrow" aria-hidden="true">↗</span></button>`;}).join('');
+ $('#current-list').innerHTML=currentOrder.filter(slug=>projects.some(p=>p.slug===slug&&p.current)).map((slug,i)=>{const p=projects.find(p=>p.slug===slug);return `<button class="current-row" data-project="${slug}"><span class="number">0${i+1}</span><div><h3>${safe(p.title)}</h3><small>${safe(p.org)} · ${safe(p.when)}</small></div><p>${safe(p.lede)}</p><span class="row-arrow" aria-hidden="true">↗</span></button>`;}).join('');
  universe.setProjects(projects);
  renderWork();if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));
 }catch(err){$('#work-list').innerHTML='<p class="empty-state">The portfolio details could not be loaded. Please refresh the page or <a href="assets/Isaiah-Hawkins-Resume.pdf">read the résumé</a>.</p>';$('#current-list').innerHTML='<p class="empty-state">Project details are temporarily unavailable.</p>';}

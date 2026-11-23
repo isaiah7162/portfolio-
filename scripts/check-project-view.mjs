@@ -20,8 +20,10 @@ globalThis.matchMedia=()=>media;
 globalThis.innerHeight=900;
 globalThis.window=new EventTarget();
 globalThis.document={body:new Element(),activeElement:null,createElement:()=>new Element()};
-globalThis.location={hash:'#home'};
-globalThis.history={replaceState:(_state,_unused,hash)=>location.hash=hash};
+// A small session history: pushState adds an entry, replaceState rewrites it, back() pops it, and a hash link adds one.
+const entries=['#home'];
+globalThis.location={get hash(){return entries.at(-1);},set hash(h){entries.push(h);}};
+globalThis.history={replaceState:(_s,_u,hash)=>{entries[entries.length-1]=hash;},pushState:(_s,_u,hash)=>{entries.push(hash);},back:()=>{if(entries.length>1)entries.pop();}};
 const dialog=new Element();dialog.elements=Object.fromEntries(['.project-scene','#close-case','#destination-index','#previous-project','#next-project','.project-reader','#case-content','#case-title'].map(key=>[key,new Element()]));
 const origin=new Element();origin.focus();
 const events=[];window.addEventListener('portfolio:project-state',e=>events.push(e.detail.open));
@@ -30,7 +32,7 @@ view.open('jarvis',origin);
 assert(dialog.open);assert.equal(location.hash,'#project/jarvis');
 assert(document.body.classList.contains('project-open'));
 assert.equal(document.activeElement,dialog.elements['#case-title']);
-assert.equal(dialog.elements['#next-project'].dataset.project,'terrasite');
+assert.equal(dialog.elements['#next-project'].dataset.project,'pruning');
 assert.equal(dialog.elements['#previous-project'].dataset.project,'bahamabucks');
 view.open('quant',dialog.elements['#next-project']);
 assert.equal(dialog.elements['.project-scene'].dataset.kind,'current');
@@ -65,4 +67,21 @@ view.open('jarvis',origin);location.hash='#about';const focusBefore=document.act
 view.close({immediate:true,focus:false,history:false});
 assert.equal(location.hash,'#about');assert.equal(document.activeElement,focusBefore);
 assert(!document.body.classList.contains('project-open'));
+// The browser Back button closes a project rather than leaving the site, and prev/next do not stack entries.
+location.hash='#work';const depth=entries.length;
+view.open('visible',origin);assert.equal(entries.length,depth+1);
+view.open('quant',dialog.elements['#next-project']);assert.equal(entries.length,depth+1);assert.equal(location.hash,'#project/quant');
+history.back();view.close({immediate:true,focus:false,history:false});
+assert(!dialog.open);assert.equal(location.hash,'#work');assert.equal(entries.length,depth);
+// Closing with the Back to constellation button removes the entry it added.
+view.open('visible',origin);view.close({immediate:true});assert.equal(location.hash,'#work');assert.equal(entries.length,depth);
+
+// Previous/next follow the list the project was opened from, then fall back to the constellation.
+view.open('americanpool',origin,['quant','americanpool','bahamabucks']);
+assert.equal(dialog.elements['#next-project'].dataset.project,'bahamabucks');
+assert.equal(dialog.elements['#previous-project'].dataset.project,'quant');
+assert.equal(dialog.elements['#destination-index'].textContent,'02 / 03');
+view.open('bahamabucks',dialog.elements['#next-project']);assert.equal(dialog.elements['#next-project'].dataset.project,'quant');
+view.close({immediate:true});view.open('jarvis',origin,null);
+assert.equal(dialog.elements['#next-project'].dataset.project,'pruning');view.close({immediate:true});
 console.log('PASS: destination navigation, focus restoration, Escape, rapid switching, reduced motion, pause, and history.');

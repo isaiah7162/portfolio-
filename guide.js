@@ -1,25 +1,37 @@
 // Grounded, browser-local portfolio retrieval. No model, network chat API, or chat storage.
 const stop = new Set('a an the is are was were be been being i me my you your yours he him his she they them their it its this that these those what which who how why when where can could would should do does did have has had about tell more please want know give show explain with and or of for at in on to from as by work project projects experience isaiah hawkins'.split(' '));
 export const words = text => (String(text).toLowerCase().match(/[a-z0-9+#]+/g)||[]).filter(x=>!stop.has(x));
-const normalize = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-const aliases = {jarvis:['disney','jarvis','imagineering'],quant:['quant','quantitative','sc capital','trading','market'],visible:['visible','health app','wellness'], 'protein-function-predictor':['protein','proteam','esm','deepgoplus','cafa'],terrasite:['terrasite','watersight','water sight','environment']};
+// Accents and apostrophes are folded first, so "résumé" reads as resume and "Buck's" as bucks.
+const normalize = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const aliases = {jarvis:['disney','jarvis','imagineering','wdi'],quant:['quant','quantitative','sc capital','trading','market'],visible:['visible','health app','wellness'], 'protein-function-predictor':['protein','proteam','esm','deepgoplus','cafa'],terrasite:['terrasite','watersight','water sight','environment','environmental'],
+ pruning:['pruning','lsamp','neural network','network efficiency'],vital:['vital handoff','vital'],finsight:['finsight','fin sight'],vista:['vista'],hackathons:['hackathon record','competition record'],
+ summerhouse:['summer house','summerhouse','teaching kids','teaching programming'],tacc:['tacc','advanced computing'],onrecord:['on record','onrecord'],'onrecord-research':['on record research','onrecord research'],
+ slingo:['slingo','translator app'],cookbook:['cookbook','cookbook blog'],americanpool:['american pool','americanpool','lifeguard'],'game-design':['roblox','game design','game','cultivation incremental','cultivation','animal farm','idle game','incremental game'],bahamabucks:['bahama bucks','bahamabucks','front end associate']};
+const escape = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+// Whole words only (a trailing plural s is allowed), so "market" no longer matches "marketing".
+const has = (q,a) => new RegExp(`\\b${escape(a)}s?\\b`).test(q);
+const allAliases = Object.values(aliases).flat();
+const matchedAlias = (q,p) => (aliases[p.slug]||[p.slug.replaceAll('-',' ')]).filter(a=>has(q,a)).sort((a,b)=>b.length-a.length)[0];
 const link = p => ({label:p.title,slug:p.slug});
 const summary = p => `${p.title} — ${p.org} (${p.when}).\n${p.lede || p.blurb}`;
 const details = p => p.sections.flatMap(s=>s.paras||[]);
 export function answerQuestion(question, projects, profile, context={}) {
  const q=normalize(question), tokens=words(question);
  const answer=(text,sources=[],slugs=[])=>({text,sources,context:{slugs}});
- const unknown=()=>answer('That detail isn’t included in Isaiah’s published portfolio. You can ask about a listed project, his experience, or his skills—or contact him directly for more information.',[{label:'Email Isaiah',href:'mailto:Ihawkins5@pvamu.edu'}]);
+ // An unsupported question keeps the earlier project in view, so a follow-up still works.
+ const unknown=()=>({...answer('That detail isn’t included in Isaiah’s published portfolio. You can ask about a listed project, his experience, or his skills—or contact him directly for more information.',[{label:'Email Isaiah',href:'mailto:Ihawkins5@pvamu.edu'}]),context:{slugs:context.slugs||[]}});
  if(!q)return unknown();
  if(/^(hi|hello|hey|thanks|thank you)$/.test(q))return answer('Hi! Ask me about Isaiah’s work at Disney, his current projects, research, or technical skills.');
- if(/\b(salary|compensation|phone|address|birthday|married|girlfriend|medical|diagnos|password|secret|ignore|instructions|system prompt|weather)\b/.test(q))return unknown();
+ if(/\b(salary|compensation|phone|home address|birthday|married|girlfriend|boyfriend|medical|diagnos\w*|password|secret|ignore|instructions|system prompt|weather)\b/.test(q))return unknown();
  if(/\b(contact|email|reach|linkedin|github|resume|cv)\b/.test(q) && !/\b(built|project|code|used)\b/.test(q))return answer('You can contact Isaiah by email, connect on LinkedIn, explore his GitHub, or read the full résumé.',[{label:'Email Isaiah',href:'mailto:Ihawkins5@pvamu.edu'},{label:'LinkedIn',href:'https://www.linkedin.com/in/isaiah-hawkins-414853249/'},{label:'GitHub',href:'https://github.com/isaiah7162'},{label:'Résumé',href:'assets/Isaiah-Hawkins-Resume.pdf'}]);
- if(/\b(current|currently|now|working on|ongoing)\b/.test(q) && !Object.values(aliases).flat().some(x=>q.includes(x))){const current=projects.filter(p=>p.current);return answer('Isaiah’s current work includes:\n\n'+current.map(summary).join('\n\n'),current.map(link),current.map(p=>p.slug));}
- if(/\b(who|introduce|bio|background|yourself|your story)\b/.test(q) && !tokens.some(t=>Object.values(aliases).flat().includes(t)))return answer('Isaiah Hawkins is a Computer Science student at Prairie View A&M University, graduating in May 2027. His portfolio spans software development, AI evaluation, and applied research. He has worked at Walt Disney Imagineering and is a Quantitative Analyst Intern at SC Capital. He is also the Founder · Builder of Visible, an independent hackathon project.',[{label:'About Isaiah',href:'#about'},...projects.filter(p=>['jarvis','quant','visible'].includes(p.slug)).map(link)]);
+ if(/\b(current|currently|now|working on|ongoing)\b/.test(q) && !allAliases.some(x=>has(q,x))){const current=projects.filter(p=>p.current);return answer('Isaiah’s current work includes:\n\n'+current.map(summary).join('\n\n'),current.map(link),current.map(p=>p.slug));}
+ if(/\b(who|introduce|bio|background|yourself|your story)\b/.test(q) && !allAliases.some(x=>has(q,x)))return answer('Isaiah Hawkins is a Computer Science student at Prairie View A&M University, graduating in May 2027. His portfolio spans software development, AI evaluation, and applied research. He has worked at Walt Disney Imagineering and is a Quantitative Analyst Intern at SC Capital. He is also the Founder · Builder of Visible, an independent hackathon project, builds TerraSite, and designs games on Roblox.',[{label:'About Isaiah',href:'#about'},...projects.filter(p=>['jarvis','quant','visible','game-design'].includes(p.slug)).map(link)]);
  if(/\b(school|university|graduate|graduation|degree|education|major|gpa|coursework|academics)\b/.test(q) && !/\b(protein|lsamp)\b/.test(q))return answer(profile.degree.map(x=>`${x.k}: ${x.v}`).join('\n')+'\n\nSelected coursework: '+profile.coursework.slice(0,8).join(', ')+'.',[{label:'Academics',filter:'Academics'}]);
  if(/\b(leadership|organizations|clubs|volunteer|community)\b/.test(q))return answer('Isaiah’s listed involvement includes:\n\n'+profile.orgs.map(x=>`${x.k} — ${x.v}`).join('\n'),[{label:'Leadership',filter:'Leadership'}]);
  if(/\b(awards|competitions|won|winning|hackathons)\b/.test(q))return answer(profile.awards.map(x=>`${x.k}: ${x.v} (${x.m})`).join('\n\n'),[{label:'Awards & academics',filter:'Academics'}]);
- const explicit=projects.filter(p=>(aliases[p.slug]||[p.slug.replaceAll('-',' ')]).some(a=>q.includes(a)) || (q.includes(normalize(p.title)) && normalize(p.title).length>5));
+ const hits=projects.map(p=>({p,alias:matchedAlias(q,p)||(normalize(p.title).length>5&&has(q,normalize(p.title))?normalize(p.title):'')})).filter(x=>x.alias);
+ // When one name contains another ("on record research" vs "on record"), keep only the more specific entry.
+ const explicit=hits.filter(x=>!hits.some(y=>y!==x&&y.alias.length>x.alias.length&&has(y.alias,x.alias))).map(x=>x.p);
  if(/\b(skills|languages|stack|technologies|tools)\b/.test(q) && !explicit.length && (!context.slugs?.length || /\b(skills|languages|in general)\b/.test(q)) && !/\b(it|that|this|those)\b/.test(q))return answer('Isaiah’s listed skills include:\n\n'+profile.skills.slice(0,6).map(g=>`${g.k}: ${g.items.map(x=>x.n).join(', ')}`).join('\n\n'),[{label:'Full skills list',filter:'Skills'}]);
  if(/\b(internships|internship|professional experience)\b/.test(q) && !explicit.length){const ps=projects.filter(p=>p.cat==='Internships');return answer(ps.map(summary).join('\n\n'),ps.map(link),ps.map(p=>p.slug));}
  if(/\b(research)\b/.test(q) && !explicit.length && tokens.length<3){const ps=projects.filter(p=>p.cat==='Research'||p.also==='Research');return answer(ps.map(summary).join('\n\n'),ps.map(link),ps.map(p=>p.slug));}

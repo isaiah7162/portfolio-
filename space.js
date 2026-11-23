@@ -1,22 +1,23 @@
 // A procedural constellation: lightweight canvas scenery, accessible HTML destinations.
 export const destinations = [
  {slug:'jarvis',kind:'featured',label:'Disney · JARVIS',note:'AI evaluation',x:29,y:55,mx:26,my:41,primary:true},
- {slug:'terrasite',kind:'featured',label:'TerraSite',note:'Environmental intelligence',x:47,y:72,mx:25,my:60},
  {slug:'pruning',kind:'featured',label:'LSAMP Research',note:'Neural network efficiency',x:47,y:32,mx:26,my:77},
- {slug:'quant',kind:'current',label:'Quantitative Analyst Intern',note:'SC Capital · Current',x:78,y:30,mx:74,my:37,planet:'amber'},
- {slug:'visible',kind:'current',label:'Visible',note:'Founder · Builder · Current',x:67,y:55,mx:74,my:56,planet:'ocean'},
- {slug:'protein-function-predictor',kind:'current',label:'Protein Function Predictor',note:'Research · Current',x:85,y:73,mx:74,my:75,planet:'violet'},
+ {slug:'terrasite',kind:'current',label:'TerraSite',note:'Environmental intelligence · Current',x:51,y:67,mx:74,my:67,planet:'verdant'},
+ {slug:'quant',kind:'current',label:'Quantitative Analyst Intern',note:'SC Capital · Current',x:76,y:27,mx:74,my:28,planet:'amber'},
+ {slug:'visible',kind:'current',label:'Visible',note:'Founder · Builder · Current',x:67,y:52,mx:74,my:41,planet:'ocean'},
+ {slug:'protein-function-predictor',kind:'current',label:'Protein Function Predictor',note:'Research · Current',x:84,y:72,mx:74,my:54,planet:'violet'},
+ {slug:'game-design',kind:'current',label:'Game design',note:'Roblox · Current',x:91,y:39,mx:74,my:80,planet:'ember'},
  {slug:'vital',kind:'other',label:'Vital Handoff',x:16,y:68,mx:12,my:50},
  {slug:'finsight',kind:'other',label:'FinSight',x:56,y:44,mx:46,my:49},
  {slug:'vista',kind:'other',label:'Vista Hackathon',x:35,y:78,mx:46,my:67},
- {slug:'onrecord',kind:'other',label:'On Record',x:58,y:80,mx:48,my:81},
- {slug:'onrecord-research',kind:'other',label:'On Record: Research',x:65,y:71,mx:13,my:85,desktop:true},
- {slug:'summerhouse',kind:'other',label:'Teaching programming',x:14,y:53,mx:40,my:60,desktop:true},
+ {slug:'onrecord',kind:'other',label:'On Record',x:61,y:84,mx:48,my:81},
+ {slug:'onrecord-research',kind:'other',label:'On Record: Research',x:66,y:76,mx:13,my:85,desktop:true},
+ {slug:'summerhouse',kind:'other',label:'Teaching programming',x:14,y:58,mx:40,my:60,desktop:true},
  {slug:'tacc',kind:'other',label:'Advanced Computing',x:61,y:28,mx:40,my:70,desktop:true},
- {slug:'hackathons',kind:'other',label:'Hackathon record',x:89,y:49,mx:40,my:80,desktop:true},
+ {slug:'hackathons',kind:'other',label:'Hackathon record',x:94,y:58,mx:40,my:80,desktop:true},
  {slug:'slingo',kind:'other',label:'Slingo',x:38,y:43,mx:10,my:70,desktop:true},
- {slug:'cookbook',kind:'other',label:'Cookbook',x:80,y:57,mx:10,my:75,desktop:true},
- {slug:'americanpool',kind:'other',label:'American Pool',x:94,y:62,mx:10,my:80,desktop:true},
+ {slug:'cookbook',kind:'other',label:'Cookbook',x:76,y:62,mx:10,my:75,desktop:true},
+ {slug:'americanpool',kind:'other',label:'American Pool',x:94,y:67,mx:10,my:80,desktop:true},
  {slug:'bahamabucks',kind:'other',label:'Bahama Buck’s',x:72,y:82,mx:10,my:85,desktop:true}
 ];
 const rand = seed => () => {seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};
@@ -29,6 +30,8 @@ export function paintPlanet(canvas,kind,size=180){
   let rgb;
   if(kind==='amber'){const v=(Math.sin(lat*24+Math.sin(lon*5)*.6)+1)/2;rgb=[156+v*61+grain*8,116+v*58+grain*6,75+v*49];}
   else if(kind==='ocean'){const land=Math.sin(lon*6+lat*3)+Math.cos(lat*10-lon*3)+grain*.3;rgb=land>.55?[87+land*18,153+land*15,137+land*10]:[38,97+grain*10,145+grain*15];const cloud=Math.max(0,Math.sin(lon*16+lat*19+Math.sin(lon*7))*Math.cos(lat*11)-.48)*.65;rgb=rgb.map(c=>c+(235-c)*cloud);}
+  else if(kind==='verdant'){const land=Math.sin(lon*5-lat*4)+Math.cos(lat*9+lon*2)+grain*.35;rgb=land>.35?[78+land*22,140+land*20,92+land*8]:[34,86+grain*8,118+grain*12];const cloud=Math.max(0,Math.sin(lon*14-lat*17)*Math.cos(lat*9)-.5)*.6;rgb=rgb.map(c=>c+(230-c)*cloud);}
+  else if(kind==='ember'){const v=(Math.sin(lat*20+Math.sin(lon*7)*.9)+1)/2;rgb=[176+v*62+grain*8,92+v*52+grain*6,96+v*40];}
   else{const band=(Math.sin(lat*16+Math.sin(lon*6)*.8)+1)/2;rgb=[117+band*65,113+band*51,175+band*60];}
   const light=Math.max(0,-nx*.52-ny*.42+z*.62);const shade=.08+light*.92;const rim=Math.pow(1-z,4)*Math.max(0,light)*.35;
   const i=(y*size+x)*4;im.data[i]=Math.min(255,rgb[0]*shade+rim*100);im.data[i+1]=Math.min(255,rgb[1]*shade+rim*150);im.data[i+2]=Math.min(255,rgb[2]*shade+rim*230);im.data[i+3]=Math.min(255,(1-r2)*12000);
@@ -68,7 +71,7 @@ export function createUniverse(canvas,map,pause){
  return {setProjects(projects){
   nodes=destinations.filter(n=>projects.some(p=>p.slug===n.slug));map.replaceChildren();
   for(const n of nodes){const p=projects.find(p=>p.slug===n.slug);const button=document.createElement('button');button.className=`celestial-node ${n.kind}${n.primary?' primary':''}${n.desktop?' map-desktop-only':''}`;button.dataset.project=n.slug;button.dataset.kind=n.kind;button.setAttribute('aria-label',`${p.title} — ${n.kind==='current'?'current project, planet':n.kind==='featured'?'featured work, bright star':'other work, star'}`);
-   for(const [k,v]of Object.entries({x:n.x+'%',y:n.y+'%',mx:n.mx+'%',my:n.my+'%',glow:n.slug==='terrasite'?'#9ac7ff99':'#b5a4ff99',halo:n.planet==='ocean'?'#4da9af44':n.planet==='amber'?'#d8af7344':'#8782cf44',accent:n.planet==='ocean'?'#82c6be':n.planet==='amber'?'#d0b58a':'#b1a4de'}))button.style.setProperty('--'+k,v);
+   for(const [k,v]of Object.entries({x:n.x+'%',y:n.y+'%',mx:n.mx+'%',my:n.my+'%',glow:n.slug==='terrasite'?'#9ac7ff99':'#b5a4ff99',halo:{ocean:'#4da9af44',amber:'#d8af7344',verdant:'#6fbf8a44',ember:'#e08a8a44'}[n.planet]||'#8782cf44',accent:{ocean:'#82c6be',amber:'#d0b58a',verdant:'#8fd1a2',ember:'#eda3a0'}[n.planet]||'#b1a4de'}))button.style.setProperty('--'+k,v);
    const core=document.createElement('span');core.className='celestial-core';core.setAttribute('aria-hidden','true');
    if(n.kind==='current'){const cv=document.createElement('canvas');paintPlanet(cv,n.planet);core.append(cv);if(n.planet==='violet'){const ring=document.createElement('span');ring.className='planet-ring';core.append(ring);}const orbit=document.createElement('span');orbit.className='node-orbit';const satellite=document.createElement('span');satellite.className='planet-satellite';orbit.append(satellite);button.append(orbit);}
    button.append(core);const label=document.createElement('span');label.className='node-label';label.setAttribute('aria-hidden','true');const title=document.createElement('span');title.className='node-title';title.textContent=n.label;const note=document.createElement('span');note.className='node-kind';note.textContent=n.note||p.cat;label.append(title,note);button.append(label);map.append(button);
