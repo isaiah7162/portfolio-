@@ -384,6 +384,31 @@
           "bg": ""
         }
       ]
+    },
+    {
+      "k": "Game development",
+      "items": [
+        {
+          "n": "Roblox Studio",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Blender",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Meshy AI",
+          "hasIcon": false,
+          "bg": ""
+        },
+        {
+          "n": "Claude Design",
+          "hasIcon": false,
+          "bg": ""
+        }
+      ]
     }
   ],
   "orgs": [

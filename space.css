@@ -112,3 +112,5 @@ body.space-in-view .chat-launcher{visibility:hidden}
  .celestial-map .celestial-node.other .node-label{width:120px}
 }
 .work-notice{padding:24px 0 8px}
+/* Five planets on phones need a slightly taller hero. */
+@media(max-width:600px){.space-hero{min-height:1240px;height:1240px}}

@@ -11,7 +11,7 @@ export function createProjectView(dialog) {
  function open(slug,origin=document.activeElement,browseOrder) {
   clearTimeout(exitTimer);dialog.classList.remove('is-departing');
   const destination=destinations.find(n=>n.slug===slug);
-  const accent=destination?.planet==='ocean'?'110,211,200':destination?.planet==='amber'?'225,186,125':'176,166,255';
+  const accent={ocean:'110,211,200',amber:'225,186,125',verdant:'143,209,162',ember:'237,163,160'}[destination?.planet]||'176,166,255';
   dialog.style.setProperty('--destination-rgb',accent);
   const r=origin?.getBoundingClientRect?.();
   const onscreen=r&&r.width&&r.bottom>0&&r.top<innerHeight;

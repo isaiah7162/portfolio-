@@ -19,10 +19,18 @@ for name in ['app.js','guide.js','space.js','intro.js','project-view.js']:subpro
 assert (root/'assets/Isaiah-Hawkins-Resume.pdf').read_bytes().startswith(b'%PDF')
 quant=next(x for x in projects if x['slug']=='quant')
 assert quant['title']==quant['card']=='Quantitative Analyst Intern' and quant['cat']=='Internships'
-assert {x['slug'] for x in projects if x.get('current')}=={'quant','visible','protein-function-predictor'}
+assert {x['slug'] for x in projects if x.get('current')}=={'quant','visible','protein-function-predictor','terrasite','game-design'}
 assert 'independent hackathon' in next(p for p in projects if p['slug']=='visible')['lede']
 assert 'x-dc' not in page and 'rotateY' not in page
 subprocess.run(['node',str(root/'scripts/check-guide.mjs')],check=True,cwd=root)
 subprocess.run(['node',str(root/'scripts/check-space.mjs')],check=True,cwd=root)
 subprocess.run(['node',str(root/'scripts/check-project-view.mjs')],check=True,cwd=root)
 print('PASS: local assets, module syntax, project facts, current membership, and chatbot behavior.')
+# The Content-Security-Policy allows the one inline head script by hash; editing that script must update vercel.json.
+import base64,hashlib
+inline=re.findall(r'<script>(.*?)</script>',page,re.S)
+csp=next(h['value'] for r in json.loads((root/'vercel.json').read_text())['headers'] for h in r['headers'] if h['key']=='Content-Security-Policy')
+for s in inline:assert "'sha256-"+base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()+"'" in csp,'Update the script hash in vercel.json'
+assert "'unsafe-inline'" not in csp and "'unsafe-eval'" not in csp
+for name in ['.env','.env.*']:assert name in (root/'.vercelignore').read_text().split() and name in (root/'.gitignore').read_text().split()
+print('PASS: security headers match the inline script, and env files are excluded from git and deploys.')

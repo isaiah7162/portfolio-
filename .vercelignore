@@ -3,3 +3,11 @@
 dist
 scripts
 README.md
+.env
+.env.*
+*.md
+lake.js
+scene.js
+assets/277336c5-5659-481a-95e8-c06c1934f512.js
+assets/a0ddbb49-9f89-4088-ad52-9c9b0c8a1344.js
+assets/d7940833-48d0-4f41-8eda-f118e0f1c13d.js

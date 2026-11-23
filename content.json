@@ -217,7 +217,50 @@
     "stats": [],
     "status": "In development",
     "card": "TerraSite",
-    "current": false
+    "current": true
+  },
+  {
+    "slug": "game-design",
+    "title": "Game design on Roblox",
+    "card": "Game design on Roblox",
+    "cat": "Projects",
+    "org": "Solo developer · Roblox",
+    "when": "2026–present",
+    "status": "In development",
+    "lede": "Designing and building incremental and idle games on Roblox, solo, with AI tools as part of the workflow.",
+    "tags": [
+      "Roblox Studio",
+      "Game design",
+      "Progression systems",
+      "AI-assisted development"
+    ],
+    "stats": [],
+    "current": true,
+    "sections": [
+      {
+        "h": "Cultivation Incremental",
+        "paras": [
+          "A cultivation-themed incremental game in active development. The core loop is cultivate, gather Qi, roll, break through and rebirth. Each player’s cave is the main hub, where they cultivate, roll spirit plants at a shrine and upgrade the cave, while optional fights in the wilderness supply rare materials.",
+          "The interface is designed phone-first and kept simple, with a painted anime look. I direct the design and build it in Roblox Studio with Claude and Codex, and make 3D models and animations with Claude Design, Meshy and Blender."
+        ],
+        "rows": []
+      },
+      {
+        "h": "An untitled animal-farm game",
+        "paras": [
+          "An idle farm game where players roll a floating egg at the center of the map to hatch animals like bears, pigs and cows. Each animal works a job that earns coins and a resource, and earns more when it lives in its own biome.",
+          "Enclosures upgrade through five tiers that visibly change each biome, from a pond to an ocean. Progression unlocks new biomes, animals, mutations from rolls, weather events and breeding, and mythical creatures like a dragon and a phoenix. Robux never buys rolls; it is kept to boosts, bundles and game passes. The game is being built in phases, starting with its first three biomes."
+        ],
+        "rows": []
+      },
+      {
+        "h": "What I design for",
+        "paras": [
+          "A clear core loop, progression that unlocks a step at a time, and reasons to come back, such as daily streaks, timed events, trading and leaderboards. A third game is in early development. None of these games has launched yet."
+        ],
+        "rows": []
+      }
+    ]
   },
   {
     "slug": "vital",

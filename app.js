@@ -6,7 +6,8 @@ const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'
 const motion=matchMedia('(prefers-reduced-motion: reduce)');
 let projects=[],profile={},activeFilter='Selected',chatContext={},lastFocus=null;
 const categories=['Selected','All','Current','Internships','Research','Projects','Work','Archive','Academics','Skills','Leadership'];
-const featured=['jarvis','visible','protein-function-predictor','terrasite'];
+const featured=['jarvis','visible','protein-function-predictor','terrasite','game-design'];
+const currentOrder=['quant','protein-function-predictor','terrasite','visible','game-design'];
 const universe=createUniverse($('#universe'),$('#celestial-map'),$('#pause-space'));
 const projectView=createProjectView($('#case-dialog'));
 $('#replay-intro').addEventListener('click',()=>window.dispatchEvent(new Event('portfolio:replay-intro')));
@@ -98,7 +99,7 @@ $('#chat-log').addEventListener('click',e=>{const a=e.target.closest('a');if(a?.
 try{
  const responses=await Promise.all([fetch('content.json'),fetch('profile.json')]);if(responses.some(r=>!r.ok))throw Error('Portfolio data unavailable');
  [projects,profile]=await Promise.all(responses.map(r=>r.json()));
- $('#current-list').innerHTML=['quant','visible','protein-function-predictor'].map((slug,i)=>{const p=projects.find(p=>p.slug===slug);return `<button class="current-row" data-project="${slug}"><span class="number">0${i+1}</span><div><h3>${safe(p.title)}</h3><small>${safe(p.org)} · ${safe(p.when)}</small></div><p>${safe(p.lede)}</p><span class="row-arrow" aria-hidden="true">↗</span></button>`;}).join('');
+ $('#current-list').innerHTML=currentOrder.filter(slug=>projects.some(p=>p.slug===slug&&p.current)).map((slug,i)=>{const p=projects.find(p=>p.slug===slug);return `<button class="current-row" data-project="${slug}"><span class="number">0${i+1}</span><div><h3>${safe(p.title)}</h3><small>${safe(p.org)} · ${safe(p.when)}</small></div><p>${safe(p.lede)}</p><span class="row-arrow" aria-hidden="true">↗</span></button>`;}).join('');
  universe.setProjects(projects);
  renderWork();if(location.hash.startsWith('#project/'))openCase(decodeURIComponent(location.hash.slice(9)));
 }catch(err){$('#work-list').innerHTML='<p class="empty-state">The portfolio details could not be loaded. Please refresh the page or <a href="assets/Isaiah-Hawkins-Resume.pdf">read the résumé</a>.</p>';$('#current-list').innerHTML='<p class="empty-state">Project details are temporarily unavailable.</p>';}
