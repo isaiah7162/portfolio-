@@ -98,3 +98,17 @@ body.space-in-view .chat-launcher{visibility:hidden}
  #case-dialog[open],#case-dialog.is-departing,.project-cosmos::before,.project-cosmos::after,.destination-body,.destination-star,.destination-orbit::after,.celestial-node .celestial-core{animation:none}
  .project-top button span{transition:none}
 }
+/* Pre-launch fixes (Nov 2026 audit). Chat stays reachable on phones while the hero is in view: the floating
+   launcher hides over the constellation, so the header's Ask button returns on small screens. */
+@media(max-width:600px){.site-header nav{gap:14px}.site-header nav button{display:inline;padding:0}}
+/* Legibility floor: text that carries information (counts, tags, controls, chat links, star labels) is at least 11px. */
+.result-count,.work-row .tags,.case-tags,#case-content .case-tags,.chat-note,.chat-footer,.chat-footer button,.map-legend button,.map-actions,.map-actions button,.map-actions a,.about-facts span,.project-top [data-space-motion],.project-top .eyebrow,.project-top .eyebrow span{font-size:11px}
+.sources button,.sources a,.chat-suggestions button,.map-hint p,.filters button{font-size:12px}
+.node-kind,.map-heading,.hero-intro .eyebrow,#case-content>.eyebrow,.destination-caption{font-size:10px}
+.celestial-map .celestial-node.other .node-title{font-size:11px}
+@media(max-width:600px){
+ .result-count,.work-row .tags,.chat-note,.chat-footer,.chat-footer button,.map-legend button,.map-actions,.map-actions button,.map-actions a,.about-facts span,.project-top [data-space-motion],.project-top .eyebrow span,.celestial-map .celestial-node.other .node-title,.celestial-map .celestial-node.featured .node-title,.node-title,.celestial-node.current .node-title{font-size:11px}
+ .node-kind{font-size:9px;letter-spacing:.05em}.map-heading,.hero-intro .eyebrow,.map-hint .eyebrow,.destination-caption{font-size:9px}
+ .celestial-map .celestial-node.other .node-label{width:120px}
+}
+.work-notice{padding:24px 0 8px}

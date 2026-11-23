@@ -22,7 +22,7 @@ An interactive space portfolio: Hello dissolves into particles, Isaiah’s name 
 
 The home page highlights Quantitative Analyst Intern at SC Capital, Visible (Founder · Builder; independent hackathon project), and Protein Function Predictor. TerraSite is in the work archive, not Current. WaterSight is its final “Preliminary idea” section, with no standalone project entry; old WaterSight deep links open TerraSite. The protein study is explicitly in development; hypotheses and planned evaluation are not presented as achieved results.
 
-The archive includes Selected, All, Current, Internships, Research, Projects, Academics, Skills, and Leadership. Search applies within the active category. Every project opens its full case study, and project deep links use `#project/<slug>`.
+The archive includes Selected, All, Current, Internships, Research, Projects, Work, Archive, Academics, Skills, and Leadership. Search applies within the active category. Every project opens its full case study, and project deep links use `#project/<slug>`. Opening a project adds a browser history entry, so Back closes it; previous/next replace that entry and follow the list the project was opened from. A link to an unknown project closes any open project and shows the full list with a short note.
 
 Bright stars highlight Disney/JARVIS, TerraSite, and LSAMP research. Planets represent exactly the three Current projects. The legend filters the map; List view opens the complete searchable archive. Smaller screens retain the six main destinations and a few smaller stars; the archive contains every entry.
 
