@@ -30,6 +30,8 @@ assert quant['title']==quant['card']=='Quantitative Analyst Intern' and quant['c
 assert 'independent hackathon' in next(p for p in projects if p['slug']=='visible')['lede']
 assert next(p for p in projects if p['slug']=='protein-function-predictor')['status']=='In development'
 assert 'watersight' not in slugs
+for p in projects:
+ for f in p.get('images',[]):assert (root/f['src']).is_file() and f['alt'] and f['caption'],f
 print('PASS: local assets, script syntax, desk links, and project facts.')
 # The Content-Security-Policy allows no inline script or style; everything loads from this origin.
 csp=next(h['value'] for r in json.loads((root/'vercel.json').read_text())['headers'] for h in r['headers'] if h['key']=='Content-Security-Policy')

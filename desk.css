@@ -64,6 +64,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid 
 .stats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px}
 .stats dt{font-family:var(--hand);font-weight:700;font-size:40px;line-height:1}
 .stats dd{margin:4px 0 0;font-size:14px;color:var(--quiet)}
+.figures{display:flex;flex-direction:column;gap:22px}
+.figures figure{margin:0}
+.figures img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.figures figcaption{margin-top:8px;font-size:14px;color:var(--quiet)}
 .sheet section{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px}
 .sheet h2{margin:0;font-size:15px;font-weight:600}
 .sheet section p{line-height:1.6}
