@@ -252,7 +252,7 @@
     "slug": "visible",
     "title": "Visible",
     "cat": "Projects",
-    "org": "Co-founder · Propel hackathon",
+    "org": "Co-founder · Propel hackathon at AfroTech 2026",
     "when": "Fall 2026",
     "lede": "A hackathon project that turns everyday wellness check-ins into a visual picture of your health. Your health, made clear.",
     "tags": [
@@ -317,7 +317,7 @@
       {
         "h": "The team",
         "paras": [
-          "Built for a Propel hackathon with Joel Daniels and Peter Kasomo, all seniors at Prairie View A&M."
+          "Built for the Propel hackathon at AfroTech 2026 with Joel Daniels and Peter Kasomo, all seniors at Prairie View A&M."
         ],
         "rows": []
       },
@@ -454,8 +454,9 @@
       }
     ],
     "cat": "Projects",
-    "org": "Team Panther Ranger · co-founder",
-    "when": "2026",
+    "org": "Team Panther Ranger · co-founder · Apple Propel Hackathon",
+    "when": "April 2026",
+    "status": "3rd overall",
     "title": "Vital Handoff",
     "blurb": "Turning the Apple Watch into a witness during an emergency: detect the crisis on-device, capture the last 30 minutes of vitals, hand it to a responder as a QR code on the lock screen.",
     "tags": [
@@ -480,6 +481,13 @@
       }
     ],
     "sections": [
+      {
+        "h": "The result",
+        "paras": [
+          "Vital Handoff placed third overall at the Apple Propel Hackathon in April 2026."
+        ],
+        "rows": []
+      },
       {
         "h": "The origin",
         "paras": [
@@ -794,7 +802,7 @@
           },
           {
             "k": "Apple Propel",
-            "v": "3rd overall — April 2026"
+            "v": "3rd overall — Vital Handoff, co-founded with Joel Daniels and Kamron Wright, April 2026"
           },
           {
             "k": "InternXL",
@@ -802,15 +810,11 @@
           },
           {
             "k": "Propel",
-            "v": "Visible, a health clarity prototype, with Joel Daniels and Peter Kasomo, 2026"
+            "v": "Visible, a health clarity prototype, with Joel Daniels and Peter Kasomo, at AfroTech 2026"
           },
           {
             "k": "PVAMU AI Innovation Challenge",
             "v": "WaterSight, 2026"
-          },
-          {
-            "k": "Vital Handoff pitch",
-            "v": "Co-founded with Joel Daniels and Kamron Wright, 2026"
           }
         ]
       },
