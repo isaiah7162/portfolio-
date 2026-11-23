@@ -27,7 +27,7 @@ featured=re.search(r"featured=\[([^\]]*)\]",(root/'desk.js').read_text()).group(
 assert set(featured)<=slugs and set(featured)<=set(Page.links)
 quant=next(x for x in projects if x['slug']=='quant')
 assert quant['title']==quant['card']=='Quantitative Analyst Intern' and quant['cat']=='Internships'
-assert 'independent hackathon' in next(p for p in projects if p['slug']=='visible')['lede']
+assert 'not a diagnostic' in json.dumps(next(p for p in projects if p['slug']=='visible'))
 assert next(p for p in projects if p['slug']=='protein-function-predictor')['status']=='In development'
 assert 'watersight' not in slugs
 for p in projects:
