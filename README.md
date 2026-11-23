@@ -25,9 +25,9 @@ Escape or "Back to the desk" returns to the desk. Opening a paper moves focus to
 
 - The six featured notes are set in two places that must match: the note links in `index.html` and `featured` in `desk.js`. Currently: Disney, SC Capital, Protein Function Predictor, protein mutation prediction, pruning research, TerraSite.
 - The Protein Function Predictor is in development; hypotheses and planned evaluation are not presented as results.
-- Visible is an independent hackathon prototype with illustrative data, not a medical tool.
+- Visible is a Propel hackathon prototype with illustrative data, not a medical tool.
 - WaterSight has no standalone entry.
-- An entry may carry `images` (`src`, `alt`, `caption`); they render as figures on its sheet. A section may carry `images` too, shown under that section. Figures are slides from Isaiah's own decks: the SC26 mutation talk, the Vital Handoff pitch, the WaterSight pitch (shown inside TerraSite), and the Panthers Invent DCAPS proposal.
+- An entry may carry `images` (`src`, `alt`, `caption`); they render as figures on its sheet. A section may carry `images` too, shown under that section. Figures are slides from Isaiah's own decks: the SC26 mutation talk, the Vital Handoff pitch, the Visible pitch, the WaterSight pitch (shown inside TerraSite), and the Panthers Invent DCAPS proposal.
 
 ## Run and verify
 

@@ -252,19 +252,58 @@
     "slug": "visible",
     "title": "Visible",
     "cat": "Projects",
-    "org": "Founder · Builder",
+    "org": "Co-founder · Propel hackathon",
     "when": "Fall 2026",
-    "lede": "An independent hackathon project that turns everyday wellness check-ins into a visual picture of your health.",
+    "lede": "A hackathon project that turns everyday wellness check-ins into a visual picture of your health. Your health, made clear.",
     "tags": [
       "Health UX",
       "Generative AI",
-      "Interactive visualization"
+      "Interactive visualization",
+      "Customer discovery"
+    ],
+    "stats": [
+      {
+        "n": "107",
+        "label": "PVAMU students surveyed, ages 18–24"
+      },
+      {
+        "n": "75%",
+        "label": "had missed their annual health check-up"
+      },
+      {
+        "n": "55%",
+        "label": "waited a week or more for care, or never received it"
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/visible-title.webp",
+        "alt": "Visible title slide: Your health. Made clear. A translucent human figure showing internal organs.",
+        "caption": "Title slide from the Visible pitch."
+      },
+      {
+        "src": "assets/visible-discovery.webp",
+        "alt": "Customer Discovery slide with survey results from 107 PVAMU students: 75 percent missed their annual check-up, 55 percent waited a week or more for care or never received it, 30 percent lack insurance or are unsure of coverage, 75 percent find tracking their health stressful.",
+        "caption": "Customer discovery. What 107 PVAMU students told us."
+      },
+      {
+        "src": "assets/visible-value.webp",
+        "alt": "Your body. Your story. slide: explore a body model, record what changed, and a planned shared view for doctors and colleges.",
+        "caption": "What Visible offers. The shared view for doctors and colleges is planned."
+      }
     ],
     "sections": [
       {
         "h": "The idea",
         "paras": [
-          "Help Gen Z connect daily habits with personal wellness through an interactive body view, journal, and next-step prompts."
+          "Help young adults taking charge of their own health for the first time connect daily habits with personal wellness through an interactive body view, journal, and next-step prompts. Health information is spread across apps, searches, and medical portals, so changes get ignored until they become urgent."
+        ],
+        "rows": []
+      },
+      {
+        "h": "What we heard",
+        "paras": [
+          "We surveyed 107 Prairie View A&M students ages 18–24. 75% had missed their annual check-up, 55% had waited a week or more to receive care or never received it, 30% were without health insurance or unsure about their coverage, and 75% found tracking their health stressful. Our insight: managing health can feel overwhelming, so turn everyday signals into clear next steps."
         ],
         "rows": []
       },
@@ -276,14 +315,20 @@
         "rows": []
       },
       {
+        "h": "The team",
+        "paras": [
+          "Built for a Propel hackathon with Joel Daniels and Peter Kasomo, all seniors at Prairie View A&M."
+        ],
+        "rows": []
+      },
+      {
         "h": "Current stage",
         "paras": [
-          "An independent hackathon prototype with illustrative wellness scores and simulated health data. It is not a diagnostic or medical decision tool."
+          "A hackathon prototype with illustrative wellness scores and simulated health data. It is not a diagnostic or medical decision tool."
         ],
         "rows": []
       }
     ],
-    "stats": [],
     "status": "Prototype",
     "current": true
   },
@@ -756,6 +801,10 @@
             "v": "4th overall"
           },
           {
+            "k": "Propel",
+            "v": "Visible, a health clarity prototype, with Joel Daniels and Peter Kasomo, 2026"
+          },
+          {
             "k": "PVAMU AI Innovation Challenge",
             "v": "WaterSight, 2026"
           },
@@ -768,7 +817,7 @@
       {
         "h": "What it built",
         "paras": [
-          "Hands-on work with LLM orchestration, agent pipelines, and cross-platform agent collaboration, plus the habit of designing, building, and presenting something functional in a fast-moving team. I also attended AfroTech in 2025 and will be back in Houston in November 2026."
+          "Hands-on work with LLM orchestration, agent pipelines, and cross-platform agent collaboration, plus the habit of designing, building, and presenting something functional in a fast-moving team. I also attended AfroTech in 2025 and 2026."
         ],
         "rows": []
       }
