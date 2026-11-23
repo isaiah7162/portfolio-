@@ -441,14 +441,14 @@
       "v": "Participant"
     },
     {
-      "k": "Team Panther Rangers",
+      "k": "Team Panther Ranger",
       "v": "Co-founder — Vital Handoff"
     }
   ],
   "degree": [
     {
       "k": "Degree",
-      "v": "Computer Science"
+      "v": "B.S. Computer Science, concentration in Data Science"
     },
     {
       "k": "Expected",
@@ -483,6 +483,16 @@
   ],
   "awards": [
     {
+      "k": "Sandia Labs × PVAMU Panthers Invent",
+      "v": "1st place — DCAPS, a data center digital twin",
+      "m": "Fall 2026 · Prairie View A&M"
+    },
+    {
+      "k": "ACSC @ SC26",
+      "v": "Presented “When AI Guesses Wrong: Predicting Protein Mutations”",
+      "m": "Nov 2026 · Chicago"
+    },
+    {
       "k": "Vista Agentic AI Hackathon",
       "v": "Finalist — national team-based innovation challenge",
       "m": "Jul 2025 · Washington, DC"
@@ -509,7 +519,7 @@
     },
     {
       "k": "Dean's List",
-      "v": "2023 – 2025",
+      "v": "2023–2025",
       "m": "Prairie View A&M"
     }
   ]
