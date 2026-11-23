@@ -10,14 +10,14 @@ export const destinations = [
  {slug:'vital',kind:'other',label:'Vital Handoff',x:16,y:68,mx:12,my:50},
  {slug:'finsight',kind:'other',label:'FinSight',x:56,y:44,mx:46,my:49},
  {slug:'vista',kind:'other',label:'Vista Hackathon',x:35,y:78,mx:46,my:67},
- {slug:'onrecord',kind:'other',label:'On Record',x:58,y:80,mx:48,my:81},
+ {slug:'onrecord',kind:'other',label:'On Record',x:61,y:84,mx:48,my:81},
  {slug:'onrecord-research',kind:'other',label:'On Record: Research',x:66,y:76,mx:13,my:85,desktop:true},
- {slug:'summerhouse',kind:'other',label:'Teaching programming',x:14,y:53,mx:40,my:60,desktop:true},
+ {slug:'summerhouse',kind:'other',label:'Teaching programming',x:14,y:58,mx:40,my:60,desktop:true},
  {slug:'tacc',kind:'other',label:'Advanced Computing',x:61,y:28,mx:40,my:70,desktop:true},
- {slug:'hackathons',kind:'other',label:'Hackathon record',x:94,y:52,mx:40,my:80,desktop:true},
+ {slug:'hackathons',kind:'other',label:'Hackathon record',x:94,y:58,mx:40,my:80,desktop:true},
  {slug:'slingo',kind:'other',label:'Slingo',x:38,y:43,mx:10,my:70,desktop:true},
  {slug:'cookbook',kind:'other',label:'Cookbook',x:76,y:62,mx:10,my:75,desktop:true},
- {slug:'americanpool',kind:'other',label:'American Pool',x:94,y:62,mx:10,my:80,desktop:true},
+ {slug:'americanpool',kind:'other',label:'American Pool',x:94,y:67,mx:10,my:80,desktop:true},
  {slug:'bahamabucks',kind:'other',label:'Bahama Buck’s',x:72,y:82,mx:10,my:85,desktop:true}
 ];
 const rand = seed => () => {seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};
