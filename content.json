@@ -140,6 +140,115 @@
     ]
   },
   {
+    "slug": "mutation",
+    "title": "When AI Guesses Wrong",
+    "card": "Protein mutation prediction",
+    "cat": "Research",
+    "org": "ACSC @ SC26 · Texas Advanced Computing Center",
+    "when": "November 2026",
+    "status": "Presented",
+    "current": false,
+    "lede": "Do protein language models predict the effects of mutations equally well for all proteins, or does their accuracy drop for proteins science has studied less? A measurement study on 217 lab experiments, run on TACC’s Stampede3 and presented at SC26.",
+    "tags": [
+      "Protein language models",
+      "ESM-2",
+      "ProteinGym",
+      "Spearman correlation",
+      "TACC Stampede3"
+    ],
+    "stats": [
+      {
+        "n": "217",
+        "label": "lab experiments (deep mutational scanning assays)"
+      },
+      {
+        "n": "2.5M",
+        "label": "measured mutations"
+      },
+      {
+        "n": "186",
+        "label": "proteins"
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/mutation-title.webp",
+        "alt": "Title slide: When AI Guesses Wrong. A stretch of human TDP-43 with the amino acid at position 315 changed from A to T.",
+        "caption": "Title slide. One changed letter in human TDP-43, the A315T mutation linked to ALS."
+      },
+      {
+        "src": "assets/mutation-findings.webp",
+        "alt": "Bar chart of ESM-2 agreement with lab results: 0.36 for proteins with few known relatives, 0.41 for some, 0.52 for many. A dot grid shows about one in three virus experiments got a near-useless ranking.",
+        "caption": "What I found. ESM-2 is least reliable where science knows the least."
+      },
+      {
+        "src": "assets/mutation-model-size.webp",
+        "alt": "Line chart of ESM-2 accuracy by model size from 8M to 15B parameters, peaking at 650M for proteins with many, some, and few known relatives.",
+        "caption": "Accuracy by model size. A 23× bigger model did not close the gap."
+      }
+    ],
+    "sections": [
+      {
+        "h": "The question",
+        "paras": [
+          "A protein is a chain of amino acids, and changing one amino acid can leave the protein working normally, weaken it, or break it. Labs measure these effects for thousands of mutants at a time, which is slow and expensive, so researchers increasingly use protein language models such as ESM-2 to rank which changes matter. I wanted to know whether that ranking is equally trustworthy for proteins with few similar, well studied relatives."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Data and method",
+        "paras": [
+          "I used the ProteinGym substitution benchmark, version 1.3, and compared ESM-2 at its released sizes against GEMME, a method that reads an evolutionary alignment directly. Accuracy is the Spearman rank correlation between a model’s scores and the lab measurements, computed within each experiment. Proteins are grouped by the benchmark’s own alignment depth labels, so the grouping was not chosen after seeing results.",
+          "The analysis ran on TACC’s Stampede3 on 15 November 2026. The per-experiment model scores are the ones published in the ProteinGym repository; the subgroup analysis, the significance tests, and the failure-rate counts are mine."
+        ],
+        "rows": []
+      },
+      {
+        "h": "What I found",
+        "paras": [],
+        "rows": [
+          {
+            "k": "Accuracy depends on how well studied a protein is",
+            "v": "ESM-2 650M scores 0.361 on proteins with few known relatives and 0.518 on proteins with many, a gap of +0.157 (95% CI +0.080 to +0.237, Mann-Whitney p = 0.0001). GEMME moves from 0.450 to 0.495, a gap that is not statistically distinguishable from zero."
+          },
+          {
+            "k": "A larger model does not close the gap",
+            "v": "Mean Spearman peaks at 650M parameters (0.438) and declines slightly at 3B (0.432) and 15B (0.425). Split by alignment depth, the curves stay roughly parallel."
+          },
+          {
+            "k": "It fails quietly",
+            "v": "Taking Spearman below 0.1 as a ranking with almost no signal, ESM-2 falls below that line on 16.7% of low-depth experiments and 32.3% of viral experiments, against 2.8% and 3.2% for GEMME."
+          },
+          {
+            "k": "The worst case",
+            "v": "On human TDP-43, the protein most tied to ALS, ESM-2 scores −0.120: the predicted order is slightly reversed. GEMME scores 0.036 on the same experiment."
+          }
+        ]
+      },
+      {
+        "h": "Scope",
+        "paras": [
+          "This is a measurement study on published scores. It does not identify why the models differ, does not propose a new method, and does not establish that any model is suitable for a clinical or experimental decision. Subgroup sizes are uneven (36 low, 109 medium, 72 high), and benchmark proteins may appear in the pretraining data of the models evaluated. Averages here are taken per experiment, while the ProteinGym leaderboard aggregates per protein first, so these figures differ from the published leaderboard and are not a correction of it."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Where it was presented",
+        "paras": [
+          "A lightning talk at the SCinet theater and a final presentation with the Advanced Computing Student Collaborative at SC26 in Chicago, November 2026."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Next",
+        "paras": [
+          "Planned: prune ESM-2 on TACC and find which proteins break first."
+        ],
+        "rows": []
+      }
+    ]
+  },
+  {
     "slug": "visible",
     "title": "Visible",
     "cat": "Projects",
@@ -209,9 +318,27 @@
         "h": "Preliminary idea — WaterSight",
         "paras": [
           "TerraSite began as WaterSight, a preliminary concept focused on water scarcity and water intelligence. The early prototype combined county-level Texas map data, climate information, and AI reasoning to help planners, farmers, and policymakers understand local water risks.",
-          "Presented as a 15-slide pitch at the 2026 PVAMU AI Innovation Challenge, the idea later expanded beyond water into TerraSite’s broader environmental intelligence platform. WaterSight is part of TerraSite’s development history, rather than a separate current project."
+          "Presented as a 15-slide pitch at the 2026 PVAMU AI Innovation Challenge, the idea later expanded beyond water into TerraSite’s broader environmental intelligence platform. WaterSight is part of TerraSite’s development history, rather than a separate current project.",
+          "The pitch proposed paid tiers for investors and companies and a free tier for residents, alongside a responsible-AI plan covering equity, privacy, bias audits, and an open methodology."
         ],
-        "rows": []
+        "rows": [],
+        "images": [
+          {
+            "src": "assets/watersight-title.webp",
+            "alt": "WaterSight pitch slide: AI-powered water intelligence that bridges the gap before communities reach crisis.",
+            "caption": "From the WaterSight pitch, the idea TerraSite grew out of."
+          },
+          {
+            "src": "assets/watersight-model.webp",
+            "alt": "Pitch slide titled How Everyone Pays and Benefits, with tiers for investors, companies, and residents, who are always free.",
+            "caption": "The proposed model: investors and companies pay, residents are always free. Figures are pitch projections."
+          },
+          {
+            "src": "assets/watersight-ethics.webp",
+            "alt": "Pitch slide titled Using AI Responsibly: equity, privacy, bias, and transparency.",
+            "caption": "The responsible-AI plan from the pitch."
+          }
+        ]
       }
     ],
     "stats": [],
@@ -264,6 +391,23 @@
   },
   {
     "slug": "vital",
+    "images": [
+      {
+        "src": "assets/vital-title.webp",
+        "alt": "Vital Handoff title slide with a red smartwatch showing a heartbeat and medical cross.",
+        "caption": "Title slide from the Team Panther Ranger pitch."
+      },
+      {
+        "src": "assets/vital-solution.webp",
+        "alt": "Our Solution slide with three steps: detect on the watch, compile on-device, hand off to a responder.",
+        "caption": "The three steps: detect, compile, handoff."
+      },
+      {
+        "src": "assets/vital-clarity.webp",
+        "alt": "Instant Clarity slide: a watch showing a QR code beside a tablet dashboard with heart rate, oxygen saturation, temperature, allergies, and patient context.",
+        "caption": "The handoff. One scan of the watch’s code opens the Golden Hour brief. Patient details shown are sample data."
+      }
+    ],
     "cat": "Projects",
     "org": "Panther Rangers · co-founder",
     "when": "2026",
@@ -333,6 +477,115 @@
       }
     ],
     "current": false
+  },
+  {
+    "slug": "dcaps",
+    "title": "DCAPS",
+    "card": "DCAPS: a data center digital twin",
+    "cat": "Projects",
+    "org": "Panthers Invent · Sandia National Laboratories × Prairie View A&M",
+    "when": "Fall 2026",
+    "status": "1st place",
+    "current": false,
+    "lede": "Data Center Autonomous Predictive Simulator: a digital twin that shows a data center’s live state, predicts its future state, and feeds that back into scheduling so the same hardware does more work.",
+    "tags": [
+      "Digital twin",
+      "Simulation",
+      "Scheduling",
+      "Data centers"
+    ],
+    "stats": [
+      {
+        "n": "1st",
+        "label": "place, Sandia Labs × PVAMU Panthers Invent"
+      },
+      {
+        "n": "53%",
+        "label": "more real work on the same hardware, in simulation"
+      },
+      {
+        "n": "6 min",
+        "label": "to contain a simulated intrusion on a stolen credential"
+      },
+      {
+        "n": "~540",
+        "label": "extra GPUs the baseline would need for the same output"
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/dcaps-prototype.webp",
+        "alt": "DCAPS prototype: a dark 3D floor plan of server racks with panels for security, wasted GPU-hours, power and thermal readings, and a baseline versus DCAPS-managed comparison.",
+        "caption": "The prototype. It runs a synthetic job stream and attack in the browser; these are simulated values, not measurements."
+      },
+      {
+        "src": "assets/dcaps-overview.webp",
+        "alt": "DCAPS slide listing live current-state simulation, adaptable digital twin software, future-state status predictions, and integration with data center scheduling.",
+        "caption": "What DCAPS does."
+      },
+      {
+        "src": "assets/dcaps-impact.webp",
+        "alt": "Impact slide with a bar chart of where a hall’s compute goes: compute in use rises from 15 percent under baseline FIFO to 23 percent under DCAPS.",
+        "caption": "Simulated impact on a 128-server hall running the same jobs."
+      }
+    ],
+    "sections": [
+      {
+        "h": "The challenge",
+        "paras": [
+          "Panthers Invent is a design challenge at Prairie View A&M sponsored by Sandia National Laboratories. Our six-person team took Need Statement 6: how might we rethink the ways data centers operate to dramatically improve their efficiency, flexibility, and sustainability? The proposal placed first."
+        ],
+        "rows": []
+      },
+      {
+        "h": "My part",
+        "paras": [
+          "I came up with the DCAPS idea and built the prototype simulation shown above."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Requirements we set",
+        "paras": [],
+        "rows": [
+          {
+            "k": "Efficiency",
+            "v": "Hardware runs 10% more efficiently"
+          },
+          {
+            "k": "Load",
+            "v": "Computational load intake up 10%"
+          },
+          {
+            "k": "Downtime",
+            "v": "Maintenance-related downtime down 15%"
+          },
+          {
+            "k": "Wait times",
+            "v": "Average job wait down at least 25%"
+          },
+          {
+            "k": "Cost",
+            "v": "Hardware cost efficiency up at least 5%"
+          }
+        ]
+      },
+      {
+        "h": "Three ideas, one choice",
+        "paras": [
+          "We weighed flexible computing with hybrid chips, repurposing excess heat, and a digital twin for virtual simulation and diagnostics. We chose the digital twin and designed DCAPS around four parts: a live current-state simulation, adaptable twin software, future-state predictions, and integration with data center scheduling."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Simulated results",
+        "paras": [
+          "In a simulated 128-server hall running the same jobs, compute in use rose from 15% under a first-in, first-out baseline to 23% under DCAPS, which is 53% more real work on the same hardware, and jobs waited less than half as long. Reserved-but-idle capacity fell from 47% to 18%. A simulated intrusion on a stolen credential was contained in 6 minutes.",
+          "These come from a synthetic job stream, not a production data center. Validation against a real workload trace is the next step."
+        ],
+        "rows": []
+      }
+    ]
   },
   {
     "slug": "pruning",
@@ -488,7 +741,7 @@
         "rows": [
           {
             "k": "Sandia Labs × PVAMU",
-            "v": "1st place"
+            "v": "1st place — DCAPS, a data center digital twin, at Panthers Invent, Fall 2026"
           },
           {
             "k": "Vista Agentic AI",

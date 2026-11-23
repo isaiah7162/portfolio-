@@ -1,47 +1,44 @@
 # Isaiah Hawkins — Portfolio
 
-An interactive space portfolio: Hello dissolves into particles, Isaiah’s name types in, featured projects shine as bright stars, and Current work appears as planets. An open list view, full case studies, and a browser-local portfolio guide remain available.
+A paper-desk portfolio. The page is one desk: an index card with Isaiah's name and links, six sticky notes for featured work, a strip for hackathon placings, and a folder holding everything else. Picking something up opens it as a sheet of paper. A sticky-note "Hello" covers the desk on the first visit of a session and peels away.
 
 ## Files
 
-- `index.html`: page structure, introduction, about, contact, and accessible dialogs.
-- `style.css`: base responsive layout and typography.
-- `space.css`: dark cosmic palette, accessible star/planet destinations, mobile constellation, and motion controls.
-- `intro.js`: multilingual Hello sampled into particles that disperse into the starfield; replay, skip/Escape, reduced-motion bypass, and a fail-safe. Name typing starts after the reveal.
-- `app.js`: typing, portfolio filters/search, case studies, and chat interface.
-- `space.js`: procedural starfield and planet textures, slow stellar drift, pointer depth, occasional shooting stars, constellation filters, keyboard-accessible destinations, and pause/reduced-motion/visibility handling.
-- `project-view.js`: full-screen cosmic project destinations, circular entry transitions from the selected object, previous/next navigation, Escape, source focus and scroll preservation, and deep-link handling.
-- `lake.js`: retained earlier water experiment; no longer loaded by the page.
-- `guide.js`: browser-local chatbot retrieval and conversation context. No AI provider, key, external chat request, analytics, or persistent chat history.
-- `content.json`: project and experience facts, shared by project views and the chatbot.
-- `profile.json`: skills, academic details, organizations, and recognition recovered from the prior site.
-- `assets/morning-lake.webp`: retained earlier artwork; not used in the current design.
-- `assets/Isaiah-Hawkins-Resume.pdf`: supplied résumé.
+- `index.html`: the hello notes, the desk (index card, featured notes, hackathon strip, folder), and the empty sheet view.
+- `desk.css`: all styling. Local fonts only (Space Grotesk for body, Caveat for handwriting).
+- `hello.js`: the sticky-note greeting. Shown once per browser session; skipped on deep links and when reduced motion is requested; Skip button, Escape, a "Replay hello" control, and a fail-safe so it can never block the page.
+- `desk.js`: hash routing and rendering of opened papers from the JSON data.
+- `content.json`: project and experience facts.
+- `profile.json`: skills, education, organizations, coursework, certifications, and recognition.
+- `assets/`: fonts, favicon, social image, and `Isaiah-Hawkins-Resume.pdf`.
 
-## Content and navigation
+## Routes
 
-The home page highlights Quantitative Analyst Intern at SC Capital, the Protein Function Predictor, TerraSite, Visible (Founder · Builder; independent hackathon project), and game design on Roblox (Cultivation Incremental, an untitled animal-farm game, and a third game in early development; none launched). WaterSight is its final “Preliminary idea” section, with no standalone project entry; old WaterSight deep links open TerraSite. The protein study is explicitly in development; hypotheses and planned evaluation are not presented as achieved results.
+- `#desk` (or no hash): the desk.
+- `#project/<slug>`: one entry from `content.json` as a paper sheet. Featured notes page through each other; other entries page through the folder. `#project/watersight` opens TerraSite, where WaterSight is described as the preliminary idea. An unknown slug opens the folder with a short note.
+- `#everything`: the folder, listing every entry that is not a featured note, grouped by category.
+- `#about`: education, skills, recognition, organizations, coursework, and certifications from `profile.json`.
 
-The archive includes Selected, All, Current, Internships, Research, Projects, Work, Archive, Academics, Skills, and Leadership. Search applies within the active category. Every project opens its full case study, and project deep links use `#project/<slug>`. Opening a project adds a browser history entry, so Back closes it; previous/next replace that entry and follow the list the project was opened from. A link to an unknown project closes any open project and shows the full list with a short note.
+Escape or "Back to the desk" returns to the desk. Opening a paper moves focus to its heading.
 
-Bright stars highlight Disney/JARVIS and LSAMP research. Planets represent exactly the five Current projects: SC Capital, the Protein Function Predictor, TerraSite, Visible, and game design on Roblox. The legend filters the map; List view opens the complete searchable archive. Smaller screens retain the six main destinations and a few smaller stars; the archive contains every entry.
+## Content rules
 
-## Chatbot
-
-Visitors can ask about current work, projects, experience, skills, education, recognition, and contact details. Answers are assembled from the same portfolio facts and include links to supporting entries. Project context is retained for follow-ups. Unsupported questions return a clear limitation and a contact link. This is a local retrieval chatbot, not a generative language model or a live conversation with Isaiah. Chat is kept in memory only and can be cleared.
+- The six featured notes are set in two places that must match: the note links in `index.html` and `featured` in `desk.js`. Currently: Disney, SC Capital, Protein Function Predictor, protein mutation prediction, pruning research, TerraSite.
+- The Protein Function Predictor is in development; hypotheses and planned evaluation are not presented as results.
+- Visible is an independent hackathon prototype with illustrative data, not a medical tool.
+- WaterSight has no standalone entry.
+- An entry may carry `images` (`src`, `alt`, `caption`); they render as figures on its sheet. A section may carry `images` too, shown under that section. Figures are slides from Isaiah's own decks: the SC26 mutation talk, the Vital Handoff pitch, the WaterSight pitch (shown inside TerraSite), and the Panthers Invent DCAPS proposal.
 
 ## Run and verify
 
-Serve the repository with any static web server. No install or build step is needed. Run `python3 scripts/check.py` to validate local assets, JavaScript syntax, data constraints, and chatbot behavior. The guide checks also cover contextual follow-ups, comparisons, unsupported facts, current-project membership, and references.
+Serve the repository with any static web server (`python3 -m http.server 8000`). No install or build step. Run `python3 scripts/check.py` to validate local assets, script syntax, desk links, project facts, and the security headers.
 
-The initial constellation received desktop and 390px phone browser QA. The subsequent animated destination update passed JavaScript syntax, content/constellation, chatbot, and project navigation contract checks (`node scripts/check-project-view.mjs`); browser visual QA was unavailable in that editing environment. Both the constellation and full-screen project destinations expose a synchronized pause control and honor reduced motion.
-
-Project details now open as a borderless full-screen space scene with a large version of the selected star or planet and an open reading column. On phones, the celestial object appears above the story. Closing returns focus to the original destination without scrolling to the archive. Previous/next controls keep the original return point. Slow star breathing, planet floating, satellites, cursor depth, and occasional meteor trails add motion without moving clickable targets.
-
-## Design references
-
-Reviewed the [Developer Portfolios directory](https://6e87v.hatchboxapp.com/) and [Emma Bostian's collection](https://github.com/emmabostian/developer-portfolios). Reference patterns: [Brittany Chiang](https://brittanychiang.com/) for readable experience, [Dennis Snellenberg](https://dennissnellenberg.com/) for typography and open work lists, [Bruno Simon](https://bruno-simon.com/) for a memorable personal environment, and [Josh W. Comeau](https://www.joshwcomeau.com/) for useful interaction. These are widely featured examples, not a verified ranking by visitor counts. The greeting sequence also references [Aadarsh Rai](https://aadarshrai.vercel.app/): a dark overlay, centered dot and multilingual greeting, reinterpreted here as a particle-to-star transition. The animation code is implemented locally. No source code or imagery was copied from those portfolios.
+The Content-Security-Policy in `vercel.json` allows only same-origin scripts, styles, and fonts: no inline `<script>`, `<style>`, or `style=""` attributes, and no external font or script hosts.
 
 ## Deployment
 
-Existing Vercel project: `bundled-page`, team `zay22`. GitHub: `isaiah7162/portfolio-`. Changes are saved to GitHub and deployed as Vercel previews. Production promotion and automatic Git deployment connection have not been configured by this update. The existing production domain remains unchanged.
+Vercel project `bundled-page`, team `zay22`. GitHub: `isaiah7162/portfolio-`. Static output from the repository root, no build command. Review a preview before promoting to the production domain (iisaiah.com).
+
+## Credits
+
+Caveat is licensed under the SIL Open Font License 1.1 (The Caveat Project Authors). The single-screen "site as an object" idea was drawn from desktop-style entries in [Emma Bostian's developer portfolios list](https://github.com/emmabostian/developer-portfolios); no code or imagery was copied.

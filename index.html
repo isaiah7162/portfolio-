@@ -2,65 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Isaiah Hawkins — A universe of ideas.</title>
-<meta name="description" content="Isaiah Hawkins — computer science student, software developer, and researcher. Explore work in AI, quantitative analysis, and human-centered software.">
-<meta name="theme-color" content="#070914"><link rel="canonical" href="https://www.iisaiah.com/">
-<meta property="og:title" content="Isaiah Hawkins — Portfolio"><meta property="og:description" content="A universe of ideas. Software, AI, and research by Isaiah Hawkins."><meta property="og:type" content="website">
-<meta property="og:url" content="https://www.iisaiah.com/"><meta property="og:site_name" content="Isaiah Hawkins"><meta property="og:image" content="https://www.iisaiah.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Isaiah Hawkins. A curious mind. A universe of ideas.">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Isaiah Hawkins — Portfolio"><meta name="twitter:description" content="A universe of ideas. Software, AI, and research by Isaiah Hawkins."><meta name="twitter:image" content="https://www.iisaiah.com/assets/og-image.png">
+<title>Isaiah Hawkins — Portfolio</title>
+<meta name="description" content="Isaiah Hawkins — computer science senior at Prairie View A&amp;M. AI evaluation, quantitative research, and software projects, laid out on one desk.">
+<meta name="theme-color" content="#bccbc3"><link rel="canonical" href="https://www.iisaiah.com/">
+<meta property="og:title" content="Isaiah Hawkins — Portfolio"><meta property="og:description" content="Software, AI, and research by Isaiah Hawkins."><meta property="og:type" content="website">
+<meta property="og:url" content="https://www.iisaiah.com/"><meta property="og:site_name" content="Isaiah Hawkins"><meta property="og:image" content="https://www.iisaiah.com/assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Isaiah Hawkins">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Isaiah Hawkins — Portfolio"><meta name="twitter:description" content="Software, AI, and research by Isaiah Hawkins."><meta name="twitter:image" content="https://www.iisaiah.com/assets/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<script>
-// Show the introduction only when motion is welcome; never block a deep link.
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
- document.documentElement.classList.add('intro-pending');
- window.introFailsafe = setTimeout(() => {
-  document.documentElement.classList.remove('intro-pending');
-  const shell = document.getElementById('site-shell'); if (shell) shell.inert = false;
-  window.dispatchEvent(new Event('portfolio:intro-complete'));
- }, 7500);
-}
-</script>
-<script src="intro.js" defer></script>
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="space.css"><script type="module" src="app.js"></script>
+<link rel="stylesheet" href="desk.css">
+<script src="hello.js"></script>
+<script type="module" src="desk.js"></script>
 </head>
 <body>
-<div id="hello-intro" class="hello-intro" aria-label="Welcome">
- <p class="sr-only" role="status">Welcome. Opening Isaiah’s portfolio.</p>
- <canvas id="intro-stars" aria-hidden="true"></canvas>
- <div class="hello-greeting" aria-hidden="true"><span class="hello-dot"></span><span id="hello-word" lang="en">Hello</span></div>
- <button id="skip-intro">Skip intro</button>
+<div id="hello" class="hello" aria-label="Welcome">
+ <p class="sr-only" role="status">Hello. Opening Isaiah’s desk.</p>
+ <div class="hello-grid" aria-hidden="true">
+  <div class="hello-note c-pink r1">Hola</div>
+  <div class="hello-note c-blue r2">Bonjour</div>
+  <div class="hello-note hello-main c-yellow r3"><span class="hello-word">Hello.</span><span class="hello-name">I’m Isaiah Hawkins</span></div>
+  <div class="hello-note c-green r4">Howdy</div>
+  <div class="hello-note c-orange r5">Ciao</div>
+  <div class="hello-note c-white r6 small" lang="ja">こんにちは</div>
+  <div class="hello-note c-lilac r7">Habari</div>
+  <div class="hello-note c-white r8 wide-only">Olá</div>
+  <div class="hello-note c-green r9 small wide-only" lang="ko">안녕하세요</div>
+  <div class="hello-note c-pink r10 wide-only">Hallo</div>
+  <div class="hello-note c-blue r11 wide-only">Sannu</div>
+  <div class="hello-note c-orange r12 wide-only">Salut</div>
+ </div>
+ <button id="skip-hello" class="pill">Skip to the desk →</button>
 </div>
+
 <div id="site-shell">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="wordmark" href="#home" aria-label="Isaiah Hawkins home">i.h.</a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><button data-chat-open>Ask about me</button><a class="resume-link" href="assets/Isaiah-Hawkins-Resume.pdf" target="_blank" rel="noopener">Résumé</a></nav></header>
 <main id="main">
-<section class="hero space-hero" id="home" aria-labelledby="name">
-<canvas id="universe" aria-hidden="true"></canvas>
-<div class="hero-intro"><p class="eyebrow">Software · AI · Research · Games</p><h1 id="name" aria-label="Isaiah Hawkins"><span class="name-line" aria-hidden="true"><span id="first-name">Isaiah</span></span><span class="name-line second" aria-hidden="true"><span id="last-name">Hawkins</span><span class="cursor"></span></span></h1><p class="space-intro-copy">A curious mind.<br>A universe of ideas.</p></div>
-<div class="map-heading"><span class="map-live-dot"></span> Explore my constellation <span class="map-year">/ 2026</span></div>
-<div id="celestial-map" class="celestial-map" role="group" aria-label="Interactive project constellation"></div>
-<div class="map-hint"><span class="eyebrow">A small guide to this universe</span><p>Choose a star or planet to explore the work.</p></div>
-<div class="space-controls">
-<div class="map-legend" role="group" aria-label="Filter constellation"><button data-map-filter="all" aria-pressed="true">All</button><button data-map-filter="featured" aria-pressed="false"><span class="legend-star" aria-hidden="true">✦</span> Featured</button><button data-map-filter="current" aria-pressed="false"><span class="legend-planet" aria-hidden="true"></span> Current</button><button data-map-filter="other" aria-pressed="false"><span class="legend-point" aria-hidden="true"></span> Other work</button></div>
-<div class="map-actions"><button id="pause-space" aria-pressed="false">Pause motion</button><button id="replay-intro">Replay hello</button><a href="#work">List view <span aria-hidden="true">↓</span></a></div>
-</div>
-<p id="map-status" class="sr-only" aria-live="polite"></p>
+
+<section id="view-desk" class="desk" aria-labelledby="name">
+ <div class="card tilt-card">
+  <h1 id="name">Isaiah Hawkins</h1>
+  <p>CS senior at Prairie View A&amp;M, May 2027. I build AI systems and the evaluations that check them.</p>
+  <p class="quiet">Everything on this desk opens. Pick something up.</p>
+  <nav class="card-links" aria-label="About and contact">
+   <a href="#about">About</a>
+   <a href="assets/Isaiah-Hawkins-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+   <a href="https://github.com/isaiah7162" target="_blank" rel="noopener">GitHub</a>
+   <a href="https://www.linkedin.com/in/isaiah-hawkins-414853249/" target="_blank" rel="noopener">LinkedIn</a>
+   <a href="mailto:ihawkins5@pvamu.edu">Email</a>
+  </nav>
+ </div>
+
+ <nav class="notes" aria-label="Featured work">
+  <a class="note c-yellow r2" href="#project/jarvis"><span class="note-title">Evaluating AI at Disney</span><span class="note-meta">Walt Disney Imagineering · 2026</span></a>
+  <a class="note c-pink r1" href="#project/quant"><span class="note-title">SC Capital quant research</span><span class="note-meta">Now</span></a>
+  <a class="note c-blue r5" href="#project/protein-function-predictor"><span class="note-title">Protein Function Predictor</span><span class="note-meta">Now · in development</span></a>
+  <a class="note c-green r7" href="#project/mutation"><span class="note-title">Protein mutation prediction</span><span class="note-meta">Presented at SC26</span></a>
+  <a class="note c-orange r8" href="#project/pruning"><span class="note-title">Pruning research</span><span class="note-meta">Up to 45% faster inference</span></a>
+  <a class="note c-lilac r6" href="#project/terrasite"><span class="note-title">TerraSite</span><span class="note-meta">3D environmental globe</span></a>
+  <a class="strip" href="#project/hackathons"><strong>Hackathons</strong><span>1st Sandia Labs × PVAMU · Finalist Vista Agentic AI · 3rd Apple Propel</span></a>
+  <a class="folder" href="#everything"><span>Folder: everything else</span><span id="folder-count">More →</span></a>
+ </nav>
+
+ <button id="replay-hello" class="replay">Replay hello</button>
 </section>
-<section class="introduction wrap reveal"><p class="eyebrow">A little context</p><p class="intro-statement">I build at the intersection of<br class="desktop-break"> <em>curiosity</em> and <em>usefulness.</em></p><div class="intro-detail"><span class="section-index">01 / Perspective</span><p>From evaluating AI at Walt Disney Imagineering to exploring markets and protein function, I’m interested in what happens when a good question becomes something you can use.</p></div></section>
-<section id="current" class="current-section"><div class="wrap"><div class="section-heading reveal"><div><p class="eyebrow">02 / In orbit</p><h2>Currently <em>in orbit.</em></h2></div><p>Five ongoing projects.<br>New questions. New possibilities.</p></div><div id="current-list" class="current-list"></div></div></section>
-<section id="work" class="work-section wrap"><div class="section-heading reveal"><div><p class="eyebrow">03 / The index</p><h2>Explore the <em>work.</em></h2></div><p>Experience, experiments, and the thinking behind them.</p></div><div class="work-toolbar"><div id="filters" class="filters" role="group" aria-label="Filter portfolio"></div><label class="search-label"><span class="sr-only">Search portfolio</span><input id="work-search" type="search" placeholder="Find something…" autocomplete="off"></label></div><p id="result-count" class="eyebrow result-count" aria-live="polite"></p><div id="work-list"></div></section>
-<section id="about" class="about-section"><div class="wrap about-grid"><div class="about-title reveal"><p class="eyebrow">04 / Behind the work</p><h2>Always a<br><em>student.</em><br>Always a<br><em>builder.</em></h2><a class="text-link" href="assets/Isaiah-Hawkins-Resume.pdf" target="_blank" rel="noopener">Read my résumé <span aria-hidden="true">↗</span></a></div><div class="about-copy reveal"><p class="large-copy">I’m Isaiah, a Computer Science student at Prairie View A&amp;M University, graduating in May 2027.</p><p>My work spans software development, AI evaluation, and research. I’ve built evaluation pipelines at Walt Disney Imagineering, explored neural network efficiency with LSAMP, and turned hackathon ideas into working prototypes.</p><p>Right now, I’m a Quantitative Analyst Intern at SC Capital, part of a protein function prediction project, building TerraSite, the Founder · Builder of Visible, and designing games on Roblox.</p><div class="about-facts"><p><span>Education</span>Prairie View A&amp;M University<br>B.S. Computer Science · May 2027</p><p><span>Across my work</span>Software engineering<br>AI evaluation · Applied research<br>Game design</p></div><button class="text-link" data-chat-open>Have a question about my work? Ask here <span aria-hidden="true">↗</span></button></div></div></section>
-<section class="ask-section wrap reveal"><p class="eyebrow">05 / A different way to explore</p><h2>Skip the searching.<br><em>Start a conversation.</em></h2><div class="ask-bottom"><p>Ask my portfolio guide about my experience, current projects, or the tools I use. Every answer comes from the work shared here.</p><button class="round-button" data-chat-open>Ask about Isaiah <span aria-hidden="true">↗</span></button></div><div class="question-links"><button data-question="What did Isaiah build at Disney?">What did you build at Disney?</button><button data-question="What are you working on now?">What are you working on now?</button><button data-question="Tell me about Visible">What is Visible?</button></div></section>
-<footer id="contact"><div class="wrap"><p class="eyebrow">Have something in mind?</p><a class="contact-title" href="mailto:Ihawkins5@pvamu.edu">Let’s talk.<span aria-hidden="true">↗</span></a><div class="footer-bottom"><span>Isaiah Hawkins · 2026</span><div><a href="mailto:Ihawkins5@pvamu.edu">Email</a><a href="https://www.linkedin.com/in/isaiah-hawkins-414853249/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/isaiah7162" target="_blank" rel="noopener">GitHub</a><a href="#home">Back to top</a></div></div></div></footer>
+
+<section id="view-sheet" class="sheet-view" hidden>
+ <nav class="stack" aria-label="Featured work">
+  <a class="back" href="#desk">← Back to the desk</a>
+  <a class="mini c-yellow r1" href="#project/jarvis">Evaluating AI at Disney</a>
+  <a class="mini c-pink r5" href="#project/quant">SC Capital quant research</a>
+  <a class="mini c-blue r11" href="#project/protein-function-predictor">Protein Function Predictor</a>
+  <a class="mini c-green r2" href="#project/mutation">Protein mutation prediction</a>
+  <a class="mini c-orange r7" href="#project/pruning">Pruning research</a>
+  <a class="mini c-lilac r10" href="#project/terrasite">TerraSite</a>
+  <a class="mini c-folder" href="#everything">Everything else</a>
+ </nav>
+ <article id="sheet" class="sheet"></article>
+</section>
+
 </main>
-<button class="chat-launcher" data-chat-open aria-haspopup="dialog">Ask about Isaiah <span aria-hidden="true">↗</span></button>
-<dialog id="case-dialog" aria-labelledby="case-title">
- <div class="project-cosmos" aria-hidden="true"></div>
- <header class="project-top"><button id="close-case"><span aria-hidden="true">←</span> Back to constellation</button><div class="destination-controls"><button data-space-motion aria-pressed="false">Pause motion</button><span class="eyebrow"><span id="destination-index"></span></span></div></header>
- <div class="project-scene" aria-hidden="true"></div>
- <div class="project-reader"><article id="case-content"></article><nav class="project-pagination" aria-label="Browse projects"><button id="previous-project">← Previous project</button><button id="next-project">Next project →</button></nav></div>
-</dialog>
-<dialog id="chat-dialog" aria-labelledby="chat-title"><div class="chat-header"><div><p class="eyebrow">Your portfolio guide</p><h2 id="chat-title">Ask about Isaiah.</h2></div><button id="close-chat" aria-label="Close chat">×</button></div><p class="chat-note">Answers from this portfolio. Not a live conversation with Isaiah.</p><div id="chat-log" role="log" aria-live="polite" aria-relevant="additions"><div class="message assistant"><p>Hi! I can help you explore Isaiah’s projects, experience, and skills. What would you like to know?</p></div></div><div class="chat-suggestions"><button data-question="What are you working on now?">Current work</button><button data-question="What did Isaiah build at Disney?">Disney experience</button><button data-question="What skills does Isaiah have?">Skills</button></div><form id="chat-form"><label class="sr-only" for="chat-input">Ask about Isaiah</label><input id="chat-input" placeholder="Ask about a project or experience…" maxlength="500" required autocomplete="off"><button type="submit">Send</button></form><div class="chat-footer"><span>Based on published portfolio details.</span><button id="clear-chat">Clear chat</button></div></dialog>
-<noscript><p class="wrap">Enable JavaScript to explore the interactive portfolio and chat. You can still <a href="assets/Isaiah-Hawkins-Resume.pdf">read Isaiah’s résumé</a> or <a href="mailto:Ihawkins5@pvamu.edu">get in touch</a>.</p></noscript>
+<noscript><p class="noscript">This desk needs JavaScript to open its papers. You can still <a href="assets/Isaiah-Hawkins-Resume.pdf">read Isaiah’s résumé</a> or <a href="mailto:ihawkins5@pvamu.edu">get in touch</a>.</p></noscript>
 </div>
 </body></html>
