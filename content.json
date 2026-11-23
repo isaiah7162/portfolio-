@@ -409,7 +409,7 @@
       }
     ],
     "cat": "Projects",
-    "org": "Panther Rangers · co-founder",
+    "org": "Team Panther Ranger · co-founder",
     "when": "2026",
     "title": "Vital Handoff",
     "blurb": "Turning the Apple Watch into a witness during an emergency: detect the crisis on-device, capture the last 30 minutes of vitals, hand it to a responder as a QR code on the lock screen.",
@@ -695,7 +695,7 @@
       {
         "h": "Why it matters to me",
         "paras": [
-          "The future isn't single models. It's orchestration — agents that reason, delegate, and execute. This is where that thread starts, and it leads directly to the tool-calling evaluation work at Disney: both are about how a model decides when and what to delegate. It also shaped the systems thinking behind Terrasite and WaterSight, which are both attempts to build things that do meaningful work without constant human intervention."
+          "The future isn't single models. It's orchestration — agents that reason, delegate, and execute. This is where that thread starts, and it leads directly to the tool-calling evaluation work at Disney: both are about how a model decides when and what to delegate. It also shaped the systems thinking behind TerraSite and WaterSight, which are both attempts to build things that do meaningful work without constant human intervention."
         ],
         "rows": []
       }
@@ -706,7 +706,7 @@
     "slug": "hackathons",
     "cat": "Archive",
     "org": "Competition record",
-    "when": "2025 — present",
+    "when": "2025–present",
     "title": "Placing in rooms full of applicants",
     "blurb": "Hackathon prototypes built and presented under tight deadlines.",
     "tags": [
@@ -815,40 +815,46 @@
     "cat": "Research",
     "card": "Advanced Computing Student Collaborative",
     "org": "TACC · NSF Leadership-Class Computing Facility",
-    "when": "November 2025",
+    "when": "November 2026",
     "title": "Advanced Computing Student Collaborative",
-    "blurb": "A selected cohort program at the Texas Advanced Computing Center, themed on AI for societal advancement and co-located with SC25.",
+    "blurb": "A selected cohort program at the Texas Advanced Computing Center, themed on AI and co-located with SC26 in Chicago.",
     "tags": [
       "HPC",
       "AI",
       "Data visualization"
     ],
-    "lede": "A paid cohort program run by the Texas Advanced Computing Center for the NSF Leadership-Class Computing Facility, themed Artificial Intelligence for Societal Advancement and co-located with SC25 in St. Louis.",
+    "lede": "A paid cohort program run by the Texas Advanced Computing Center for the NSF Leadership-Class Computing Facility, themed on AI and co-located with SC26 in Chicago.",
     "stats": [
       {
-        "n": "225",
-        "label": "participants across 11 cohorts since 2016"
+        "n": "SC26",
+        "label": "Chicago, November 15–20, 2026"
       },
       {
-        "n": "SC25",
-        "label": "St. Louis, November 15–21, 2025"
+        "n": "2",
+        "label": "talks given: a lightning talk and a final presentation"
       }
     ],
     "sections": [
       {
         "h": "The program",
         "paras": [
-          "Students from any major are assigned to mixed teams and work through applications of artificial intelligence, data science, and high performance computing, including the current tools for exploring data through visualization. The emphasis is as much on team problem-solving and communicating ideas to a general audience as on the computing itself, and the week runs inside a professional conference so the cohort sees the field it is training for.",
-          "Selection ran August to October 2025, with virtual onboarding and training from October through early November before the in-person week."
+          "Students from any major work through applications of artificial intelligence, data science, and high performance computing, including the current tools for exploring data through visualization. The emphasis is as much on communicating ideas to a general audience as on the computing itself, and the week runs inside a professional conference so the cohort sees the field it is training for.",
+          "Virtual onboarding and training ran through October and early November 2026 before the in-person week."
         ],
         "rows": []
       },
       {
         "h": "My part",
         "paras": [
-          "Write-up to come — team, project, and results."
+          "I ran an individual research study on TACC’s Stampede3 asking whether protein language models predict mutation effects equally well for all proteins, then presented it as a lightning talk at the SCinet theater and as a final presentation."
         ],
-        "rows": []
+        "rows": [],
+        "links": [
+          {
+            "href": "#project/mutation",
+            "label": "Read the study: When AI Guesses Wrong →"
+          }
+        ]
       }
     ],
     "current": false
@@ -1144,7 +1150,7 @@
     "slug": "slingo",
     "cat": "Projects",
     "org": "Prairie View A&M University",
-    "when": "Nov 2023 — present",
+    "when": "Nov 2023–present",
     "title": "Slingo, a translator app",
     "blurb": "A C++ translator app built with fellow computer science students.",
     "tags": [
