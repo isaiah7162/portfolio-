@@ -485,7 +485,7 @@
     "cat": "Projects",
     "org": "Panthers Invent · Sandia National Laboratories × Prairie View A&M",
     "when": "Fall 2026",
-    "status": "Prototype",
+    "status": "1st place",
     "current": false,
     "lede": "Data Center Autonomous Predictive Simulator: a digital twin that shows a data center’s live state, predicts its future state, and feeds that back into scheduling so the same hardware does more work.",
     "tags": [
@@ -495,6 +495,10 @@
       "Data centers"
     ],
     "stats": [
+      {
+        "n": "1st",
+        "label": "place, Sandia Labs × PVAMU Panthers Invent"
+      },
       {
         "n": "53%",
         "label": "more real work on the same hardware, in simulation"
@@ -529,7 +533,14 @@
       {
         "h": "The challenge",
         "paras": [
-          "Panthers Invent is a design challenge at Prairie View A&M sponsored by Sandia National Laboratories. Our six-person team took Need Statement 6: how might we rethink the ways data centers operate to dramatically improve their efficiency, flexibility, and sustainability?"
+          "Panthers Invent is a design challenge at Prairie View A&M sponsored by Sandia National Laboratories. Our six-person team took Need Statement 6: how might we rethink the ways data centers operate to dramatically improve their efficiency, flexibility, and sustainability? The proposal placed first."
+        ],
+        "rows": []
+      },
+      {
+        "h": "My part",
+        "paras": [
+          "I came up with the DCAPS idea and built the prototype simulation shown above."
         ],
         "rows": []
       },
@@ -730,7 +741,7 @@
         "rows": [
           {
             "k": "Sandia Labs × PVAMU",
-            "v": "1st place"
+            "v": "1st place — DCAPS, a data center digital twin, at Panthers Invent, Fall 2026"
           },
           {
             "k": "Vista Agentic AI",
