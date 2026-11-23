@@ -12,6 +12,7 @@ const desk=$('#view-desk'),view=$('#view-sheet'),sheet=$('#sheet');
 let projects=[],profile={},loaded=false,failed=false;
 
 const others=()=>projects.filter(p=>!featured.includes(p.slug));
+const figures=list=>list?.length?'<div class="figures">'+list.map(f=>`<figure><img src="${safe(f.src)}" alt="${safe(f.alt)}" width="1280" height="720" loading="lazy"><figcaption>${safe(f.caption)}</figcaption></figure>`).join('')+'</div>':'';
 const rows=list=>'<dl class="rows">'+list.map(r=>`<dt>${safe(r.k)}</dt><dd>${safe(r.v)}</dd>`).join('')+'</dl>';
 
 function projectSheet(p){
@@ -24,8 +25,8 @@ function projectSheet(p){
 <p class="lede">${safe(p.lede||p.blurb)}</p>
 ${p.tags?.length?'<ul class="tags">'+p.tags.map(t=>`<li>${safe(t)}</li>`).join('')+'</ul>':''}
 ${p.stats?.length?'<dl class="stats">'+p.stats.map(s=>`<div><dt>${safe(s.n)}</dt><dd>${safe(s.label)}</dd></div>`).join('')+'</dl>':''}
-${p.images?.length?'<div class="figures">'+p.images.map(f=>`<figure><img src="${safe(f.src)}" alt="${safe(f.alt)}" width="1280" height="720" loading="lazy"><figcaption>${safe(f.caption)}</figcaption></figure>`).join('')+'</div>':''}
-${(p.sections||[]).map(s=>`<section><h2>${safe(s.h)}</h2>${(s.paras||[]).map(t=>`<p>${safe(t)}</p>`).join('')}${s.rows?.length?rows(s.rows):''}</section>`).join('')}
+${figures(p.images)}
+${(p.sections||[]).map(s=>`<section><h2>${safe(s.h)}</h2>${(s.paras||[]).map(t=>`<p>${safe(t)}</p>`).join('')}${s.rows?.length?rows(s.rows):''}${figures(s.images)}</section>`).join('')}
 <nav class="pager" aria-label="More work">${prev?`<a href="#project/${safe(prev.slug)}">← ${safe(prev.card||prev.title)}</a>`:''}${next?`<a class="next" href="#project/${safe(next.slug)}">${safe(next.card||next.title)} →</a>`:'<a class="next" href="#everything">Everything else →</a>'}</nav>`;
 }
 

@@ -318,9 +318,27 @@
         "h": "Preliminary idea — WaterSight",
         "paras": [
           "TerraSite began as WaterSight, a preliminary concept focused on water scarcity and water intelligence. The early prototype combined county-level Texas map data, climate information, and AI reasoning to help planners, farmers, and policymakers understand local water risks.",
-          "Presented as a 15-slide pitch at the 2026 PVAMU AI Innovation Challenge, the idea later expanded beyond water into TerraSite’s broader environmental intelligence platform. WaterSight is part of TerraSite’s development history, rather than a separate current project."
+          "Presented as a 15-slide pitch at the 2026 PVAMU AI Innovation Challenge, the idea later expanded beyond water into TerraSite’s broader environmental intelligence platform. WaterSight is part of TerraSite’s development history, rather than a separate current project.",
+          "The pitch proposed paid tiers for investors and companies and a free tier for residents, alongside a responsible-AI plan covering equity, privacy, bias audits, and an open methodology."
         ],
-        "rows": []
+        "rows": [],
+        "images": [
+          {
+            "src": "assets/watersight-title.webp",
+            "alt": "WaterSight pitch slide: AI-powered water intelligence that bridges the gap before communities reach crisis.",
+            "caption": "From the WaterSight pitch, the idea TerraSite grew out of."
+          },
+          {
+            "src": "assets/watersight-model.webp",
+            "alt": "Pitch slide titled How Everyone Pays and Benefits, with tiers for investors, companies, and residents, who are always free.",
+            "caption": "The proposed model: investors and companies pay, residents are always free. Figures are pitch projections."
+          },
+          {
+            "src": "assets/watersight-ethics.webp",
+            "alt": "Pitch slide titled Using AI Responsibly: equity, privacy, bias, and transparency.",
+            "caption": "The responsible-AI plan from the pitch."
+          }
+        ]
       }
     ],
     "stats": [],
@@ -373,6 +391,23 @@
   },
   {
     "slug": "vital",
+    "images": [
+      {
+        "src": "assets/vital-title.webp",
+        "alt": "Vital Handoff title slide with a red smartwatch showing a heartbeat and medical cross.",
+        "caption": "Title slide from the Team Panther Ranger pitch."
+      },
+      {
+        "src": "assets/vital-solution.webp",
+        "alt": "Our Solution slide with three steps: detect on the watch, compile on-device, hand off to a responder.",
+        "caption": "The three steps: detect, compile, handoff."
+      },
+      {
+        "src": "assets/vital-clarity.webp",
+        "alt": "Instant Clarity slide: a watch showing a QR code beside a tablet dashboard with heart rate, oxygen saturation, temperature, allergies, and patient context.",
+        "caption": "The handoff. One scan of the watch’s code opens the Golden Hour brief. Patient details shown are sample data."
+      }
+    ],
     "cat": "Projects",
     "org": "Panther Rangers · co-founder",
     "when": "2026",
@@ -442,6 +477,104 @@
       }
     ],
     "current": false
+  },
+  {
+    "slug": "dcaps",
+    "title": "DCAPS",
+    "card": "DCAPS: a data center digital twin",
+    "cat": "Projects",
+    "org": "Panthers Invent · Sandia National Laboratories × Prairie View A&M",
+    "when": "Fall 2026",
+    "status": "Prototype",
+    "current": false,
+    "lede": "Data Center Autonomous Predictive Simulator: a digital twin that shows a data center’s live state, predicts its future state, and feeds that back into scheduling so the same hardware does more work.",
+    "tags": [
+      "Digital twin",
+      "Simulation",
+      "Scheduling",
+      "Data centers"
+    ],
+    "stats": [
+      {
+        "n": "53%",
+        "label": "more real work on the same hardware, in simulation"
+      },
+      {
+        "n": "6 min",
+        "label": "to contain a simulated intrusion on a stolen credential"
+      },
+      {
+        "n": "~540",
+        "label": "extra GPUs the baseline would need for the same output"
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/dcaps-prototype.webp",
+        "alt": "DCAPS prototype: a dark 3D floor plan of server racks with panels for security, wasted GPU-hours, power and thermal readings, and a baseline versus DCAPS-managed comparison.",
+        "caption": "The prototype. It runs a synthetic job stream and attack in the browser; these are simulated values, not measurements."
+      },
+      {
+        "src": "assets/dcaps-overview.webp",
+        "alt": "DCAPS slide listing live current-state simulation, adaptable digital twin software, future-state status predictions, and integration with data center scheduling.",
+        "caption": "What DCAPS does."
+      },
+      {
+        "src": "assets/dcaps-impact.webp",
+        "alt": "Impact slide with a bar chart of where a hall’s compute goes: compute in use rises from 15 percent under baseline FIFO to 23 percent under DCAPS.",
+        "caption": "Simulated impact on a 128-server hall running the same jobs."
+      }
+    ],
+    "sections": [
+      {
+        "h": "The challenge",
+        "paras": [
+          "Panthers Invent is a design challenge at Prairie View A&M sponsored by Sandia National Laboratories. Our six-person team took Need Statement 6: how might we rethink the ways data centers operate to dramatically improve their efficiency, flexibility, and sustainability?"
+        ],
+        "rows": []
+      },
+      {
+        "h": "Requirements we set",
+        "paras": [],
+        "rows": [
+          {
+            "k": "Efficiency",
+            "v": "Hardware runs 10% more efficiently"
+          },
+          {
+            "k": "Load",
+            "v": "Computational load intake up 10%"
+          },
+          {
+            "k": "Downtime",
+            "v": "Maintenance-related downtime down 15%"
+          },
+          {
+            "k": "Wait times",
+            "v": "Average job wait down at least 25%"
+          },
+          {
+            "k": "Cost",
+            "v": "Hardware cost efficiency up at least 5%"
+          }
+        ]
+      },
+      {
+        "h": "Three ideas, one choice",
+        "paras": [
+          "We weighed flexible computing with hybrid chips, repurposing excess heat, and a digital twin for virtual simulation and diagnostics. We chose the digital twin and designed DCAPS around four parts: a live current-state simulation, adaptable twin software, future-state predictions, and integration with data center scheduling."
+        ],
+        "rows": []
+      },
+      {
+        "h": "Simulated results",
+        "paras": [
+          "In a simulated 128-server hall running the same jobs, compute in use rose from 15% under a first-in, first-out baseline to 23% under DCAPS, which is 53% more real work on the same hardware, and jobs waited less than half as long. Reserved-but-idle capacity fell from 47% to 18%. A simulated intrusion on a stolen credential was contained in 6 minutes.",
+          "These come from a synthetic job stream, not a production data center. Validation against a real workload trace is the next step."
+        ],
+        "rows": []
+      }
+    ]
   },
   {
     "slug": "pruning",
