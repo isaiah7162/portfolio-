@@ -15,7 +15,7 @@ class Page(HTMLParser):
   assert 'style' not in a,'Inline styles are blocked by the Content-Security-Policy'
   for key in ('src','href'):
    ref=a.get(key,'');u=urlparse(ref)
-   if ref and not u.scheme and not u.netloc and u.path:assert (root/u.path).is_file(),ref
+   if ref and not u.scheme and not u.netloc and u.path and not u.path.startswith('/_vercel/'):assert (root/u.path).is_file(),ref
    if ref.startswith('#project/'):self.links.append(ref[9:])
 Page().feed(page)
 for ref in re.findall(r'url\([\'\"]?([^\'\")]+)',(root/'desk.css').read_text()):assert (root/ref).is_file(),ref
