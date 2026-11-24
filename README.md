@@ -35,6 +35,10 @@ Serve the repository with any static web server (`python3 -m http.server 8000`).
 
 The Content-Security-Policy in `vercel.json` allows only same-origin scripts, styles, and fonts: no inline `<script>`, `<style>`, or `style=""` attributes, and no external font or script hosts.
 
+## Visitor analytics
+
+`index.html` loads Vercel Web Analytics from `/_vercel/insights/script.js`, a same-origin path Vercel serves once Web Analytics is enabled for the project, so it fits the Content-Security-Policy. Numbers are in the project's Analytics tab on Vercel. Papers open by hash, so visits are counted per page load, not per project opened.
+
 ## Deployment
 
 Vercel project `bundled-page`, team `zay22`. GitHub: `isaiah7162/portfolio-`. Static output from the repository root, no build command. Review a preview before promoting to the production domain (iisaiah.com).
